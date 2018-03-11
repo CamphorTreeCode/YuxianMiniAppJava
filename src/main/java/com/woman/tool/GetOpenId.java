@@ -23,7 +23,7 @@ public class GetOpenId {
 	 * @Description: TODO
 	 * @param jscode
 	 * @return
-	 * @return: String
+	 * @return: String 
 	 */
     public static String getOpenid(String jscode){
     	String openid=null;
