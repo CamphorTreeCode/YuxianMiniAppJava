@@ -94,9 +94,10 @@ dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
 <body>
 
 <div style="margin :0px auto; width:990px;">
-
-<input type="file"  name="file" id="doc" multiple="multiple"  style="width:150px;" onchange="javascript:setImagePreviews();" accept="image/*" />
-
+<form action="addshareholder" enctype="multipart/form-data"  method="post">
+<input type="file"  name="file" id="doc"  style="width:150px;" accept="image/*" />
+<input type="submit" value="提交">
+</form>
 <div id="dd" style=" width:990px;"></div>
 
 </div>
