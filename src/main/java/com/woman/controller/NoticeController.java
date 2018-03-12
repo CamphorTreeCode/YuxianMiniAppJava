@@ -26,12 +26,18 @@ import net.sf.json.JSONArray;
 public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
+	@RequestMapping(value="/index",method=RequestMethod.GET)
+	public String index(){
+		
+		
+		return "index.jsp";
+	}
 	/*跳转公告添加页面*/
 	@RequestMapping(value="/addnotice",method=RequestMethod.GET)
 	public String add(){
 		
 		
-		return "add";
+		return "issueNotice.jsp";
 	}
 	/*添加公告*/
 	@RequestMapping(value="/addnotice",method=RequestMethod.POST)
@@ -73,7 +79,7 @@ public class NoticeController {
 		
 		model.addAttribute("noticePage",noticeService.findByState(currentPage,state));
 		
-		return "../index";
+		return "issueList";
 		
 	}
 }
