@@ -36,7 +36,7 @@ public class TextController {
 	}
 	@RequestMapping("/update")
 	public String update(text t,MultipartFile file,HttpServletRequest request) throws IOException{
-		System.out.println("进入text-------------------------------");
+		System.out.println("进入text--------------------------------");
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
 		t.setImg(img);
