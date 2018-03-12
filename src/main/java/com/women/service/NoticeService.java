@@ -23,4 +23,9 @@ public interface NoticeService {
     /*按状态查询  （草稿箱  待发布   已发布）*/
     Page<notice> findByState(int currentPage,int state);
     
+    public notice selectByPrimaryKey(Integer noticeid);
+    
+    public int updateByPrimaryKeySelective(notice record);
+
+    
 }

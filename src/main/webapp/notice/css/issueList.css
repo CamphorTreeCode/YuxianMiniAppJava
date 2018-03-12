@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px; list-style:none; text-decoration:none;}
+.content{ width:930px;  height:800px;}
+.clear{ clear:both;}
+.title{ height:50px; line-height:50px; font-size:24px; background-color:#FFF; border-bottom:1px solid #f2f2f2; margin-bottom:20px;}
+.title .icon{ width:26px; height:26px; background-image:url(../img/biaoti.png); background-position:50% 50%; float:left; background-size:200px 200px; margin:12px 5px 0 20px; }
+.property{ width:700px; height:42px; overflow:hidden; color:#333; }
+.property li{ float: left; background-color:#fff; height:40px; line-height:40px; font-size:18px;  text-align:center;}
+.property li:nth-child(1){ width:10%; border:1px solid #ccc;}
+.property li:nth-child(2){ width:25%; border-bottom:1px solid #ccc; border-top:1px solid #ccc;}
+.property li:nth-child(3){ width:25%; border:1px solid #ccc; border-right:none;}
+.property li:nth-child(4){ width:25%; border:1px solid #ccc;  border-left:none;}
+.property li:nth-child(5){ width:14%;  border:1px solid #ccc; border-left:none;}
+.content{ width:700px;color:#999;}
+.context li{ float: left; background-color:#fff; font-size:18px;  text-align:center; height:80px; line-height:80px; overflow:hidden;}
+.context li:nth-child(1){ width:10%; border-left:1px solid #ccc; border-right:1px solid #ccc;}
+.context li:nth-child(2){ width:25%; border-right:1px solid #ccc;}
+.context li:nth-child(3){ width:25%;}
+.context li:nth-child(4){ width:25%;}
+.context li:nth-child(5){ width:14%; border-left:1px solid #ccc; border-right:1px solid #ccc;}
+.Footline{ height:1px; background-color:#ccc;}
+.index{ width:930px;padding-left:230px; margin-top:10px;}
+.index li{ float:left; width:25px; height:25px; border-radius:5px; border:1px solid #1897DA; margin:10px; text-align:center; line-height:25px;}
+.index li a{ color:#1897DA; }
+.click{background:#1897DA;}
+#ym{ width:70px;}
+#front{ background-image:url(../img/next2.png); background-size:200px 200px; background-position:50% 50%; border:none;}
+#rear{  background-image:url(../img/next.png); background-size:200px 200px; background-position:50% 50%;  border:none;}
