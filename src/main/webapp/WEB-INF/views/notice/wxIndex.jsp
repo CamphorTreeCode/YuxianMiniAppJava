@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -11,6 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>无标题文档</title>
 </head>
 <link rel="stylesheet" href="css/wxIndex.css" type="text/css" />
+<script type="text/javascript">
+   parent.wxIndex();
+</script>
 <body>
          
      <div class="content">
@@ -27,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <h4><div class="icon"></div>消息提醒</h4>
                <div class="information">
                    <h1>工商注册:</h1>
-                   <h1><a class="aspan" style="color:#FB1414" href="../company/companyPage">${requestScope.stateNumber}</a> 条新信息</h1>
+                   <h1><span>30</span>条信息</h1>
                </div>
              </div>
              <div class="module">

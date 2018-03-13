@@ -17,8 +17,8 @@
 .line li:nth-child(3){ width:15%;}
 .lbt{ border:1px solid #999; width:700px;  color:#999;}
 .line:nth-child(1){ border-bottom:1px solid #999;}
-.yl{ width:500px; height:500px; position:fixed; top:15%; left:10%; border:none;}
-.yl img{ width:500px; height:500px; border:none;}
+.yl{ width:548px; height:245px; position:fixed; top:15%; left:10%; border:none;}
+.yl img{ width:548px; height:245px; border:none;}
 .view .viewimg .addIcon1{ width:45px; height:45px; background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); position:absolute; top:33%; left:46%;}
 .view .viewimg  .file1{ background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); width:45px; height:45px;opacity:0;}
 .view .viewimg .del1{ width:20px; height:20px; background:#000; background:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314163812.png); background-size:20px 20px; position:absolute; right:0; z-index:999}

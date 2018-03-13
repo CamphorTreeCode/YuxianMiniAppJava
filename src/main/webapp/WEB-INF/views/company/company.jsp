@@ -21,6 +21,11 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/notice/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+	   window.onload=function(){
+	       parent.regist()
+	   }
+	</script>
 <style>
 * {
 	margin: 0;
