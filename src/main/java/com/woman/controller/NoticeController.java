@@ -99,11 +99,14 @@ public class NoticeController {
 		 return "notice/look";
 	}
 	@RequestMapping("/submit")
-	public String submit(notice n){
+	public String submit(notice n,MultipartFile file,HttpServletRequest request)throws IOException{
 		System.out.println("***********************************");
 		System.out.println(n.getNoticeid());
 		n.setCreatetime(new DateTime().getDate());
 		n.setState(2);
+		String img=UploadHelper.upload(file, request);
+		System.out.println(img);
+		n.setImg(img);
 		if(n.getNoticeid()==null){
 			
 			noticeService.add(n);
@@ -113,9 +116,12 @@ public class NoticeController {
 		return "redirect:getbystate";
 	}
 	@RequestMapping("/wait")
-	public String wait(notice n){
+	public String wait(notice n,MultipartFile file,HttpServletRequest request) throws IOException{
 		System.out.println("***********************************");
 		n.setState(1);
+		String img=UploadHelper.upload(file, request);
+		System.out.println(img);
+		n.setImg(img);
 		noticeService.updateByPrimaryKeySelective(n);
 		return "redirect:getbystate";
 	}
