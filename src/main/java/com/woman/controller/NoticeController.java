@@ -102,9 +102,14 @@ public class NoticeController {
 	public String submit(notice n){
 		System.out.println("***********************************");
 		System.out.println(n.getNoticeid());
-		n.setState(2);
 		n.setCreatetime(new DateTime().getDate());
-		noticeService.updateByPrimaryKeySelective(n);
+		n.setState(2);
+		if(n.getNoticeid()==null){
+			
+			noticeService.add(n);
+		}else{
+		  noticeService.updateByPrimaryKeySelective(n);
+		}
 		return "redirect:getbystate";
 	}
 	@RequestMapping("/wait")
