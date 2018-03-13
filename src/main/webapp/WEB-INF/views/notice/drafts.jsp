@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>玉先后台</title>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
   $(function(){
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            </ul>
            <div class="clear"></div>
                   <input type="hidden" name="s" value="${state }">
-                   <c:forEach items="${requestScope.noticePage.lists}" var="notice" index="i">
+                   <c:forEach items="${requestScope.noticePage.lists}" var="notice">
                    <ul class="context">
                      <li>${notice.noticeid}</li>
 		              <li>${notice.title }</li>

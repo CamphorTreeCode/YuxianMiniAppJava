@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>玉先后台</title>
 </head>
 <link rel="stylesheet" href="css/wxIndex.css" type="text/css" />
 <script type="text/javascript">
