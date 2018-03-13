@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            </ul>
            <div class="clear"></div>
                   <input type="hidden" name="s" value="${state }">
-                   <c:forEach items="${requestScope.noticePage.lists}" var="notice" >
+                   <c:forEach items="${requestScope.noticePage.lists}" var="notice" index="i">
                    <ul class="context">
                      <li>${notice.noticeid}</li>
 		              <li>${notice.title }</li>
