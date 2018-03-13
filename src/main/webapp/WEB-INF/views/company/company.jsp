@@ -184,15 +184,15 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
 .clickNumber{color:#fff;}
 a.pageNumberA{color:#1897DA;}
 #ym{ width:100px;text-align:center;}
-#front{ background-image:url("../notice/img/next2.png"); background-size:200px 200px; background-position:50% 50%; border:none;width:27px; height:27px;}
-#rear{  background-image:url('../notice/img/next.png'); background-size:200px 200px; background-position:50% 50%;  border:none;width:27px; height:27px;margin-bottom:2px;}
+#front{ background-image:url("../notice/img/next.png"); background-size:200px 200px; background-position:50% 50%; border:none;width:27px; height:27px;}
+#rear{  background-image:url("../notice/img/next2.png"); background-size:200px 200px; background-position:50% 50%;  border:none;width:27px; height:27px;margin-bottom:2px;}
 *{ list-style:none;}
 </style>
 
 <script>
 
  $(function(){
- var url = "https://www.chuanshoucs.com/Maven_Project/"
+ var url = "http://localhost/Maven_Project/"
    //显示公司详细信息
  $('.show').click(function(){
 //var myid= e.currentTarget.dataset.value;
@@ -346,7 +346,7 @@ a.pageNumberA{color:#1897DA;}
        
          <div class="index">
                     <c:if test="${requestScope.companyPage.currPage != 1}">
-                    <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.noticePage.currPage-1}" style="color:#000;">
+                    <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.noticePage.currPage-1}&&state=${state}" style="color:#000;">
                     <li id="front"></li>
                     </a>
                     </c:if>
