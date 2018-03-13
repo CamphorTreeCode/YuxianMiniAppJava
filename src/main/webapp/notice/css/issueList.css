@@ -22,8 +22,9 @@
 .Footline{ height:1px; background-color:#ccc;}
 .index{ width:930px;padding-left:230px; margin-top:10px;}
 .index li{ float:left; width:25px; height:25px; border-radius:5px; border:1px solid #1897DA; margin:10px; text-align:center; line-height:25px;}
-.index li a{ color:#1897DA; }
 .click{background:#1897DA;}
-#ym{ width:70px;}
-#front{ background-image:url(../img/next2.png); background-size:200px 200px; background-position:50% 50%; border:none;}
-#rear{  background-image:url(../img/next.png); background-size:200px 200px; background-position:50% 50%;  border:none;}
+.clickNumber{color:#fff;}
+a.pageNumberA{color:#1897DA;}
+#ym{ width:100px;text-align:center;}
+#front{ background-image:url(../img/next2.png); background-size:200px 200px; background-position:50% 50%; border:none;width:27px; height:27px;}
+#rear{  background-image:url(../img/next.png); background-size:200px 200px; background-position:50% 50%;  border:none;width:27px; height:27px;margin-bottom:2px;}

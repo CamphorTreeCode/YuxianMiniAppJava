@@ -159,7 +159,13 @@ input::-webkit-input-placeholder {
 }
 </style>
 </head>
-
+<script type="text/javascript">
+    window.onload=function(){
+    if (window != top)
+         top.location.href = location.href; 
+    }
+   
+</script>
 <body>
 	<div class="body">
 		<div class="lineBule box">

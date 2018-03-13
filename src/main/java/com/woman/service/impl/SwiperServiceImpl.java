@@ -21,4 +21,23 @@ public class SwiperServiceImpl implements SwiperService {
 		return swiperMapper.selectSwiper();
 	}
 
+	@Override
+	public int update(swiper s) {
+		// TODO Auto-generated method stub
+		
+		return swiperMapper.updateByPrimaryKey(s);
+	}
+
+	@Override
+	public swiper getById(int id) {
+		// TODO Auto-generated method stub
+		return swiperMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<swiper> orderById() {
+		// TODO Auto-generated method stub
+		return swiperMapper.orderById();
+	}
+
 }

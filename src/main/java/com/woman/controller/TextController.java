@@ -35,13 +35,18 @@ public class TextController {
 		pw.print(jsonArray);
 	}
 	@RequestMapping("/update")
-	public String update(text t,MultipartFile file,HttpServletRequest request) throws IOException{
+	public String update(text t,MultipartFile file,HttpServletRequest request,String file1) throws IOException{
 		System.out.println("进入text--------------------------------");
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
+		if(img==""){
+			t.setImg(file1);
+			
+		}else{
 		t.setImg(img);
+		}
 		textService.updateText(t);
-		return "redirect:getByType";
+		return "redirect:../notice/wxIndex";
 	}
 	@RequestMapping("/textindex")
 	public String textIndex(){

@@ -11,11 +11,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <script src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+  if($("[name=s]").val()==1){
+        parent.stateTypeli1();
+    }
+    if($("[name=s]").val()==2){
+        parent.stateTypeli2();
+        $(".title span").html("已发布");
+        
+    }
+    var a=$("[name=ym]").val();
+    var b=$("[name=zys]").val();
+    if(b<=5){
+       $(".pageNumber")[a-1].setAttribute("class","click");
+        $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+    }
+    if(b>5){
+        if(b-a>=2){
+	        if(a>=4){
+	            $(".pageNumber")[2].setAttribute("class","click");
+	             $(".pageNumberA")[2].setAttribute("class","clickNumber");
+	        }
+	        
+	        if(a<4){
+	            $(".pageNumber")[a-1].setAttribute("class","click");
+	             $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+	        }
+        }else{
+             $(".pageNumber")[5-(b-a)-1].setAttribute("class","click");
+              $(".pageNumberA")[5-(b-a)-1].setAttribute("class","clickNumber");
+        }
+       
+    }
+     
+     $(".pageNumber").bind("click",function(){
+	      $(".pageNumber").removeClass("click")
+	 })
+	 $("#delList").click(function(){
+	     var a=confirm("确认删除");
+	     if(a==true){
+	       return true;
+	     }if(a!=true){
+	       return false;
+	     }
+	 
+	 })
+ })
+</script>
 </head>
 <link rel="stylesheet" href="css/issueList.css" type="text/css" />
 <body>
       <div class="content">
-           <div class="title"><div class="icon"></div>待发布</div>
+           <div class="title"><div class="icon"></div><span>待发布</span></div>
            
            <ul class="property">
               <li>顺序</li>
@@ -25,14 +73,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <li></li>
            </ul>
            <div class="clear"></div>
+                  <input type="hidden" name="s" value="${state }">
                    <c:forEach items="${requestScope.noticePage.lists}" var="notice" >
-                   
                    <ul class="context">
                      <li>${notice.noticeid}</li>
 		              <li>${notice.title }</li>
 		              <li class="img"><img src="http://shensu.free.ngrok.cc/RegistCompanyIMG\2018-03-13\e6e45891-d2c2-414d-bb91-96fe2df8ef6a.png" /></li>
 		              <li>${notice.createtime }</li>
-		              <li><a href="../notice/look?id=${notice.noticeid}">查看</a></li>
+		              <li>
+		              <a href="../notice/look?id=${notice.noticeid}" style="color:#999">查看</a>
+		              <a href="../notice/del?id=${notice.noticeid}&&state=${state}" style="color:red" id="delList">删除</a>   
+		              </li>
                    </ul>
                    </c:forEach>
                    <div class="clear"></div>
@@ -43,10 +94,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li id="front"></li>
                     </a>
                     </c:if>
-                    <c:forEach  var="i" begin="1" end="${requestScope.noticePage.totalPage}" step="1">
-                    <li><a href="../notice/getbystate?currentPage=${i}&&state=${state}">${i}</a></li>
                     
-                    </c:forEach>
+                    
+                    <c:if test="${requestScope.noticePage.totalPage<=5}">
+	                    <c:forEach  var="i" begin="1" end="${requestScope.noticePage.totalPage}" step="1">
+	                       <a href="../notice/getbystate?currentPage=${i}&&state=${state}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+	                    
+	                    </c:forEach>
+                    </c:if>
+                    <c:if test="${requestScope.noticePage.totalPage>5}">
+                    
+                        <c:if test="${requestScope.noticePage.currPage==1 || requestScope.noticePage.currPage ==2}">
+		                    <c:forEach  var="i" begin="1" end="5" step="1">
+		                       <a href="../notice/getbystate?currentPage=${i}&&state=${state}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+		                    
+		                    </c:forEach>
+	                    </c:if>
+                        <c:if test="${requestScope.noticePage.currPage>2}">
+		                    <c:if test="${requestScope.noticePage.totalPage-requestScope.noticePage.currPage<=2}">
+			                    <c:forEach  var="i" begin="${requestScope.noticePage.totalPage-4}" end="${requestScope.noticePage.totalPage}" step="1">
+			                       <a href="../notice/getbystate?currentPage=${i}&&state=${state}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+			                    
+			                    </c:forEach>
+		                    </c:if>
+		                    <c:if test="${requestScope.noticePage.totalPage-requestScope.noticePage.currPage>2}">
+			                    <c:forEach  var="i" begin="${requestScope.noticePage.currPage-2}" end="${requestScope.noticePage.currPage+2}" step="1">
+			                       <a href="../notice/getbystate?currentPage=${i}&&state=${state}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+			                    
+			                    </c:forEach>
+		                    </c:if>
+	                    
+	                   </c:if>
+	                    
+                    </c:if>
+                    
+                    
+                    
+                   
+                    
+                    
+                    
+                    
+                    
+                    
                     <c:if test="${requestScope.noticePage.currPage != requestScope.noticePage.totalPage}">
                     <a href="../notice/getbystate?currentPage=${requestScope.noticePage.currPage+1}&&state=${state}"
 				           	style="color:#000;">
@@ -54,7 +144,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                     </c:if>
                     <li id="ym"><span>第${requestScope.noticePage.currPage }/ ${requestScope.noticePage.totalPage}页</span>&nbsp;&nbsp;</li>
-                    
+                    <input type="hidden" name="ym" value="${ requestScope.noticePage.currPage }">
+                    <input type="hidden" name="zys" value="${requestScope.noticePage.totalPage}">
           </div>
       </div>
 </body>

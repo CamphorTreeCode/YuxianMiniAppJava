@@ -29,4 +29,6 @@ public interface NoticeService {
 
      /* 增加阅读量**/
     notice addViewCount(int id);
+    
+    int del(int id);
 }

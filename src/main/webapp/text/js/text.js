@@ -16,21 +16,36 @@ $(function(){
 		  $(".addIcon").show();
 		  $(this).hide();
 		  })
+	 var textType='工商注册';
 	 $(".details li").click(function(){
 		 
-		
+		textType=$(this).html();
 	     var type=$(this).val();
 	     $(".textType span").html($(this).html());
-	     $("[name=type]").val($(this).val())
 		  $.get("../text/getByType",{type:type},function(data){
 			var aa=eval(data)
-			$(".textid").val(aa[0].textid)
-			$("#preview").src=aa[0].img
+			
+			$("[name=textid]").val(aa[0].textid)
+			$("#preview").attr("src",aa[0].img)
+			$("[name=file1]").val(aa[0].img)
 			$("[name=type]").val(aa[0].type)
 			ue.setContent(aa[0].context);
 			
-		  $(this).parent().toggle;
+		    $(this).parent().toggle;
 		  })
 		 })
-	
+		 $("#submit").click(function(){
+			var a=confirm("确认修改文本信息吗？("+textType+")")
+			if(a==true){
+				return true;
+			}else{
+				return false;
+			}
+			
+			
+			 
+		 })
+		 parent.option();
+
+		 
 	})

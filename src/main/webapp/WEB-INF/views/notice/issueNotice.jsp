@@ -48,13 +48,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="content">
           <input type="hidden" name="state" value="1">
           <div class="title"><div class="icon"></div>标题</div>
-          <div class="titleInput"><input type="text" placeholder="在此处输入标题" name="title"/></div>
+          <div class="titleInput"><input type="text" placeholder="在此处输入标题(最少1个字，最多20个字)" name="title"/></div>
           <div class="noticeImg">
              <div class="img"><div class="icon"></div>公告图片</div>
              <div>
                 <div class="view">
                   <div class="viewimg">
-                     <img id="preview" />
+                     <img id="preview" style="width:160px; height:160px;"/>
                      <div class="addIcon"><input type="file" name="file" class="file" onchange="imgPreview(this)" /></div>
                      <div class="del" style="display:none"></div>
                   </div>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
           <div>
         <script id="container" name="context" type="text/plain">
-            这里写你的初始化内容
+           
         </script>
         <!-- 配置文件 -->
         <script type="text/javascript" src="ueditor.config.js"></script>
@@ -76,8 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
           </div>
           <div class="foot">
-             <input type="submit" value="确认提交" onclick="this.form.action='../notice/submit'"/>
-             <input type="submit" value="存草稿箱"/>
+             <input type="submit" value="确认提交" name="submit" onclick="this.form.action='../notice/submit'"/ >
+             <input type="submit" value="存草稿箱" name="wait"/>
           </div>
       </div>
    </form>

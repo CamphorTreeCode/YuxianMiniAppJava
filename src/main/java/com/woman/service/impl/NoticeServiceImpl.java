@@ -110,5 +110,10 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 		return notice;
 	}
+	@Override
+	public int del(int id) {
+		// TODO Auto-generated method stub
+		return noticeMapper.deleteByPrimaryKey(id);
+	}
 	
 }

@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
    })
       function submitFun(act){
-        alert("aaaaa")
         var myForm=document.getElementsByName("myForm");
         alert(myForm)
         myForm.action.value=act;
@@ -60,6 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
    <form name="myForm" method="post" enctype="multipart/form-data" action="../notice/submit">  
       <div class="content">
+          <input type="hidden" name="file1" value="${notice.img}">
           <input type="hidden" name="noticeid" value="${notice.noticeid }">
           <input type="hidden" name="state" value="${notice.state }">
           <div class="title"><div class="icon"></div>标题</div>
@@ -76,9 +76,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
                 
              </div>
-            
-             <br />
-           
           </div>
           <div>
         <script id="container" name="context" type="text/plain">
@@ -95,8 +92,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
           <c:if test="${state!=2 }">
           <div class="foot">
-             <input type="submit" value="确认发布">
-             <input type="submit" value="存草稿箱" onclick="this.form.action='../notice/wait'">
+             <input type="submit" value="确认发布" name="looksubmit">
+             <input type="submit" value="存草稿箱" onclick="this.form.action='../notice/wait'" name="wait">
           </div>
           </c:if>
       </div>

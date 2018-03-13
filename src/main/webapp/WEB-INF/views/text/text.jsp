@@ -14,6 +14,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/text.js"></script>
    <link rel="stylesheet" href="css/text.css" type="text/css" />
    <script type="text/javascript">
+      
+      window.onload=function(){
+            var ue = UE.getEditor('container');
+            $.get("../text/getByType",{type:1},function(data){
+			var aa=eval(data)
+			
+			$("[name=textid]").val(aa[0].textid)
+			$("#preview").attr("src",aa[0].img)
+			$("[name=file1]").val(aa[0].img)
+			$("[name=type]").val(aa[0].type)
+			ue.setContent(aa[0].context);
+			
+		    $(this).parent().toggle;
+		  })
+         
+      }
+      
               function imgPreview(fileDom){
 				 $("#preview").show();
         //判断是否支持FileReader
@@ -48,7 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="content">
            	 <div class="textType"><span>工商注册</span><div class="icon"></div>
                   <input type="hidden" name="textid">
-                  <input type="hidden" name="type">
+                  <input type="hidden" name="type" value="1">
+                  <input type="hidden" name="file1">
                   <div class="details" style="display:none;">
                        <ul>
                          
@@ -89,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div>
           <div class="zw"><div class="icon"></div>正文</div>
         <script id="container" name="context" type="text/plain">
-            这里写你的初始化内容
+            
         </script>
         <!-- 配置文件 -->
         <script type="text/javascript" src="ueditor.config.js"></script>
@@ -101,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
           </div>
           <div class="foot">
-             <input type="submit" value="确认修改" />
+             <input type="submit" value="确认修改" id="submit"/>
           </div>
       </div>
    </form>
