@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.woman.pojo.notice;
 import com.woman.tool.DateTime;
 import com.woman.tool.UploadHelper;
-import com.women.service.CompanyService;
 import com.women.service.NoticeService;
 
 import net.sf.json.JSONArray;
@@ -29,8 +28,6 @@ import net.sf.json.JSONArray;
 public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
-	 @Autowired
-	 private CompanyService companyService;
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(){
 		System.out.println("*************************************");
@@ -38,9 +35,9 @@ public class NoticeController {
 		return "notice/index";
 	}
 	@RequestMapping(value="/wxIndex",method=RequestMethod.GET)
-	public String wxIndex(Model model){
+	public String wxIndex(){
 		System.out.println("*************************************");
-		model.addAttribute("stateNumber", companyService.selectState());
+		
 		return "notice/wxIndex";
 	}
 	/*跳转公告添加页面*/
@@ -105,14 +102,19 @@ public class NoticeController {
 		 return "notice/look";
 	}
 	@RequestMapping("/submit")
-	public String submit(notice n,MultipartFile file,HttpServletRequest request)throws IOException{
+	public String submit(notice n,MultipartFile file,HttpServletRequest request,String file1)throws IOException{
 		System.out.println("***********************************");
 		System.out.println(n.getNoticeid());
 		n.setCreatetime(new DateTime().getDate());
 		n.setState(2);
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
+		if(img==""){
+			n.setImg(file1);
+			
+		}else{
 		n.setImg(img);
+		}
 		n.setViewcount(0);
 		if(n.getNoticeid()==null){
 			
@@ -120,15 +122,22 @@ public class NoticeController {
 		}else{
 		  noticeService.updateByPrimaryKeySelective(n);
 		}
-		return "redirect:getbystate";
+		return "redirect:getbystate?state=2";
 	}
-	@RequestMapping("/wait")
-	public String wait(notice n,MultipartFile file,HttpServletRequest request) throws IOException{
+	@RequestMapping(value="/wait",method=RequestMethod.POST)
+	public String wait(notice n,MultipartFile file,HttpServletRequest request,String file1) throws IOException{
 		System.out.println("***********************************");
 		n.setState(1);
+		System.out.println(n.getContext()+"***************************************************************");
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
+		if(img==""){
+			n.setImg(file1);
+			
+		}else{
 		n.setImg(img);
+		}
+		n.setCreatetime(new DateTime().getDate());
 		noticeService.updateByPrimaryKeySelective(n);
 		return "redirect:getbystate";
 	}
@@ -144,6 +153,13 @@ public class NoticeController {
 		PrintWriter pw = response.getWriter();
 		pw.print(jsonArray);
 
+		
+	}
+	@RequestMapping("del")
+	public String del(int id,int state){
+		
+		noticeService.del(id);
+		return "redirect:getbystate?state="+state;
 		
 	}
 	
