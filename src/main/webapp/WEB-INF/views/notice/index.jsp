@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
           <div class="position">当前位置：<span>公告发布</span></div>
        <div class="right">
-         <iframe src="issueList.html" name="if"></iframe>
+         <iframe src="../notice/wxIndex" name="if"></iframe>
        </div>
      
        

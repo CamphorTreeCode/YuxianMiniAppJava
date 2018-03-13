@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </script>
    
 <body>
-   <form method="post" enctype="multipart/form-data" action="../notice/addnotice">  
+   <form method="post" enctype="multipart/form-data" action=".. /notice/addnotice">  
       <div class="content">
           <input type="hidden" name="state" value="1">
           <div class="title"><div class="icon"></div>标题</div>
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
           </div>
           <div class="foot">
-             <input type="submit" value="确认提交" />
+             <input type="submit" value="确认提交" onclick="this.form.action='../notice/submit'"/>
              <input type="submit" value="存草稿箱"/>
           </div>
       </div>

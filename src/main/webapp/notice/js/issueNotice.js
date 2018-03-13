@@ -4,6 +4,6 @@ $(function(){
 		  
 		  $("#preview").hide();
 		  $(".addIcon").show();
-		  
+		  $(this).hide();
 		  })
 	})
