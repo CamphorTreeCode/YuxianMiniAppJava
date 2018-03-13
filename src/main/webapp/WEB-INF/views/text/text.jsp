@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <link rel="stylesheet" href="css/text.css" type="text/css" />
    <script type="text/javascript">
               function imgPreview(fileDom){
-              alert("aaaa")
 				 $("#preview").show();
         //判断是否支持FileReader
         if (window.FileReader) {

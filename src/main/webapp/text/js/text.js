@@ -17,9 +17,11 @@ $(function(){
 		  $(this).hide();
 		  })
 	 $(".details li").click(function(){
-		 $(".textType span").html($(this).html());
 		 
+		
 	     var type=$(this).val();
+	     $(".textType span").html($(this).html());
+	     $("[name=type]").val($(this).val())
 		  $.get("../text/getByType",{type:type},function(data){
 			var aa=eval(data)
 			$(".textid").val(aa[0].textid)

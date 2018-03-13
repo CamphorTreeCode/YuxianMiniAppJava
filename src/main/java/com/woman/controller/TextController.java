@@ -26,6 +26,7 @@ public class TextController {
 	@RequestMapping("/getByType")
 	public void getByType(int type,HttpServletResponse response)throws IOException{
 	   text t=textService.getByType(type);
+	   System.out.println(t.getContext());
 	   System.out.println("**************************");
 	   response.setCharacterEncoding("utf-8");
 		JSONArray jsonArray = JSONArray.fromObject(t);
