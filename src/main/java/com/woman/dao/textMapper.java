@@ -58,4 +58,6 @@ public interface textMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(text record);
+    /*根据类型获取选项信息*/
+    text getByType(int type);
 }

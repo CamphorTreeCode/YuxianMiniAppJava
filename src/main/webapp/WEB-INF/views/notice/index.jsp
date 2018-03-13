@@ -29,8 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
           </div>
             <a href="issueList.html" target="if"><li class="regist"><div class="icon"></div>工商注册信息</li></a>
+            <a href="../text/textindex" target="if"><li class="option"><div class="icon"></div>选项管理</li></a>
           </div>
-          <div class="position">当前位置：<span>公告发布</span></div>
+          <div class="position">当前位置：<span>微信小程序</span></div>
        <div class="right">
          <iframe src="../notice/wxIndex" name="if"></iframe>
        </div>

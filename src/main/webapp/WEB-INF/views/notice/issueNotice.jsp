@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </script>
    
 <body>
-   <form method="post" enctype="multipart/form-data" action=".. /notice/addnotice">  
+   <form method="post" enctype="multipart/form-data" action="../notice/addnotice">  
       <div class="content">
           <input type="hidden" name="state" value="1">
           <div class="title"><div class="icon"></div>标题</div>
