@@ -49,7 +49,7 @@ public class NoticeController {
 			Model model){
 		System.out.println(noticeService.findByPage(currentPage).getLists().size());
 		model.addAttribute("noticePage",noticeService.findByPage(currentPage));
-		
+		 
 		return "../index";
 	}
 	/*获取最新公告4条*/
