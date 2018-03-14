@@ -1,37 +1,65 @@
 package com.woman.tool;
 
 import java.io.File;
-import java.util.Calendar;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadHelper {
+	private static   String UPLOAD_DIRECTORY = new DateTime().getDay();  
 	
-	public static String upload(MultipartFile file,HttpServletRequest request){
-		Calendar a=Calendar.getInstance();
-	    int y=a.get(Calendar.YEAR);//得到年
-	    int m=a.get(Calendar.MONTH)+ 1;//由于月份是从0开始的所以加1
-	    int d=a.get(Calendar.DATE);
-	    String path = request.getSession().getServletContext().getRealPath("upload/"+y+"-"+m+"-"+d+"");  
-        String fileName = file.getOriginalFilename();
-        String suffix = fileName.substring(fileName.lastIndexOf("."));
-        String newName = System.currentTimeMillis()+Math.random()*9999+suffix;
-        File dir = new File(path,newName);          
-        if(!dir.exists()){  
-            dir.mkdirs();  
-        } 
-        //MultipartFile自带的解析方法  
-        try {
-			file.transferTo(dir);
-		} 
-        catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-        System.out.println(path+"\\"+newName);
-        return path+"\\"+newName;  
+	public static String upload(@RequestParam("file")MultipartFile file,HttpServletRequest request)throws IOException{
+		String imgpath="";
+		String mypath = request.getSession().getServletContext().getRealPath("/");
+
+		System.out.println(mypath);
+		  //原始名称
+        String myappPath = mypath.replace("\\Maven_Project","\\RegistCompanyIMG");
+        // 如果目录不存在则创建
+        File uploadDir = new File(myappPath);
+        if (!uploadDir.exists()) {
+          boolean  t =   uploadDir.mkdir();
+            System.out.println("OK"+t+myappPath);
+        }   
+        String myimgpath = myappPath+UPLOAD_DIRECTORY+"\\";
+        File fip = new File(myimgpath);
+       //	文件没有创建	        
+        if (!fip.exists()) {
+        	  boolean  t =   fip.mkdir();
+        	    System.out.println("OK"+t+myimgpath);
+        	} 
+        //上传图片的名称		        
+        System.out.println(myimgpath);
+        String originalFilename = file.getOriginalFilename(); 
+        System.out.println(">>>>>>>>>>>"+originalFilename);
+ 
+        //上传图片  
+        if(file!=null && originalFilename!=null && originalFilename.length()>0){          
+        //存储图片的物理路径  
+   
+        //新的图片名称  
+       String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));  
+        //新图片  
+        File newFile = new File(myimgpath+newFileName);  
+        imgpath=myimgpath+newFileName;
+        System.out.println(imgpath);
+        //将内存中的数据写入磁盘  
+        file.transferTo(newFile);    
+        //将新图片名称写到itemsCustom中  
+           
+        //注意路径
+        String mypath1 = mypath.replace("\\Maven_Project","");		        		        
+        imgpath=imgpath.replace(mypath1,"http://shensu.free.ngrok.cc/");
+        System.out.println(">>>>"+imgpath);	
+
+        }      
+		return imgpath;
+	
+        
 	}
 	
 

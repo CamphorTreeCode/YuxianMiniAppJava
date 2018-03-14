@@ -174,4 +174,44 @@
       viewCount = #{viewcount,jdbcType=INTEGER}
     where noticeId = #{noticeid,jdbcType=INTEGER}
   </update>
+  <!-- 查询总记录数 -->
+  <select id="SelectCount" resultType="Integer" parameterType="Integer">
+    select count(*) from notice where 1=1 
+    
+    
+      <if test="state!=0">
+       and state=#{state} 
+      </if>
+    
+    
+  </select>
+  <!-- 分页查询 -->
+  <select id="findByPage" resultMap="BaseResultMap">
+     select * from notice WHERE 1=1 order by createTime desc
+     
+        <if test="start!=null and size!=null">
+            LIMIT #{start},#{size}
+        </if>
+     
+  </select>
+  <!-- 查询最新公告 -->
+  <select id="findBytime" resultMap="BaseResultMap">
+  
+    select * from notice where state=3 order by createTime desc limit 0,4
+  
+  </select>
+  <!-- 按状态查询 -->
+  <select id="findByState" resultMap="BaseResultMap">
+      select * from notice where 1=1 
+      
+      
+      <if test="state!=null">
+      and state=#{state} 
+      </if>
+      order by createTime desc
+        <if test="start!=null and size!=null">
+            LIMIT #{start},#{size}
+        </if>
+  </select>
+  
 </mapper>
