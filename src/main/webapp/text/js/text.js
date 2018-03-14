@@ -11,7 +11,7 @@ $(function(){
 		  $(this).parent().toggle;
 		 })
      $(".del").click(function(){
-		  
+    	 $(".file").val("");
 		  $("#preview").hide();
 		  $(".addIcon").show();
 		  $(this).hide();

@@ -9,11 +9,11 @@
 .noticeImg .img{ height:50px; line-height:50px; font-size:24px; background-color:#FFF; padding-bottom:10px;}
 .noticeImg .img .icon{ width:26px; height:26px;  background-position:50% 50%; float:left; background-size:200px 200px; margin:12px 5px 0 20px;background-image:url(../img/immmmm.png);} 
 .noticeImg .view{ background:#FFF; padding-bottom:40px;}
-.noticeImg .view .viewimg{ background-color:#D3D3D3; border-radius:10px; width:160px; height:160px; margin-left:20px; position:relative;}
-.noticeImg .view .viewimg .addIcon{ width:45px; height:45px; background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); position:absolute; top:33%; left:36%;}
+.noticeImg .view .viewimg{ background-color:#D3D3D3; border-radius:10px; width:367px; height:163px; margin-left:20px; position:relative;}
+.noticeImg .view .viewimg .addIcon{ width:45px; height:45px; background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); position:absolute; top:33%; left:45%;}
 .foot {  height:100px; line-height:100px; text-align:right;}
 .foot input{ background-color:#1196DB;font-size:24px;margin-right:20px; color:#fff; padding:10px 20px; border-radius:100px;}
 .clickColor{  background-color:#1196DB;}
-#preview{ width:160px; height:160px; float:left;}
+#preview{ width:367px; height:163px; float:left; border:none;}
 .noticeImg .view .viewimg  .file{ background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); width:160px; height:160px;opacity:0;}
 .noticeImg .view .viewimg .del{ width:20px; height:20px; background:#000; background:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314163812.png); background-size:20px 20px; position:absolute; right:0; z-index:999}

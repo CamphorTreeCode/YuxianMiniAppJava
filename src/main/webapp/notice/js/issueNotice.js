@@ -2,6 +2,7 @@
 $(function(){
 	var ue = UE.getEditor('container');
 	  $(".del").click(function(){ 
+		  $(".file").val("");
 		  $("#preview").hide();
 		  $(".addIcon").show();
 		  $(this).hide();
@@ -10,7 +11,6 @@ $(function(){
 	  $("[name=title]").attr({maxlength:"20"});
 	  
 	  $("[name=submit]").click(function(){
-		  sleep(500)
 		  var marker=true;
 		  
 		  if($("[name=title]").val().length==0){
@@ -24,13 +24,11 @@ $(function(){
 			  alert("图片不能为空")
 			  
 		  }
-		  if(marker==false){
-			  this.disable=false
+		  if(ue.getContentTxt().length==0){
+			  marker=false;
+			  alert("正文不能为空")
 		  }
-		  if(marke==true){
-			  this.disable=true
-		  }
-		  return marker;
+		 return marker;
 		  
 	 
 		  

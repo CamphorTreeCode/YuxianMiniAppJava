@@ -9,24 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>预先后台</title>
+<title>玉先后台</title>
 </head>
    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
    <script type="text/javascript" src="js/issueNotice.js"></script>
    <link rel="stylesheet" href="css/issueNotice.css" type="text/css" />
    <script type="text/javascript">
-   $(function(){
-      
-   })
-      function submitFun(act){
-        var myForm=document.getElementsByName("myForm");
-        alert(myForm)
-        myForm.action.value=act;
-        myFrom.submit();
-      
-      }
-      
-              function imgPreview(fileDom){
+     function imgPreview(fileDom){
 				 $("#preview").show();
         //判断是否支持FileReader
         if (window.FileReader) {

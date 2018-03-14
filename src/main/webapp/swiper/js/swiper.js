@@ -2,6 +2,7 @@
 $(function(){
       parent.swiper();
 	  $(".del").click(function(){
+		  $(".file").val("");
 		 var img=$("[name=img]").val()
 		  $("#preview").attr("src",img)
 		  $("#preview").hide();
@@ -9,6 +10,7 @@ $(function(){
 		  $(this).hide();
 		  })
 	 $(".del1").click(function(){
+		 $(".file1").val("");
 		 var img=$("[name=img1]").val()
 		  $("#preview1").attr("src",img)
 		  $("#preview1").hide();
@@ -16,6 +18,7 @@ $(function(){
 		  $(this).hide();
 		  })
 	  $(".del2").click(function(){
+		  $(".file2").val("");
 		  var img=$("[name=img2]").val()
 		  $("#preview2").attr("src",img)
 		  $("#preview2").hide();
