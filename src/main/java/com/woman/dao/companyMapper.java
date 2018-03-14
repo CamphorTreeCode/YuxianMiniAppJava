@@ -50,4 +50,6 @@ public interface companyMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(company record);
+//    查询公司名称
+    int selectCompanyName(String name);
 }

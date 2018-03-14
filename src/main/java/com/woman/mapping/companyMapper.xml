@@ -47,6 +47,10 @@
     from company
     where companyId = #{companyid,jdbcType=INTEGER}
   </select>
+    <!--查询公司  -->
+   <select id="selectCompanyName" parameterType="java.lang.String"  resultType="int">
+   select count(companyName) from company where companyName= #{name,jdbcType=VARCHAR}
+   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

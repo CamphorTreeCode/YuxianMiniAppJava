@@ -6,6 +6,8 @@ import com.woman.pojo.company;
 import com.woman.pojo.shareholder;
 
 public interface CompanyService {
- 
-  int insertCompany (List<company> company);
+// 增加公司和股东的方法
+  int insertCompany (company company);
+//  查询数公司名称
+  int selectCompanyName(String name);
 }
