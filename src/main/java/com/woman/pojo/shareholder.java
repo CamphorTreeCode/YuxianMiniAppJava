@@ -9,6 +9,7 @@ public class shareholder implements Serializable {
      *
      * @mbggenerated
      */
+   //股东id	
     private Integer shareholderid;
 
     /**
