@@ -24,7 +24,7 @@ public class ToolController {
 		 @RequestMapping("/addImg")  
 		public void selectColumn(@RequestParam("file")MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException{
 			 /*图片上传*/
-				String imgpath="";
+				String imgpath = "";
 				String mypath = request.getSession().getServletContext().getRealPath("/");
   
 				System.out.println(mypath);
