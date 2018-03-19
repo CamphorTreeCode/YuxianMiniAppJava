@@ -19,7 +19,7 @@ import com.woman.tool.DateTime;
 @RequestMapping("/tool")
 public class ToolController {
 	// 上传文件存储目录
-    private   String UPLOAD_DIRECTORY = new DateTime().getDay();  
+    private   String UPLOAD_DIRECTORY = DateTime.getDateImg();  
 		//查询栏目列
 		 @RequestMapping("/addImg")  
 		public void selectColumn(@RequestParam("file")MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException{

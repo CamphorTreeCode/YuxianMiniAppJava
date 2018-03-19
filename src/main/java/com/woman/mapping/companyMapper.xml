@@ -17,7 +17,7 @@
     <result column="linkPhone" property="linkphone" jdbcType="VARCHAR" />
     <result column="createTime" property="createtime" jdbcType="VARCHAR" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
-    <association property="shareholder" javaType="com.woman.pojo.shareholder"> 
+<!--     <association property="shareholder" javaType="com.woman.pojo.shareholder"> 
 	    <id property="shareholderid" column="shareholderid" jdbcType="INTEGER" />	  
 	    <id property="name" column="name" jdbcType="VARCHAR" />
 	    <result property="phone" column="phone" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
 	    <result property="idimgZ" column="idimgZ" jdbcType="VARCHAR" />
 	    <result property="idimgF" column="idimgF" jdbcType="VARCHAR" />
         <result property="createtime" column="createtime" jdbcType="VARCHAR" />
-     </association>
+     </association> -->
   </resultMap>
   <sql id="Base_Column_List" >
     <!--

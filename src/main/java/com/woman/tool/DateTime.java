@@ -14,17 +14,17 @@ import java.util.Date;
  */
 public class DateTime {
 	//适合图片的地址
-	 public String getDate(){
-		 SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+	 public static String getDate(){
+		 SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		  Date date= new  Date();
 		  return dateFormater.format(date);
 	 }
-	 public String getDateImg(){
+	 public static  String getDateImg(){
 		 SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-ddHH-mm-ss");
 		  Date date=new  Date();
 		  return dateFormater.format(date);
 	 }
-	 public String getDay(){
+	 public static String getDay(){
 		 SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
 		  Date date=new  Date();
 		  return dateFormater.format(date);

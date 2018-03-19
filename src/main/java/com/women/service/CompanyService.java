@@ -7,5 +7,5 @@ import com.woman.pojo.shareholder;
 
 public interface CompanyService {
  
-  int insertCompany (company s);
+  int insertCompany (List<company> company);
 }

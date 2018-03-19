@@ -30,8 +30,8 @@ private CompanyService companyService;
 		 for (company company2 : company) {
 			 System.out.println(company2.toString());
 		}
-		  
-
+		 companyService.insertCompany(company);
+      
 //	 System.out.println(company[0].getShareholder()[0].toString());
      //2.	 打印
 	 	
