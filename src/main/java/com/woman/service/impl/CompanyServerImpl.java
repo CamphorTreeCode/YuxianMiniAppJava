@@ -17,47 +17,49 @@ import com.women.service.CompanyService;
 @Service("CompanyServer")
 public class CompanyServerImpl implements CompanyService {
 	@Autowired
-    private	shareholderMapper  shar;
+	private shareholderMapper shar;
 	@Autowired
 	private companyMapper companyMapper;
-	
+    //增加公司和股东
 	@Override
-	public int insertCompany(List<company> company) {
+	public int insertCompany(company comp) {
 		// TODO 自动生成的方法存根
-        //	先增加一个公司 返回一个id
-		company comp =  company.get(0);
-		comp.setCreatetime(DateTime.getDate());
-	int   resId	= companyMapper.insert(comp);
-	if(resId>0){
-		System.out.println("增加成功！");
-	}	
-        //	批量增加股东
-	
-  int companyId=comp.getCompanyid();
+		// 先增加一个公司 返回一个id
 
-	System.out.println(company.get(0).getCompanyid());
-	
-		List<shareholder>  sharList = comp.getShareholder();
+		comp.setCreatetime(DateTime.getDate());
+      	System.out.println(comp);
+		int resId = companyMapper.insert(comp);
+		if (resId > 0) {
+			System.out.println("增加成功！");
+		}
+		// 批量增加股东
+
+		int companyId = comp.getCompanyid();
+
+		System.out.println(comp.getCompanyid());
+
+		List<shareholder> sharList = comp.getShareholder();
 		System.out.println(sharList);
 		List<shareholder> sharLists = new ArrayList<shareholder>();
-	   for (shareholder shareholder : sharList) {
-		   shareholder.setCompanyid(companyId);
-		   shareholder.setCreatetime(DateTime.getDate());
-		   sharLists.add(shareholder);
-		   System.out.println(sharLists);
-	}
-	   for (shareholder shareholder : sharLists) {
-		System.out.println(shareholder.toString());
-	} 
+		for (shareholder shareholder : sharList) {
+			shareholder.setCompanyid(companyId);
+			shareholder.setCreatetime(DateTime.getDate());
+			sharLists.add(shareholder);
+		}
+
 		System.out.println(sharLists);
-		int rid  = shar.insertMore(sharLists);
-		if(rid>0){
+		int rid = shar.insertMore(sharLists);
+		if (rid > 0) {
 			System.out.println("批量增加成功！");
 		}
-		
+
 		return 0;
 	}
-
-
+    //查询公司的名称 重复不增加
+	@Override
+	public int selectCompanyName(String name) {
+		int num = companyMapper.selectCompanyName(name);
+		return num;
+	}
 
 }

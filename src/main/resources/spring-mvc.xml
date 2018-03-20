@@ -21,7 +21,13 @@
     </bean>    
         
      <!-- 添加注解驱动 -->      
-    <mvc:annotation-driven />    
+ <mvc:annotation-driven> 
+        <mvc:message-converters> 
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"> 
+                <property name="supportedMediaTypes" value="text/html;charset=utf-8"></property> 
+            </bean> 
+        </mvc:message-converters> 
+    </mvc:annotation-driven>
     <mvc:default-servlet-handler/>    
         
     <!-- 设置使用注解的类所在的包 -->    

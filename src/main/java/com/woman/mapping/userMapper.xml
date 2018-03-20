@@ -33,6 +33,11 @@
     from user
     where openid = #{openid,jdbcType=VARCHAR}
   </select>
+  <!--查询用户  -->
+   <select id="selectUserOpenid" parameterType="java.lang.String"  resultType="int">
+   select count(openid) from user where openid= #{openid,jdbcType=VARCHAR}
+   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

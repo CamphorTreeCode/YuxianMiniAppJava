@@ -41,6 +41,8 @@ public interface userMapper {
      *
      * @mbggenerated
      */
+    int selectUserOpenid (String openid);
+    
     int updateByPrimaryKeySelective(user record);
 
     /**

@@ -1,8 +1,11 @@
 package com.woman.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.woman.pojo.company;
+import com.woman.tool.GetOpenId;
 import com.women.service.CompanyService;
 
 //http://shensu.free.ngrok.cc/Maven_Project/tool/addImg
@@ -22,24 +26,34 @@ import com.women.service.CompanyService;
 public class CompanyController {
  @Autowired
 private CompanyService companyService;
+  
 	 //查询栏目列
-	 @RequestMapping(value="/addCompany",method = RequestMethod.PUT)  
+	 @RequestMapping(value="/addCompany",method = RequestMethod.POST)  
 	 @ResponseBody
-	 public void selectColumn(@RequestBody  List<company> company) throws IOException{
-     //1.	拿到数据
-		 for (company company2 : company) {
-			 System.out.println(company2.toString());
+	 public void selectColumn(@RequestBody  company company,HttpServletResponse response) throws IOException{
+     //1.	拿到数据 打印	
+	    System.out.println(company.toString());	
+	    response.setContentType("text/html;charset=UTF-8");
+	    response.setCharacterEncoding("UTF-8");
+
+	 //	 System.out.println(company[0].getShareholder()[0].toString());
+     //2.	 改变对象数据
+	    String jscode = company.getJscode();
+		company.setOpenid(GetOpenId.getOpenid(jscode)); 
+     //3.  查询数据
+		   long starTime = System.currentTimeMillis();
+		int num = companyService.selectCompanyName(company.getCompanyname());
+		if(num>0){
+			System.out.println("数据库已经存在了");
+			  long  endTime=System.currentTimeMillis();
+	    	    long   Time=endTime-starTime;
+	    		  System.out.println("花费的时间："+Time);
+	    		  PrintWriter pw = response.getWriter();
+	    		  pw.print("公司名已经存在");
+	    			
+			return;
 		}
-		 companyService.insertCompany(company);
-      
-//	 System.out.println(company[0].getShareholder()[0].toString());
-     //2.	 打印
-	 	
-     //3.   取数据
-		
-     //4.   存对应的数据
-		
-     //5。         完成返回给前端的数据    		 
-	   
+		//4.存入数据库		 
+	    companyService.insertCompany(company);
 	 }
 	 }
