@@ -19,7 +19,7 @@ import com.woman.tool.DateTime;
 @RequestMapping("/tool")
 public class ToolController {
 	// 上传文件存储目录
-    private   String UPLOAD_DIRECTORY = DateTime.getDateImg();  
+    private   String UPLOAD_DIRECTORY = DateTime.getDay();  
 		//查询栏目列
 		 @RequestMapping("/addImg")  
 		public void selectColumn(@RequestParam("file")MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -61,12 +61,12 @@ public class ToolController {
 		        //将内存中的数据写入磁盘  
 		        file.transferTo(newFile);    
 		        //将新图片名称写到itemsCustom中  
-		           
-		        //注意路径
+		        
+		        //注意路径http://www.chuanshoucs.com/  http://shensu.free.ngrok.cc/
 		        String mypath1 = mypath.replace("\\Maven_Project","");		        		        
-		        imgpath=imgpath.replace(mypath1,"http://shensu.free.ngrok.cc/");
+		        imgpath=imgpath.replace(mypath1,"http://www.chuanshoucs.com/");
 		        System.out.println(">>>>"+imgpath);	
-
+		        imgpath = imgpath.replaceAll("\\\\","/");
 		        }      
 				PrintWriter pw = response.getWriter();
 				pw.print(imgpath);
