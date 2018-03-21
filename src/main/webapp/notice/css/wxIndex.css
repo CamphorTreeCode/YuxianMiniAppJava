@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px; list-style:none; text-decoration:none;}
+.content{ width:930px; margin:0 auto; background-color:#CCC;}
+.module{ width:355px ; height:165px; background-color:#fff; float:left; padding:20px; margin:0 20px 20px 0;}
+.module h4{ font-weight: normal; font-size:18px; color:#333;}
+.module h1{ font-weight: normal; font-size:24px; color:#333;}
+.information{ float:left;}
+.module h4{ padding-bottom:20px;}
+.module:nth-child(1) h4 .icon{ width:20px; height:20px; background-image:url(../img/xiaochengxu.png); background-position:50% 50%; float:left;  margin-top:3px; float:left;background-size:200px 200px; margin-right:2px;}
+.module:nth-child(2) h4  .icon{ width:20px; height:20px; background-image:url(../img/renqun.png); background-position:50% 50%; float:left; float:left; margin-top:3px; float:left;background-size:200px 200px; margin-right:2px;}
+.module:nth-child(3) h4  .icon{ width:20px; height:20px; background-image:url(../img/xiaoxi.png); background-position:50% 50%; float:left; float:left; margin-top:3px; float:left;background-size:200px 200px; margin-right:2px;}
+.module:nth-child(2) h3{ font-size:18px; font-weight:normal; color:#333;}
+.module .information h1{ float:left; font-size:18px;}
+.module .information h1:nth-child(2){ padding:0 20px;}
+.module .information h1:nth-child(2) span{ color:#F00;}
+.module:nth-child(4) h4 span{ color:#999; margin-left:10px;}
+.module:nth-child(4) h1{ font-size:18px;}
+.module:nth-child(4) h1 span{ color:#999;}
+

@@ -1,5 +1,7 @@
 package com.woman.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -28,16 +30,22 @@ public class NoticeController {
 	NoticeService noticeService;
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(){
+		System.out.println("*************************************");
 		
+		return "notice/index";
+	}
+	@RequestMapping(value="/wxIndex",method=RequestMethod.GET)
+	public String wxIndex(){
+		System.out.println("*************************************");
 		
-		return "index.jsp";
+		return "notice/wxIndex";
 	}
 	/*跳转公告添加页面*/
 	@RequestMapping(value="/addnotice",method=RequestMethod.GET)
 	public String add(){
 		
 		
-		return "issueNotice.jsp";
+		return "notice/issueNotice";
 	}
 	/*添加公告*/
 	@RequestMapping(value="/addnotice",method=RequestMethod.POST)
@@ -47,7 +55,7 @@ public class NoticeController {
 		n.setImg(img);
 		n.setCreatetime(new DateTime().getDate());
 		noticeService.add(n);
-		return "redirect:list";
+		return "redirect:getbystate";
 	}
 	/*公告分页展示*/
 	@RequestMapping("/manageNotice")
@@ -74,12 +82,36 @@ public class NoticeController {
 	/*根据状态获取公告分页*/
 	@RequestMapping("/getbystate")
 	public String getBystate(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,
-			Model model,int state){
+			Model model,@RequestParam(value="state",defaultValue="1",required=false)int state){
 		System.out.println("进入分类分页");
 		
 		model.addAttribute("noticePage",noticeService.findByState(currentPage,state));
+		model.addAttribute("state",state);
+		return "notice/drafts";
 		
-		return "issueList";
-		
+	}
+	@RequestMapping("/look")
+	public String look(int id,Model model){
+		notice n=noticeService.selectByPrimaryKey(id);
+		int state=n.getState();
+		model.addAttribute("notice",n);
+		model.addAttribute("state",state);
+		 return "notice/look";
+	}
+	@RequestMapping("/submit")
+	public String submit(notice n){
+		System.out.println("***********************************");
+		System.out.println(n.getNoticeid());
+		n.setState(2);
+		n.setCreatetime(new DateTime().getDate());
+		noticeService.updateByPrimaryKeySelective(n);
+		return "redirect:getbystate";
+	}
+	@RequestMapping("/wait")
+	public String wait(notice n){
+		System.out.println("***********************************");
+		n.setState(1);
+		noticeService.updateByPrimaryKeySelective(n);
+		return "redirect:getbystate";
 	}
 }

@@ -29,7 +29,7 @@ public class NoticeServiceImpl implements NoticeService {
         pageBean.setCurrPage(currentPage);
 
         //每页显示的数据
-        int pageSize=10;
+        int pageSize=5;
         pageBean.setPageSize(pageSize);
 
         //封装总记录数
@@ -64,7 +64,7 @@ public class NoticeServiceImpl implements NoticeService {
         pageBean.setCurrPage(currentPage);
 
         //每页显示的数据
-        int pageSize=10;
+        int pageSize=5;
         pageBean.setPageSize(pageSize);
 
         //封装总记录数
@@ -84,6 +84,16 @@ public class NoticeServiceImpl implements NoticeService {
         pageBean.setLists(lists);
 
         return pageBean;
+	}
+	@Override
+	public notice selectByPrimaryKey(Integer noticeid) {
+		// TODO Auto-generated method stub
+		return noticeMapper.selectByPrimaryKey(noticeid);
+	}
+	@Override
+	public int updateByPrimaryKeySelective(notice record) {
+		// TODO Auto-generated method stub
+		return noticeMapper.updateByPrimaryKey(record);
 	}
 	
 }
