@@ -16,8 +16,8 @@
 		</commentGenerator>
 		<!--数据库链接URL，用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/yx1"
-			userId="root" password="root">
+			connectionURL="jdbc:mysql://127.0.0.1:3306/yx1" userId="root"
+			password="root">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<!-- This property is used to specify whether MyBatis Generator should 
@@ -52,33 +52,33 @@
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			<table tableName="loans" domainObjectName="loans"
+		<table tableName="loans" domainObjectName="loans"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			
-			<table tableName="notice" domainObjectName="notice"
+
+		<table tableName="notice" domainObjectName="notice"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			<table tableName="shareholder" domainObjectName="shareholder"
+		<table tableName="shareholder" domainObjectName="shareholder"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			
-			<table tableName="swiper" domainObjectName="swiper"
+
+		<table tableName="swiper" domainObjectName="swiper"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			
-			<table tableName="text" domainObjectName="text"
+
+		<table tableName="text" domainObjectName="text"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			<table tableName="user" domainObjectName="user"
+		<table tableName="user" domainObjectName="user"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
-			
+
 	</context>
 </generatorConfiguration>
