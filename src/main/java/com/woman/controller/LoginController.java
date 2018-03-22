@@ -24,7 +24,7 @@ public class LoginController {
 	 @RequestMapping(value="tologin",method = RequestMethod.GET)  
 	 public String login() throws IOException{
 		 System.out.println("tologin");
-      return "redirect:../index.jsp";
+      return "redirect:/index.jsp";
 	 }
     //登录
 		@RequestMapping("/login")
@@ -39,19 +39,19 @@ public class LoginController {
 				 request.getSession().setAttribute("error", "用户名或密码错误");
 				 return "redirect:/index.jsp";
 			 }else{
-				 if("Y".equals(check)){
-						Cookie unCookie=new Cookie("user_name",user_name);
-						unCookie.setPath("/");
-						unCookie.setMaxAge(365*24*60*60);
-						Cookie pwCookie=new Cookie("user_password",user_password);
-						pwCookie.setPath("/");
-						pwCookie.setMaxAge(365*24*60*60);
-						response.addCookie(unCookie);
-						response.addCookie(pwCookie);
-						request.getSession().setAttribute("user_name", user.getAdminName());
-						return "redirect:/blogsController/manageBlogs.htmls";
-					}
-					else{
+//				 if("Y".equals(check)){
+//						Cookie unCookie=new Cookie("user_name",user_name);
+//						unCookie.setPath("/");
+//						unCookie.setMaxAge(365*24*60*60);
+//						Cookie pwCookie=new Cookie("user_password",user_password);
+//						pwCookie.setPath("/");
+//						pwCookie.setMaxAge(365*24*60*60);
+//						response.addCookie(unCookie);
+//						response.addCookie(pwCookie);
+//						request.getSession().setAttribute("user_name", user.getAdminName());
+//						return "redirect:/blogsController/manageBlogs.htmls";
+//					}
+//					else{
 						Cookie unCookie=new Cookie("user_name",user_name);
 						unCookie.setPath("/");
 						unCookie.setMaxAge(0);
@@ -62,7 +62,7 @@ public class LoginController {
 						response.addCookie(pwCookie);
 						request.getSession().setAttribute("user_name", user.getAdminName());
 						 return "redirect:/blogsController/manageBlogs.htmls";
-					}
+					//}
 
 			 }
 		}  

@@ -11,7 +11,7 @@
 
 	</resultMap>
 	<!--查询用户 -->
-	<select id="selectAdmin" resultType="com.woman.dao.AdminMapper">
+	<select id="selectAdmin" resultType="com.woman.pojo.Admin">
 		select adminId,adminName,adminPassword from admin where
 		adminName=#{adminName,jdbcType=VARCHAR} and
 		adminPassword=#{adminPassword,jdbcType=VARCHAR}

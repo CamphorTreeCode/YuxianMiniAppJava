@@ -177,7 +177,7 @@ input::-webkit-input-placeholder {
 				</div>
 
 				<div class="welcome boxCenter">Welcome,My Friend</div>
-				<form action="${pageContext.request.contextPath}/Login/login">
+				<form action="${pageContext.request.contextPath}/login/login">
 					<div class="userName boxCenter">
 						<div class="userNameContent box">
 							<input class="ipt" type="text" placeholder="请输入用户名" value=""

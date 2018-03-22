@@ -7,6 +7,9 @@ public class Admin {
 	private String adminPassword;
 	private String adminCrateTime;
 
+	public Admin() {
+		super();
+	}
 	public Admin(String adminName, String adminPassword) {
 		super();
 		this.adminName = adminName;
