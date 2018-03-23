@@ -86,4 +86,8 @@
 		createTime = #{createtime,jdbcType=VARCHAR}
 		where swiperID = #{swiperid,jdbcType=INTEGER}
 	</update>
+	<!--查询全部轮播图  -->
+		<select id="selectSwiper" resultMap="BaseResultMap">
+        select * from swiper   order by createTime desc limit 0,3		
+	   </select>
 </mapper>

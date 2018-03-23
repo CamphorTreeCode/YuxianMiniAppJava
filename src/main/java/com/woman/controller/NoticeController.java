@@ -50,10 +50,13 @@ public class NoticeController {
 	/*添加公告*/
 	@RequestMapping(value="/addnotice",method=RequestMethod.POST)
 	public String addsave(notice n,MultipartFile file,HttpServletRequest request) throws IOException{
+		System.out.println("进来博客添加》》》》》》》》》》》》》");
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
 		n.setImg(img);
+	
 		n.setCreatetime(new DateTime().getDate());
+	    System.out.println(n.toString());
 		noticeService.add(n);
 		return "redirect:getbystate";
 	}
@@ -107,6 +110,7 @@ public class NoticeController {
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
 		n.setImg(img);
+		n.setViewcount(0);
 		if(n.getNoticeid()==null){
 			
 			noticeService.add(n);
@@ -125,4 +129,19 @@ public class NoticeController {
 		noticeService.updateByPrimaryKeySelective(n);
 		return "redirect:getbystate";
 	}
+     //	增加浏览量
+	@RequestMapping("/addViewCount")
+	public void  addViewCount(int noticeId,HttpServletResponse response)throws IOException{
+		
+         System.out.println(noticeId);		
+         notice notice= noticeService.addViewCount(noticeId); 
+		System.out.println("浏览量为"+notice.getViewcount());
+		response.setCharacterEncoding("utf-8");
+		JSONArray jsonArray = JSONArray.fromObject(notice);
+		PrintWriter pw = response.getWriter();
+		pw.print(jsonArray);
+
+		
+	}
+	
 }

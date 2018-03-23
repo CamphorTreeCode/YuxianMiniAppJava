@@ -5,9 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.woman.tool.Page;
+
 import com.woman.dao.noticeMapper;
 import com.woman.pojo.notice;
+import com.woman.tool.Page;
 import com.women.service.NoticeService;
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -94,6 +95,20 @@ public class NoticeServiceImpl implements NoticeService {
 	public int updateByPrimaryKeySelective(notice record) {
 		// TODO Auto-generated method stub
 		return noticeMapper.updateByPrimaryKey(record);
+	}
+     //	增加阅读量
+	@Override
+	public notice addViewCount(int id) {
+		// TODO 自动生成的方法存根
+
+		notice notice = noticeMapper.selectViewCount(id);
+		System.out.println(notice);
+		notice.setViewcount(notice.getViewcount()+1);
+		int row =	noticeMapper.updateViewCount(notice.getViewcount(),id);
+		if(row>0){
+			System.out.println("已经增加"+row);
+		}
+		return notice;
 	}
 	
 }

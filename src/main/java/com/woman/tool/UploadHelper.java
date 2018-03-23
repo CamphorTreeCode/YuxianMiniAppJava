@@ -53,9 +53,9 @@ public class UploadHelper {
            
         //注意路径
         String mypath1 = mypath.replace("\\Maven_Project","");		        		        
-        imgpath=imgpath.replace(mypath1,"http://shensu.free.ngrok.cc/");
+        imgpath=imgpath.replace(mypath1,"https://www.chuanshoucs.com/");
         System.out.println(">>>>"+imgpath);	
-
+        imgpath = imgpath.replaceAll("\\\\","/");
         }      
 		return imgpath;
 	

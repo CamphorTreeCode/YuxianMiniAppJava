@@ -178,7 +178,9 @@
 	<!-- 查询最新公告 -->
 	<select id="findBytime" resultMap="BaseResultMap">
 
-		select * from notice where state=3 order by createTime desc limit 0,4
+		select
+		 		<include refid="Base_Column_List" />
+		from notice where state=2 order by createTime desc limit 0,4
 
 	</select>
 	<!-- 按状态查询 -->
@@ -194,5 +196,12 @@
 			LIMIT #{start},#{size}
 		</if>
 	</select>
-
+	<!-- 查询阅读量  -->
+	<select id="selectViewCount" resultType="com.woman.pojo.notice" parameterType="Integer">
+	 select * from notice where noticeId=#{noticeid,jdbcType=INTEGER}
+	</select>
+	<!-- 修改增加阅读量 -->
+   <update id="updateViewCount"  parameterType="Integer" >
+     	update notice set viewCount = #{viewCount,jdbcType=INTEGER} 	where noticeId = #{noticeid,jdbcType=INTEGER}
+   </update>
 </mapper>

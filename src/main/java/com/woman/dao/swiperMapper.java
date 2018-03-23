@@ -1,5 +1,7 @@
 package com.woman.dao;
 
+import java.util.List;
+
 import com.woman.pojo.swiper;
 
 public interface swiperMapper {
@@ -50,4 +52,7 @@ public interface swiperMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(swiper record);
+    /*查询全部轮播图**/
+      List<swiper>  selectSwiper();
+   
 }

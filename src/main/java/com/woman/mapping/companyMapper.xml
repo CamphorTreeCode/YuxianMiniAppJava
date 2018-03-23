@@ -204,7 +204,13 @@
 		openid = #{openid,jdbcType=VARCHAR}
 		where companyId = #{companyid,jdbcType=INTEGER}
 	</update>
+    <select id="selectAll">
+    </select>
+	<select id="findByPage" resultMap="BaseResultMap">
+		select * from company WHERE 1=1 order by createTime desc
 
-
-
+		<if test="start!=null and size!=null">
+			LIMIT #{start},#{size}
+		</if>
+	</select>
 </mapper>

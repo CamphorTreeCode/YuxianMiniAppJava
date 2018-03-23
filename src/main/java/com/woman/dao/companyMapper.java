@@ -1,5 +1,7 @@
 package com.woman.dao;
 
+import java.util.List;
+
 import com.woman.pojo.company;
    
 public interface companyMapper {
@@ -52,4 +54,6 @@ public interface companyMapper {
     int updateByPrimaryKey(company record);
 //    查询公司名称
     int selectCompanyName(String name);
+//    查询的集合
+    List<company> findByPage();
 }

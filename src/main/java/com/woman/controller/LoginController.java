@@ -27,7 +27,7 @@ public class LoginController {
       return "redirect:/index.jsp";
 	 }
     //登录
-		@RequestMapping("/login")
+		@RequestMapping("login")
 		public String userLogin(String user_name,String user_password,String check,
 				HttpServletRequest request,HttpServletResponse response){
 			
@@ -61,7 +61,7 @@ public class LoginController {
 						response.addCookie(unCookie);
 						response.addCookie(pwCookie);
 						request.getSession().setAttribute("user_name", user.getAdminName());
-						 return "redirect:/blogsController/manageBlogs.htmls";
+						 return "redirect:/notice/index";
 					//}
 
 			 }

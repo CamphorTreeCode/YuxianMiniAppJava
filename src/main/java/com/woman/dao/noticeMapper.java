@@ -76,4 +76,8 @@ public interface noticeMapper {
     /*按状态查询  （草稿箱  待发布   已发布）*/
     
     List<notice> findByState(HashMap<String,Object> map);
+    /*查询阅读量**/   
+    notice selectViewCount(int noticeId);
+   /*增加阅读量**/
+    int updateViewCount(@Param("viewCount")int viewCount,@Param("noticeid")int noticeid);
 }

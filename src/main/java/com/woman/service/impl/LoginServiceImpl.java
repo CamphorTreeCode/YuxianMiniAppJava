@@ -16,6 +16,5 @@ public class LoginServiceImpl implements LoginService {
 		// TODO 自动生成的方法存根
 		return admin.selectAdmin(adm);
 	}
-
-
+  
 }

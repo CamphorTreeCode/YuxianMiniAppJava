@@ -27,5 +27,6 @@ public interface NoticeService {
     
     public int updateByPrimaryKeySelective(notice record);
 
-    
+     /* 增加阅读量**/
+    notice addViewCount(int id);
 }
