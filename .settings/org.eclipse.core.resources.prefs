@@ -2,6 +2,7 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://git.cloud.tencent.com/w602542704/regCompany.git
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/company/company.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/notice/wxIndex.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/text/text.jsp=UTF-8
 encoding//src/main/webapp/ind.jsp=UTF-8

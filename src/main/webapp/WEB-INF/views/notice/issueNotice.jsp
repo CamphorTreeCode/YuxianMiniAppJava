@@ -58,12 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      <div class="addIcon"><input type="file" name="file" class="file" onchange="imgPreview(this)" /></div>
                      <div class="del" style="display:none"></div>
                   </div>
-                </div>
-                
-             </div>
-            
-             <br />
-           
+                </div>               
+             </div>            
+             <br />         
           </div>
           <div>
         <script id="container" name="context" type="text/plain">
