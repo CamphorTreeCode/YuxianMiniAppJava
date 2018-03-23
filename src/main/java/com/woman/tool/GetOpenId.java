@@ -13,7 +13,7 @@ import net.sf.json.JSONObject;
  */
 public class GetOpenId {
 	//小程序的appid和sercet和URL
-	public static  String appid =  "wxbe3edd9434a14587 ";
+	public static  String appid =  "wxbe3edd9434a14587";
     public static  String secret =  "47b0814befd1ee161bdb32f462c65b71";
    public static String openidUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=APPSECRET&js_code=JS_code&grant_type=authorization_code";	
 

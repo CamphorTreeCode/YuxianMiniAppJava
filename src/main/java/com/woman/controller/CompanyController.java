@@ -63,9 +63,10 @@ private CompanyService companyService;
 	 }
     //查询公司页面
 		@RequestMapping(value="/companyPage",method=RequestMethod.GET)
-		public String companyPage(Model model){
+		public String companyPage(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,Model model){
 			
-//			model.addAttribute("companyPage",companyService.findByPage(currentPage));
+			 
+	System.out.println(companyService.selectCompanyAll(currentPage).getTotalCount());
 			return "company/company";
 		}
 //     //	查询公司全部的
