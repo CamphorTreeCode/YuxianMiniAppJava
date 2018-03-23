@@ -133,4 +133,8 @@
 	<select id="getByType" resultMap="BaseResultMap">
 	  select * from text where type=#{type}
 	</select>
+	
+	<select id="selectAll" resultMap="BaseResultMap">
+	  select * from text   order by textId desc limit 0,7		
+	</select>
 </mapper>

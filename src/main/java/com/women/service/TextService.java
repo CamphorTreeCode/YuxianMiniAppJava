@@ -1,5 +1,7 @@
 package com.women.service;
 
+import java.util.List;
+
 import com.woman.pojo.text;
 
 public interface TextService {
@@ -8,4 +10,5 @@ public interface TextService {
 	
 	public text getByType(int type);
 
+	public List<text> selectAll();
 }

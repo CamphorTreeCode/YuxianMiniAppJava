@@ -1,5 +1,7 @@
 package com.woman.dao;
 
+import java.util.List;
+
 import com.woman.pojo.text;
 
 public interface textMapper {
@@ -60,4 +62,7 @@ public interface textMapper {
     int updateByPrimaryKey(text record);
     /*根据类型获取选项信息*/
     text getByType(int type);
+    
+    //    查询全部
+    List<text> selectAll();
 }

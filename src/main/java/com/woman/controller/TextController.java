@@ -2,6 +2,7 @@ package com.woman.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,6 +46,18 @@ public class TextController {
 	@RequestMapping("/textindex")
 	public String textIndex(){
 		return "text/text";
+	}
+	
+   //查询全部
+	@RequestMapping("/selectAll")
+	public void selectAll(HttpServletResponse response) throws IOException{
+	     	System.out.println("查询全部");
+	    	List<text> t = textService.selectAll();
+		   response.setCharacterEncoding("utf-8");
+			JSONArray jsonArray = JSONArray.fromObject(t);
+			PrintWriter pw = response.getWriter();
+			pw.print(jsonArray);
+		
 	}
 	
 	

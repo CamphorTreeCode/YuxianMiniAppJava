@@ -1,5 +1,7 @@
 package com.woman.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,13 @@ public class TextServiceImpl implements TextService{
 	public text getByType(int type) {
 		// TODO Auto-generated method stub
 		return textMapper.getByType(type);
+	}
+    // 查询全部
+	@Override
+	public List<text> selectAll() {
+		// TODO 自动生成的方法存根
+		
+		return textMapper.selectAll();
 	}
 
 }
