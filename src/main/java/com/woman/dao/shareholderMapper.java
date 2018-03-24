@@ -54,4 +54,6 @@ public interface shareholderMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(shareholder record);
+     //    集合查询股东的id
+     List<shareholder> selectCompanyId(int companyid);
 }

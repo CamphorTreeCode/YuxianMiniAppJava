@@ -64,9 +64,8 @@ private CompanyService companyService;
     //查询公司页面
 		@RequestMapping(value="/companyPage",method=RequestMethod.GET)
 		public String companyPage(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,Model model){
-			
-			 
-	System.out.println(companyService.selectCompanyAll(currentPage).getTotalCount());
+			model.addAttribute("companyPage",companyService.selectCompanyAll(currentPage));
+			System.out.println("公司分页");
 			return "company/company";
 		}
 //     //	查询公司全部的
@@ -76,3 +75,5 @@ private CompanyService companyService;
 //			return "company/company";
 //		}
 	 }
+       // 查询单个页面
+

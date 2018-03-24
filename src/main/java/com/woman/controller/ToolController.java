@@ -3,22 +3,32 @@ package com.woman.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.woman.pojo.company;
 import com.woman.tool.DateTime;
+import com.woman.tool.WordUtils;
+import com.women.service.CompanyService;
 
 @Controller
 @RequestMapping("/tool")
 public class ToolController {
 	// 上传文件存储目录
+	 @Autowired
+	 private CompanyService companyService;
     private   String UPLOAD_DIRECTORY = DateTime.getDay();  
 		//查询栏目列
 		 @RequestMapping("/addImg")  
@@ -64,7 +74,7 @@ public class ToolController {
 		        
 		        //注意路径http://www.chuanshoucs.com/  http://shensu.free.ngrok.cc/
 		        String mypath1 = mypath.replace("\\Maven_Project","");		        		        
-		        imgpath=imgpath.replace(mypath1,"http://www.chuanshoucs.com/");
+		        imgpath=imgpath.replace(mypath1,"https://www.chuanshoucs.com/");
 		        System.out.println(">>>>"+imgpath);	
 		        imgpath = imgpath.replaceAll("\\\\","/");
 		        }      
@@ -72,4 +82,23 @@ public class ToolController {
 				pw.print(imgpath);
 			
 		 }
+		 //word的文档
+	 
+	    @RequestMapping(value = "exportMillCertificate", method = RequestMethod.GET)  
+	    @ResponseBody  
+	    public void exportMillCertificate(int companyId,HttpServletRequest request,  
+	                      HttpServletResponse response) throws Exception {  
+	    	 //list文档下载
+	    	
+    	company c =   companyService.comList(companyId);
+	        //获得数据，系统相关，就不展示了  
+	        Map<String, Object> map = new HashMap<String, Object>();  
+	        map.put("companyname",c.getCompanyname());  
+	        map.put("remarkname",c.getRemarkname());  
+	        map.put("enterprisetype",c.getEnterprisetype());  
+	        map.put("registeredcapital",c.getRegisteredcapital());
+//	        map.put("businessscope",c.getregisteredcapital());  
+//	        map.put("remarkname",c.getRegisteredcapital());
+	        WordUtils.exportMillCertificateWord(request,response,map);  
+	    }  
 }

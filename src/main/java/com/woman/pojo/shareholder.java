@@ -18,6 +18,7 @@ public class shareholder implements Serializable {
      *
      * @mbggenerated
      */
+    
     private String name;
 
     /**

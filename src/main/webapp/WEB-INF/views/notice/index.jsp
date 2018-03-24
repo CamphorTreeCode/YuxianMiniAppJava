@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div  class="top"><img src="img/微信图片_20180313180704.png" />小程序后台</div>
        <div class="content">
        <div class="left">
-          
+              
             <a href="../notice/wxIndex" target="if"><li class="wxIndex"><div class="icon"></div>小程序首页</li></a>
             <div class="../noticeList">
                <a href="../notice/addnotice" target="if"><li class="notice"><div class="icon"></div><div>公告发布</div><div class="icon" id="xhicon"></div></li></a>

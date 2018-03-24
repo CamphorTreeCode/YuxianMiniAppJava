@@ -13,4 +13,7 @@ public interface CompanyService {
   int selectCompanyName(String name);
 //  分页查询公司
   Page<company> selectCompanyAll(int currentPage);
+  
+//  公司查询公司股东
+  company comList(int companyId);
 }

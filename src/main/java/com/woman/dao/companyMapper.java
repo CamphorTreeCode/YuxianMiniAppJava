@@ -59,4 +59,6 @@ public interface companyMapper {
     List<company> findByPage(HashMap<String,Object> map);
 //    查询总条数
     int SelectCount();
+//    更加id查询公司和股东
+    company selectCompanyId(int companyId);
 }

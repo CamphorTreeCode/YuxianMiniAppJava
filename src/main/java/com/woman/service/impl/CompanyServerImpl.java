@@ -74,7 +74,7 @@ public class CompanyServerImpl implements CompanyService {
         pageBean.setCurrPage(currentPage);
 
         //每页显示的数据
-        int pageSize=5;
+        int pageSize=3;
         pageBean.setPageSize(pageSize);
 
         //封装总记录数
@@ -93,6 +93,16 @@ public class CompanyServerImpl implements CompanyService {
         pageBean.setLists(lists);
 
         return pageBean;
+	}
+    //	更加id查询公司和comid
+	@Override
+	public company comList(int companyId) {
+	
+		// TODO 自动生成的方法存根
+		company c =companyMapper.selectCompanyId(companyId);
+		
+		 c.setShareholder(shar.selectCompanyId(companyId));
+		return c;
 	}
 
 }

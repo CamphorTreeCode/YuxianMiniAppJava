@@ -219,4 +219,9 @@
 	<select id="SelectCount" resultType="Integer" parameterType="Integer">
 		select count(companyid) from company where 1=1
 	</select>
+	
+	<!-- 查询公司的id -->
+	<select id="selectCompanyId" resultType="com.woman.pojo.company" parameterType="Integer">
+		select * from company where companyid=#{companyId}
+	</select>
 </mapper>
