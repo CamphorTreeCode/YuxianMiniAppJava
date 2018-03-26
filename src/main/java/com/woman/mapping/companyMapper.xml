@@ -17,6 +17,7 @@
 		<result column="linkman" property="linkman" jdbcType="VARCHAR" />
 		<result column="linkPhone" property="linkphone" jdbcType="VARCHAR" />
 		<result column="createTime" property="createtime" jdbcType="VARCHAR" />
+		<result column="showState" property="showState" jdbcType="INTEGER" />
 		<result column="openid" property="openid" jdbcType="VARCHAR" />
 		<!-- <association property="shareholder" javaType="com.woman.pojo.shareholder"> 
 			<id property="shareholderid" column="shareholderid" jdbcType="INTEGER" /> 
@@ -66,13 +67,13 @@
 		insert into company (companyName, remarkName,
 		enterpriseType, registeredCapital, businessScope,
 		companyType, linkman, linkPhone,
-		createTime, openid)
+		createTime, showState,openid)
 		values (#{companyname,jdbcType=VARCHAR}, #{remarkname,jdbcType=VARCHAR},
 		#{enterprisetype,jdbcType=VARCHAR},
 		#{registeredcapital,jdbcType=INTEGER},
 		#{businessscope,jdbcType=VARCHAR},
 		#{companytype,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, #{linkphone,jdbcType=VARCHAR},
-		#{createtime,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR})
+		#{createtime,jdbcType=VARCHAR},#{showState,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR})
 	</insert>
 	<!--增加公司 end -->
 	<insert id="insertSelective" parameterType="com.woman.pojo.company">
@@ -223,5 +224,13 @@
 	<!-- 查询公司的id -->
 	<select id="selectCompanyId" resultType="com.woman.pojo.company" parameterType="Integer">
 		select * from company where companyid=#{companyId}
+	</select>
+	<!-- 修改查看的状态 -->
+	<update id="updateState" parameterType="Integer">
+	update company set showState=1 where companyid=#{companyId}
+	</update>
+	<!--查询未查看状态  -->
+		<select id="selectState" resultType="Integer" >
+		select count(companyid) from company where showState=0
 	</select>
 </mapper>

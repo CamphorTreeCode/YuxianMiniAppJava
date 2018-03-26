@@ -148,16 +148,23 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
     margin-right:8%;
     text-decoration:none;
   }
+  .lhight li{
+  line-height: 50px;}
 </style>
 
 <script>
 
  $(function(){
  var url = "http://localhost/Maven_Project/"
- 
+   //显示公司详细信息
  $('.show').click(function(){
 //var myid= e.currentTarget.dataset.value;
        var p = $(this).attr('data');
+       var showState = $(this).attr('datb');
+         console.log(p,showState)
+         if(showState==0){
+          $(this).text("查看");
+         }
      //  alert(p)
      var that =this
      if($(that).parent().parent().parent().find(".showValue").css("display")=="none"){
@@ -165,12 +172,12 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
                 type:'get',  
                 url:url+"shareholder/selectShareholder",  
                 dataType:'json',  
-                data:{companyid:p},  
+                data:{companyid:p,showState:showState},  
                 beforeSend:function(){  
                  //   obj.html('正在处理...');  
                 },success:function(json){  
                    console.log(json)
-                 if($("#ids").length>0){
+                 if($("#ids"+p).length>0){
                  console.log(111)
         
                  }else{
@@ -181,7 +188,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
                  var sex = json[index].Sex; */
                  console.log(item)
              $(that).parent().parent().parent().find(".showValue").append(
-                   "<div id='ids' class='oneList cl ''><div class='showName lf '>股东姓名：</div><div class='showNameValue lf'>"+item.name+"</div></div>"
+                   "<div id='ids"+p+"' class='oneList cl ''><div class='showName lf '>股东姓名：</div><div class='showNameValue lf'>"+item.name+"</div></div>"
                       +"<div  class='oneList cl '><div class='showName lf '>股东电话：</div><div class='showNameValue lf'>"+item.phone+"</div></div>"
                        +"<div  class='oneList cl '><div class='showName lf '>股东邮箱：</div><div class='showNameValue lf'>"+item.email+"</div></div>"
                         +"<div  class='oneList cl '><div class='showName lf '>股东比例：</div><div class='showNameValue lf'>"+item.holdscale+"</div></div>"
@@ -189,7 +196,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
                 
              });    
            $(that).parent().parent().parent().find(".showValue").append(
-               "<div class='butDown boxCenter'>" 
+               "<div id='ids"+p+"' class='butDown boxCenter'>" 
 	                +"<a id='downWd' data='"+p+"' class='downWd lf'  href='"+url+"tool/exportMillCertificate?companyId="+p+"'>下载文档</a>"
 	                +"<a id='downId' data='"+p+"' href='"+url+"tool/downloadImg?companyId="+p+"' class='downIdcard downWd lf'>下载身份证</a>"
 	              +"</div>"
@@ -233,32 +240,11 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
                 })      
                    
              }) */
-    $(document).on('click','#downId',function(e){
-      var p = $(this).attr('data');
-               alert(p);
-              DownLoadReportIMG("http://s9.cdn.deahu.com/jingyan/image_cluster/2017-11-02/20/18566737_4C3FD82D495C8B69558AAC634244A458.jpg");
-               console.log(e)        
-             })
+
              
              
-      function DownLoadReportIMG(imgPathURL) {
-         
-        //如果隐藏IFRAME不存在，则添加
-        if (!document.getElementById("IframeReportImg"))
-            $('<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" onload="DoSaveAsIMG();" width="0" height="0" src="about:blank"></iframe>').appendTo("body");
-        if (document.all.IframeReportImg.src != imgPathURL) {
-            //加载图片
-            document.all.IframeReportImg.src = imgPathURL;
-        }
-        else {
-            //图片直接另存为
-            DoSaveAsIMG();  
-        }
-    }
-    function DoSaveAsIMG() {
-        if (document.all.IframeReportImg.src != "about:blank")
-            document.frames("IframeReportImg").document.execCommand("SaveAs");        
-    }
+ 
+
 
 }) 
 
@@ -281,12 +267,12 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
           <div class="listTitle valueListTitle">
           
            
-              <ul class="property box">
+              <ul class="property lhight box">
               <li>${i.index+1}</li>
               <li>${company.companyname}</li>
               <li>${company.linkphone}</li>
               <li>${company.createtime}</li>
-              <li><span class="show" data = "${company.companyid}">查看</span></li>          
+              <li><span class="show" data = "${company.companyid}" datb = "${company.showState}"> ${company.showState==0?"未查看":"查看"}</span></li>          
            </ul>
            
       

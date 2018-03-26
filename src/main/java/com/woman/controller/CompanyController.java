@@ -45,6 +45,7 @@ private CompanyService companyService;
      //2.	 改变对象数据
 	    String jscode = company.getJscode();
 		company.setOpenid(GetOpenId.getOpenid(jscode)); 
+		company.setShowState(0);
      //3.  查询数据
 		   long starTime = System.currentTimeMillis();
 		int num = companyService.selectCompanyName(company.getCompanyname());

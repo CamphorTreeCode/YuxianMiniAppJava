@@ -16,4 +16,8 @@ public interface CompanyService {
   
 //  公司查询公司股东
   company comList(int companyId);
+//  修改公司查看的状态
+  int updataState(int companyId);
+//  查询未读的公司状态
+  int selectState();
 }

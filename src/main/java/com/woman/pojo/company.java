@@ -98,9 +98,17 @@ public class company implements Serializable {
     private  List<shareholder>  shareholder;
     
 
+  private int showState;
 
 
 
+	public int getShowState() {
+	return showState;
+}
+
+public void setShowState(int showState) {
+	this.showState = showState;
+}
 
 	public List<shareholder> getShareholder() {
 		return shareholder;

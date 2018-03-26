@@ -61,4 +61,8 @@ public interface companyMapper {
     int SelectCount();
 //    更加id查询公司和股东
     company selectCompanyId(int companyId);
+//   修改查看状态
+    int updateState(int companyId);
+    //查询未查看的计数
+    int selectState();
 }
