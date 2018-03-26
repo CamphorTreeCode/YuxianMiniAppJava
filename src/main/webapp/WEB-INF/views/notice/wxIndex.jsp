@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <h4><div class="icon"></div>消息提醒</h4>
                <div class="information">
                    <h1>工商注册:</h1>
-                   <h1><span>30</span>条信息</h1>
+                   <h1><a class="aspan" style="color:#FB1414" href="../company/companyPage">${requestScope.stateNumber}</a> 条新信息</h1>
                </div>
              </div>
              <div class="module">

@@ -90,4 +90,6 @@
 		<select id="selectSwiper" resultMap="BaseResultMap">
         select * from swiper   order by createTime desc limit 0,3		
 	   </select>
+	   <select id="orderById" resultMap="BaseResultMap"> select * from swiper order by swiperid asc limit 0,3 </select>
+	   
 </mapper>

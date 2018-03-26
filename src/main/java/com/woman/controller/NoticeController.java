@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.woman.pojo.notice;
 import com.woman.tool.DateTime;
 import com.woman.tool.UploadHelper;
+import com.women.service.CompanyService;
 import com.women.service.NoticeService;
 
 import net.sf.json.JSONArray;
@@ -28,16 +29,18 @@ import net.sf.json.JSONArray;
 public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
+	@Autowired
+	 private CompanyService companyService;
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(){
 		System.out.println("*************************************");
-		
+	
 		return "notice/index";
 	}
 	@RequestMapping(value="/wxIndex",method=RequestMethod.GET)
-	public String wxIndex(){
+	public String wxIndex(Model model){
 		System.out.println("*************************************");
-		
+		model.addAttribute("stateNumber", companyService.selectState());
 		return "notice/wxIndex";
 	}
 	/*跳转公告添加页面*/

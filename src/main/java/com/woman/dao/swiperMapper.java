@@ -54,5 +54,5 @@ public interface swiperMapper {
     int updateByPrimaryKey(swiper record);
     /*查询全部轮播图**/
       List<swiper>  selectSwiper();
-   
+      List<swiper> orderById();
 }
