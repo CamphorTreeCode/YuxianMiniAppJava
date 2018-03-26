@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -38,9 +41,9 @@ public class WordUtils {
     private WordUtils() {  
         throw new AssertionError();  
     }  
-  
+     // 生产word响应  
     public static void exportMillCertificateWord(HttpServletRequest request, HttpServletResponse response, Map<String, Object> map) throws IOException {  
-        Template freemarkerTemplate = configuration.getTemplate("test.ftl","UTF-8");  
+        Template freemarkerTemplate = configuration.getTemplate("companys.ftl","UTF-8");  
         File file = null;  
         InputStream fin = null;  
         ServletOutputStream out = null;  
@@ -52,9 +55,9 @@ public class WordUtils {
             response.setCharacterEncoding("utf-8");  
             response.setContentType("application/msword");  
             // 设置浏览器以下载的方式处理该文件名  
-            String fileName = "申请注册公司"+DateTime.getDay()+ ".doc";  
-            response.setHeader("Content-Disposition", "attachment;filename="  
-                    .concat(String.valueOf(URLEncoder.encode(fileName, "UTF-8"))));   
+            String fileName = map.get("companyName")+"申请注册公司信息"+DateTime.getDay()+".doc";  
+            response.setHeader("Content-Disposition", "attachment;filename="+URLEncoder.encode(fileName, "UTF-8"));   
+          
             out = response.getOutputStream();  
             byte[] buffer = new byte[512];  // 缓冲区  
             int bytesToRead = -1;  
@@ -62,6 +65,7 @@ public class WordUtils {
             while((bytesToRead = fin.read(buffer)) != -1) {  
                 out.write(buffer, 0, bytesToRead);  
             }
+            System.out.println("文档传递完成");
             
         } finally {  
             if(fin != null) fin.close();  
@@ -69,7 +73,7 @@ public class WordUtils {
    //         if(file != null) file.delete(); // 删除临时文件  
         }  
     }  
-  
+//   创建word
     private static File createDoc(Map<String, Object> map, Template template) {  
         String name =  "D:\\tomcat\\test.doc";  
         File f = new File(name);  
@@ -87,4 +91,6 @@ public class WordUtils {
         }  
         return f;  
     }  
+    
+
 } 

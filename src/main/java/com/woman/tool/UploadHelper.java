@@ -2,8 +2,12 @@ package com.woman.tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.UUID;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,6 +65,21 @@ public class UploadHelper {
 	
         
 	}
+    //	    图片压缩下载工具
+  public static void downImg(String name,String imgurl, ZipOutputStream zos) throws IOException{
+  	
+      URL url = new URL(imgurl);
+      zos.putNextEntry(new ZipEntry(name+".jpg"));
+      //FileInputStream fis = new FileInputStream(new File(files[i]));  
+      InputStream fis = url.openConnection().getInputStream();   
+      byte[] buffer = new byte[1024];     
+      int r = 0;     
+      while ((r = fis.read(buffer)) != -1) {     
+          zos.write(buffer, 0, r);     
+      }     
+      fis.close();
+    
+  }
 	
 
 }

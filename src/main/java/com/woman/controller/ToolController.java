@@ -3,9 +3,13 @@ package com.woman.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,11 +19,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.woman.pojo.company;
+import com.woman.pojo.shareholder;
 import com.woman.tool.DateTime;
+import com.woman.tool.UploadHelper;
 import com.woman.tool.WordUtils;
 import com.women.service.CompanyService;
 
@@ -84,21 +89,50 @@ public class ToolController {
 		 }
 		 //word的文档
 	 
-	    @RequestMapping(value = "exportMillCertificate", method = RequestMethod.GET)  
-	    @ResponseBody  
+	    @RequestMapping(value = "exportMillCertificate", method = RequestMethod.GET)   
 	    public void exportMillCertificate(int companyId,HttpServletRequest request,  
 	                      HttpServletResponse response) throws Exception {  
 	    	 //list文档下载
 	    	
-    	company c =   companyService.comList(companyId);
+        	company  c=   companyService.comList(companyId);
 	        //获得数据，系统相关，就不展示了  
 	        Map<String, Object> map = new HashMap<String, Object>();  
-	        map.put("companyname",c.getCompanyname());  
-	        map.put("remarkname",c.getRemarkname());  
-	        map.put("enterprisetype",c.getEnterprisetype());  
-	        map.put("registeredcapital",c.getRegisteredcapital());
+	        map.put("company",c);  
+	        map.put("shareList",c.getShareholder());
+	        map.put("companyName",c.getCompanyname());
 //	        map.put("businessscope",c.getregisteredcapital());  
 //	        map.put("remarkname",c.getRegisteredcapital());
 	        WordUtils.exportMillCertificateWord(request,response,map);  
 	    }  
+	    
+	    //图片下载
+	  
+		@RequestMapping(value = "downloadImg", method = RequestMethod.GET)  
+	    public void download( int companyId,HttpServletRequest request, HttpServletResponse response) throws IOException{
+	    	company  c=   companyService.comList(companyId);
+	
+          
+                String downloadFilename = c.getCompanyname()+"公司股东身份证打包"+DateTime.getDay()+".zip";//文件的名称
+                downloadFilename = URLEncoder.encode(downloadFilename, "UTF-8");//转换中文否则可能会产生乱码
+                response.setContentType("application/octet-stream");// 指明response的返回对象是文件流 
+                response.setHeader("Content-Disposition", "attachment;filename=" + downloadFilename);// 设置在下载框默认显示的文件名
+                ZipOutputStream zos = new ZipOutputStream(response.getOutputStream());
+                 
+                List<shareholder> sharList = c.getShareholder();
+                int number= 0;
+                for (shareholder shareholder : sharList) {
+                	
+                	UploadHelper.downImg(shareholder.getName()+"的正面身份证"+(number++),shareholder.getIdimgZ(),zos);
+                	UploadHelper.downImg(shareholder.getName()+"的反面身份证"+(number++),shareholder.getIdimgF(),zos);
+                }
+            
+                zos.flush();     
+                zos.close();
+               
+        
+    }
+            
+           
+       
+
 }

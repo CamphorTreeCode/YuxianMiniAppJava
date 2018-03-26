@@ -68,7 +68,7 @@
      height: 35px;
     border: 1px solid #EEE;
     border-bottom:none;
-    width:80%;
+    width:89%;
     background:#fff;
     }
  .property li{
@@ -107,7 +107,7 @@ text-overflow:ellipsis;
           margin-top: 1.5%;
   }
   .showValue{
-position: fixed;width:80%;background:#fff;display:none;
+position: fixed;width:88%;background:#fff;display:none;
 box-shadow:0px 0px  10px 5px #DCDCDD;
     margin-left: 0.8%;
   }
@@ -146,13 +146,14 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
     text-align: center;
         margin-left: 8%;
     margin-right:8%;
+    text-decoration:none;
   }
 </style>
 
 <script>
 
  $(function(){
-
+ var url = "http://localhost/Maven_Project/"
  
  $('.show').click(function(){
 //var myid= e.currentTarget.dataset.value;
@@ -162,7 +163,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
      if($(that).parent().parent().parent().find(".showValue").css("display")=="none"){
      $.ajax({  
                 type:'get',  
-                url:"http://localhost/Maven_Project/shareholder/selectShareholder",  
+                url:url+"shareholder/selectShareholder",  
                 dataType:'json',  
                 data:{companyid:p},  
                 beforeSend:function(){  
@@ -189,8 +190,8 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
              });    
            $(that).parent().parent().parent().find(".showValue").append(
                "<div class='butDown boxCenter'>" 
-	                +"<div id='downWd' data='"+p+"' class='downWd lf '>下载文档</div>"
-	                +"<div id='downId' data='"+p+"' class='downIdcard downWd lf '>下载身份证</div>"
+	                +"<a id='downWd' data='"+p+"' class='downWd lf'  href='"+url+"tool/exportMillCertificate?companyId="+p+"'>下载文档</a>"
+	                +"<a id='downId' data='"+p+"' href='"+url+"tool/downloadImg?companyId="+p+"' class='downIdcard downWd lf'>下载身份证</a>"
 	              +"</div>"
               +"</div> "
                )
@@ -214,12 +215,12 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
 }) 
    
 
-     $(document).on('click','#downWd',function(e){
+  /*    $(document).on('click','#downWd',function(e){
       var p = $(this).attr('data');
                alert(p)  
                console.log(e)    
           $.ajax({  
-                type:'get',  
+                type:'POST',  
                 url:"http://localhost/Maven_Project/tool/exportMillCertificate",  
                 dataType:'json',  
                 data:{companyId:p},  
@@ -231,7 +232,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
                 }
                 })      
                    
-             })
+             }) */
     $(document).on('click','#downId',function(e){
       var p = $(this).attr('data');
                alert(p);
@@ -272,7 +273,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
               <li>顺序</li>
               <li>名称</li>
               <li>联系方式</li>
-              <li>公司类别</li>
+              <li>公司申请时间</li>
               <li></li>
            </ul>
           </div>
@@ -284,7 +285,7 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
               <li>${i.index+1}</li>
               <li>${company.companyname}</li>
               <li>${company.linkphone}</li>
-              <li>${company.companytype}</li>
+              <li>${company.createtime}</li>
               <li><span class="show" data = "${company.companyid}">查看</span></li>          
            </ul>
            
@@ -310,6 +311,10 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
 	               <div class="oneList businessscope cl ">
 	               <div class="showName lf ">经营范围：</div>
 	               <div class="showNameValue lf">${company.businessscope}</div>
+	              </div>
+	               <div class="oneList businessscope cl ">
+	               <div class="showName lf ">公司类别：</div>
+	               <div class="showNameValue lf">${company.companytype}</div>
 	              </div>
 	        
               </div> 
