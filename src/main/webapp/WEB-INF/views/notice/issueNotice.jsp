@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>玉先后台</title>
 </head>
    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
    <script type="text/javascript" src="js/issueNotice.js"></script>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
           </div>
           <div class="foot">
-             <input type="submit" value="确认提交" name="submit" onclick="this.form.action='../notice/submit'"/ >
+             <input type="submit" value="确认提交" name="submit" onclick="this.form.action='../notice/submit'" onclick="this.disable=true"/ >
              <input type="submit" value="存草稿箱" name="wait"/>
           </div>
       </div>

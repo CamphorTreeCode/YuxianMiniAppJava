@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-	var ue = UE.getEditor('container');
+	 var ue = UE.getEditor('container');
 	  $(".del").click(function(){ 
 		  $("#preview").hide();
 		  $(".addIcon").show();
@@ -25,12 +25,8 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
-		  if(marker==true){
-			  this.disabled=true;
-			  
-			  
-		  }
-		  alert(this.disabled)
+		 
+		  
 		  return marker;
 		  
 	 
@@ -43,11 +39,7 @@ $(function(){
 			  marker=false;
 			  alert("标题不能为空")  
 		  }
-		  if(marker==true){
-			  this.disabled=true;
-			 
-		  }
-		  alert(this.disabled)
+		
 		  return marker;
 		  
 	  })
@@ -68,11 +60,8 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
-		  if(marker==true){
-			  this.disabled=true;
-			  
-		  }
-		  alert(this.disabled)
+		
+		  
 		  return marker;
 		  
 		  
