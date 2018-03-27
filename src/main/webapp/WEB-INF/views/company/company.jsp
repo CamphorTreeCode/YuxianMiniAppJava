@@ -24,6 +24,29 @@
 	<script type="text/javascript">
 	   window.onload=function(){
 	       parent.regist()
+	       var a=$("[name=ym]").val();
+    var b=$("[name=zys]").val();
+    if(b<=5){
+       $(".pageNumber")[a-1].setAttribute("class","click");
+        $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+    }
+    if(b>5){
+        if(b-a>=2){
+	        if(a>=4){
+	            $(".pageNumber")[2].setAttribute("class","click");
+	             $(".pageNumberA")[2].setAttribute("class","clickNumber");
+	        }
+	        
+	        if(a<4){
+	            $(".pageNumber")[a-1].setAttribute("class","click");
+	             $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+	        }
+        }else{
+             $(".pageNumber")[5-(b-a)-1].setAttribute("class","click");
+              $(".pageNumberA")[5-(b-a)-1].setAttribute("class","clickNumber");
+        }
+       
+    }
 	   }
 	</script>
 <style>
@@ -155,12 +178,21 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
   }
   .lhight li{
   line-height: 50px;}
+  .index{ width:930px;padding-left:230px; margin-top:10px;}
+.index li{ float:left; width:25px; height:25px; border-radius:5px; border:1px solid #1897DA; margin:10px; text-align:center; line-height:25px;}
+.click{background:#1897DA;}
+.clickNumber{color:#fff;}
+a.pageNumberA{color:#1897DA;}
+#ym{ width:100px;text-align:center;}
+#front{ background-image:url("../notice/img/next2.png"); background-size:200px 200px; background-position:50% 50%; border:none;width:27px; height:27px;}
+#rear{  background-image:url('../notice/img/next.png'); background-size:200px 200px; background-position:50% 50%;  border:none;width:27px; height:27px;margin-bottom:2px;}
+*{ list-style:none;}
 </style>
 
 <script>
 
  $(function(){
- var url = "http://localhost/Maven_Project/"
+ var url = "https://www.chuanshoucs.com/Maven_Project/"
    //显示公司详细信息
  $('.show').click(function(){
 //var myid= e.currentTarget.dataset.value;
@@ -312,26 +344,65 @@ box-shadow:0px 0px  10px 5px #DCDCDD;
            </div>
          </c:forEach>
        
-         <div class="selectPage boxCenter">
-         			<span>第${requestScope.companyPage.currPage }/ ${requestScope.companyPage.totalPage}页</span>&nbsp;&nbsp;
-			  		 <span>总记录数：${requestScope.companyPage.totalCount }&nbsp;&nbsp;每页显示:${requestScope.companyPage.pageSize}</span>
-			   		<span>
-			     		<span>
-				       		<c:if test="${requestScope.companyPage.currPage != 1}">
-				           	<a href="${pageContext.request.contextPath }/company/companyPage?currentPage=1" style=color:#2497DA;">[首页]</a>&nbsp;&nbsp;
-				           	<a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.companyPage.currPage-1}" style="color:#2497DA;">[上一页]</a>&nbsp;&nbsp;
-				      		</c:if>
-				       </span>
-						<span>
-				       		<c:if test="${requestScope.companyPage.currPage != requestScope.companyPage.totalPage}">
-				           	<a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.companyPage.currPage+1}"
-				           	style="color:#2497DA;">[下一页]</a>&nbsp;&nbsp;
-				           	<a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.companyPage.totalPage}"
-				           	style="color:#2497DA;">[尾页]</a>&nbsp;&nbsp;
-				       </c:if>
-				       </span>
-			   		</span> 
-        	</div>
+         <div class="index">
+                    <c:if test="${requestScope.companyPage.currPage != 1}">
+                    <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.noticePage.currPage-1}" style="color:#000;">
+                    <li id="front"></li>
+                    </a>
+                    </c:if>
+                    
+                    
+                    <c:if test="${requestScope.companyPage.totalPage<=5}">
+	                    <c:forEach  var="i" begin="1" end="${requestScope.companyPage.totalPage}" step="1">
+	                       <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${i}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+	                    
+	                    </c:forEach>
+                    </c:if>
+                    <c:if test="${requestScope.companyPage.totalPage>5}">
+                    
+                        <c:if test="${requestScope.companyPage.currPage==1 || requestScope.companyPage.currPage ==2}">
+		                    <c:forEach  var="i" begin="1" end="5" step="1">
+		                       <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${i}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+		                    
+		                    </c:forEach>
+	                    </c:if>
+                        <c:if test="${requestScope.companyPage.currPage>2}">
+		                    <c:if test="${requestScope.companyPage.totalPage-requestScope.companyPage.currPage<=2}">
+			                    <c:forEach  var="i" begin="${requestScope.companyPage.totalPage-4}" end="${requestScope.companyPage.totalPage}" step="1">
+			                       <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${i}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+			                    
+			                    </c:forEach>
+		                    </c:if>
+		                    <c:if test="${requestScope.companyPage.totalPage-requestScope.companyPage.currPage>2}">
+			                    <c:forEach  var="i" begin="${requestScope.companyPage.currPage-2}" end="${requestScope.companyPage.currPage+2}" step="1">
+			                       <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${i}" class="pageNumberA"><li class="pageNumber">${i}</li></a>
+			                    
+			                    </c:forEach>
+		                    </c:if>
+	                    
+	                   </c:if>
+	                    
+                    </c:if>
+                    
+                    
+                    
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+                    <c:if test="${requestScope.companyPage.currPage != requestScope.companyPage.totalPage}">
+                    <a href="${pageContext.request.contextPath }/company/companyPage?currentPage=${requestScope.noticePage.currPage+1}"
+				           	style="color:#000;">
+                    <li id="rear"></li>
+                    </a>
+                    </c:if>
+                    <li id="ym"><span>第${requestScope.companyPage.currPage }/ ${requestScope.companyPage.totalPage}页</span>&nbsp;&nbsp;</li>
+                    <input type="hidden" name="ym" value="${ requestScope.companyPage.currPage }">
+                    <input type="hidden" name="zys" value="${requestScope.companyPage.totalPage}">
+          </div>
      </div>
   </body>
 </html>

@@ -78,10 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <ul class="context">
                      <li>${notice.noticeid}</li>
 		              <li>${notice.title }</li>
-		              <li class="img"><img src="http://shensu.free.ngrok.cc/RegistCompanyIMG\2018-03-13\e6e45891-d2c2-414d-bb91-96fe2df8ef6a.png" /></li>
+		              <li class="img"><img style="width: 100%; height: 100%;"src="${notice.img}" /></li>
 		              <li>${notice.createtime }</li>
 		              <li>
-		              <a href="../notice/look?id=${notice.noticeid}" style="color:#999">查看</a>
+		              <a href="../notice/look?id=${notice.noticeid}" style="color:#2497DA">查看</a>
 		              <a href="../notice/del?id=${notice.noticeid}&&state=${state}" style="color:red" id="delList">删除</a>   
 		              </li>
                    </ul>

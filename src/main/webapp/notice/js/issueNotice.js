@@ -10,6 +10,7 @@ $(function(){
 	  $("[name=title]").attr({maxlength:"20"});
 	  
 	  $("[name=submit]").click(function(){
+		  
 		  var marker=true;
 		  if($("[name=title]").val().length==0){
 			  marker=false;
@@ -24,17 +25,29 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
+		  if(marker==true){
+			  this.disabled=true;
+			  
+			  
+		  }
+		  alert(this.disabled)
 		  return marker;
 		  
 	 
 		  
 	  })
 	  $("[name=wait]").click(function(){
+		  
 		  var marker=true;
 		  if($("[name=title]").val().length==0){
 			  marker=false;
 			  alert("标题不能为空")  
 		  }
+		  if(marker==true){
+			  this.disabled=true;
+			 
+		  }
+		  alert(this.disabled)
 		  return marker;
 		  
 	  })
@@ -55,6 +68,11 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
+		  if(marker==true){
+			  this.disabled=true;
+			  
+		  }
+		  alert(this.disabled)
 		  return marker;
 		  
 		  
