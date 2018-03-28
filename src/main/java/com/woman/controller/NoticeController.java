@@ -1,7 +1,5 @@
 package com.woman.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -16,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.woman.pojo.notice;
 import com.woman.tool.DateTime;
+import com.woman.tool.Token;
 import com.woman.tool.UploadHelper;
 import com.women.service.CompanyService;
 import com.women.service.NoticeService;
 
 import net.sf.json.JSONArray;
+
+
 
 @Controller
 @RequestMapping("/notice")
@@ -43,16 +45,21 @@ public class NoticeController {
 		model.addAttribute("stateNumber", companyService.selectState());
 		return "notice/wxIndex";
 	}
+	
 	/*跳转公告添加页面*/
+	@Token(save=true)
 	@RequestMapping(value="/addnotice",method=RequestMethod.GET)
 	public String add(){
 		
 		
 		return "notice/issueNotice";
 	}
+
 	/*添加公告*/
+	@Token(remove=true)
 	@RequestMapping(value="/addnotice",method=RequestMethod.POST)
 	public String addsave(notice n,MultipartFile file,HttpServletRequest request) throws IOException{
+		
 		System.out.println("进来博客添加》》》》》》》》》》》》》");
 		String img=UploadHelper.upload(file, request);
 		System.out.println(img);
@@ -104,6 +111,7 @@ public class NoticeController {
 		model.addAttribute("state",state);
 		 return "notice/look";
 	}
+	@Token(remove=true)
 	@RequestMapping("/submit")
 	public String submit(notice n,MultipartFile file,HttpServletRequest request,String file1)throws IOException{
 		System.out.println("***********************************");
@@ -127,6 +135,7 @@ public class NoticeController {
 		}
 		return "redirect:getbystate?state=2";
 	}
+	@Token(remove=true)
 	@RequestMapping(value="/wait",method=RequestMethod.POST)
 	public String wait(notice n,MultipartFile file,HttpServletRequest request,String file1) throws IOException{
 		System.out.println("***********************************");
@@ -145,6 +154,7 @@ public class NoticeController {
 		return "redirect:getbystate";
 	}
      //	增加浏览量
+	
 	@RequestMapping("/addViewCount")
 	public void  addViewCount(int noticeId,HttpServletResponse response)throws IOException{
 		

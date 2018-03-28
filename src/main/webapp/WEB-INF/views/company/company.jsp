@@ -10,7 +10,7 @@
   <head>
  
     
-    <title>My JSP 'company.jsp' starting page</title>
+    <title>玉先后台</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">

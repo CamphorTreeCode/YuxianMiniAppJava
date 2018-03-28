@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/issueNotice.js"></script>
    <link rel="stylesheet" href="css/issueNotice.css" type="text/css" />
    <script type="text/javascript">
-              function imgPreview(fileDom){
+         function imgPreview(fileDom){
 				 $("#preview").show();
         //判断是否支持FileReader
         if (window.FileReader) {
@@ -45,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
 <body>
    <form method="post" enctype="multipart/form-data" action="../notice/addnotice">  
+   <input type="hidden" name="token" value="${token}" />
       <div class="content">
           <input type="hidden" name="state" value="1">
           <div class="title"><div class="icon"></div>标题</div>
@@ -76,7 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </script>
           </div>
           <div class="foot">
-             <input type="submit" value="确认提交" name="submit" onclick="this.form.action='../notice/submit'" onclick="this.disable=true"/ >
+
+             <input type="submit" value="确认提交" name="submit" onclick="this.form.action='../notice/submit'" / >
+
+
              <input type="submit" value="存草稿箱" name="wait"/>
           </div>
       </div>

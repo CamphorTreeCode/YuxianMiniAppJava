@@ -184,6 +184,7 @@ input::-webkit-input-placeholder {
 
 				<div class="welcome boxCenter">Welcome,My Friend</div>
 				<form action="${pageContext.request.contextPath}/login/login">
+				   <input type="hidden" name="token" value="${token}" />
 					<div class="userName boxCenter">
 						<div class="userNameContent box">
 							<input class="ipt" type="text" placeholder="请输入用户名" value=""
@@ -197,7 +198,7 @@ input::-webkit-input-placeholder {
 								name="user_password"> <img alt="" src="img/yaos.png">
 						</div>
 					</div>
-
+                 
 					<div class="loginBut boxCenter">
 						<button type="submit">登录</button>
 					</div>

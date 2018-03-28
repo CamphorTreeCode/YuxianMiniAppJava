@@ -15,6 +15,21 @@
 		</mvc:interceptor> -->
 	<!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
 	<!-- </mvc:interceptors -->
+    <!-- 拦截器配置 -->
+    <mvc:interceptors>
+        <!-- 配置Shiro拦截器，实现注册用户的注入 -->
+<!--         <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.woman.tool.ShiroInterceptor"/>
+        </mvc:interceptor>
+         -->
+        <!-- 配置Token拦截器，防止用户重复提交数据 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.woman.tool.TokenInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
