@@ -103,6 +103,7 @@ public class NoticeController {
 		return "notice/drafts";
 		
 	}
+	@Token(save=true)
 	@RequestMapping("/look")
 	public String look(int id,Model model){
 		notice n=noticeService.selectByPrimaryKey(id);

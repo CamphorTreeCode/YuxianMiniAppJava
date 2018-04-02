@@ -21,7 +21,7 @@ public class HttpRequestor {
         private Integer socketTimeout = null;
         private String proxyHost = null;
         private Integer proxyPort = null;
-        
+         
         /**
          * Do GET request
          * @param url

@@ -22,7 +22,7 @@ public class UploadHelper {
 
 		System.out.println(mypath);
 		  //原始名称
-        String myappPath = mypath.replace("\\Maven_Project","\\RegistCompanyIMG");
+        String myappPath = mypath.replace("\\"+UpdataName.projectName,"\\RegistCompanyIMG");
         // 如果目录不存在则创建
         File uploadDir = new File(myappPath);
         if (!uploadDir.exists()) {
@@ -56,8 +56,8 @@ public class UploadHelper {
         //将新图片名称写到itemsCustom中  
            
         //注意路径
-        String mypath1 = mypath.replace("\\Maven_Project","");		        		        
-        imgpath=imgpath.replace(mypath1,"https://www.chuanshoucs.com/");
+        String mypath1 = mypath.replace("\\"+UpdataName.projectName,"");		        		        
+        imgpath=imgpath.replace(mypath1,UpdataName.urlName+"/");
         System.out.println(">>>>"+imgpath);	
         imgpath = imgpath.replaceAll("\\\\","/");
         }      

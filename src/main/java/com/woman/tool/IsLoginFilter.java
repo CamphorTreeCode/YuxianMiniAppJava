@@ -30,7 +30,7 @@ public class IsLoginFilter implements Filter{
 		String uri = req.getRequestURI();
 		
 			System.out.println(">>>>>>>>"+uri);
-		if(uri.endsWith("Maven_Project/") ||uri.endsWith("Maven_Project/tool/addImg")||uri.endsWith("Maven_Project/user/addUser") ||uri.endsWith("Maven_Project/company/addCompany") ||uri.endsWith("Maven_Project/login/login") || uri.endsWith("Maven_Project/login/tologin") || uri.indexOf("index") >= 0  || uri.indexOf("css") >= 0  ||uri.indexOf("img") >= 0  || uri.indexOf("js") >= 0  || uri.indexOf("images") >= 0 ){
+		if(uri.endsWith(UpdataName.projectName+"/")||uri.endsWith(UpdataName.projectName+"/tool/uploadImg") ||uri.endsWith(UpdataName.projectName+"/tool/addImg")||uri.endsWith(UpdataName.projectName+"/user/addUser") ||uri.endsWith(UpdataName.projectName+"/company/addCompany") ||uri.endsWith(UpdataName.projectName+"/login/login") || uri.endsWith(UpdataName.projectName+"/login/tologin") || uri.indexOf("index") >= 0  || uri.indexOf("css") >= 0  ||uri.indexOf("img") >= 0  || uri.indexOf("js") >= 0  || uri.indexOf("images") >= 0 ){
 			System.out.println(111);
 	 
 			chain.doFilter(request, response);

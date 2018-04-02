@@ -15,15 +15,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <link rel="stylesheet" href="css/issueNotice.css" type="text/css" />
    <script type="text/javascript">
          function imgPreview(fileDom){
-				 $("#preview").show();
+		$("#preview").show();
+		$(".del").show();
+		$(".addIcon").hide();
         //判断是否支持FileReader
         if (window.FileReader) {
             var reader = new FileReader();
         } else {
             alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
         }
-        $(".del").show();
-		$(".addIcon").hide();
         //获取文件
         var file = fileDom.files[0];
         var imageType = /^image\//;
@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);
+        document.getElementsByName(name)
     }
    </script>
    
@@ -55,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div>
                 <div class="view">
                   <div class="viewimg">
-                     <img id="preview" style="width:160px; height:160px;"/>
+                     <img id="preview"/>
                      <div class="addIcon"><input type="file" name="file" class="file" onchange="imgPreview(this)" /></div>
                      <div class="del" style="display:none"></div>
                   </div>

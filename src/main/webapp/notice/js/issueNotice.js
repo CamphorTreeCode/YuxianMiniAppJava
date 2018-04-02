@@ -2,6 +2,7 @@
 $(function(){
 	 var ue = UE.getEditor('container');
 	  $(".del").click(function(){ 
+		  $(".file").val("");
 		  $("#preview").hide();
 		  $(".addIcon").show();
 		  $(this).hide();
@@ -23,15 +24,13 @@ $(function(){
 			  alert("图片不能为空")
 			  
 		  }
-		  if(marker==false){
-			  this.disable=false
+		  if(ue.getContentTxt().length==0){
+			  marker=false;
+			  alert("正文不能为空")
 		  }
 
-		  if(marke==true){
-			  this.disable=true
-		  }
+		 return marker;
 
-		  return marker;
 		  
 	 
 		  
@@ -43,13 +42,7 @@ $(function(){
 			  marker=false;
 			  alert("标题不能为空")  
 		  }
-		  if(marker==false){
-			  this.disable=false
-		  }
-
-		  if(marke==true){
-			  this.disable=true
-		  }
+		 
 
 		  return marker;
 		  
@@ -71,13 +64,7 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
-		  if(marker==false){
-			  this.disable=false
-		  }
-
-		  if(marke==true){
-			  this.disable=true
-		  }
+		 
 		  return marker;
 		  
 		  
