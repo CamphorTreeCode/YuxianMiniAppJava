@@ -22,5 +22,24 @@
 		<result column="businessCompany" property="businessCompany" jdbcType="INTEGER" />
 		<result column="adminId" property="adminId" jdbcType="INTEGER" />
 		<result column="businessCompanyTop" property="businessCompanyTop" jdbcType="INTEGER" />
+		<collection property="company"></collection>
 	</resultMap>
+	
+	<select id="getByBusinessCompany" resultMap="BaseResultMap">
+	    select * from BusinessCompany
+	    where 1=1
+
+
+		<if test="businessCompany!=null">
+			and businessCompany=#{businessCompany}
+		</if>
+		order by businessCompanyCreatTime desc
+		<if test="start!=null and size!=null">
+			LIMIT #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="SelectCount" resultType="Integer">
+	 select count(*) from BusinessCompany
+	</select>
 </mapper>

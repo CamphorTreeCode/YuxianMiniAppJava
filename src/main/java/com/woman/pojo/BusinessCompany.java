@@ -37,6 +37,7 @@ public class BusinessCompany {
 	private int adminId;
 	//1是置顶 0不是指定
 	private int businessCompanyTop;
+	//公司出售获得中的轮播图
 	public int getBusinessCompanyId() {
 		return businessCompanyId;
 	}

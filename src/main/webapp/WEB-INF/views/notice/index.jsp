@@ -134,8 +134,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="wxIndex_messageList">
                <li class="wxIndex_message"><div class="icon"></div><div>首页信息管理</div><div class="icon" id="xhicon"></div></li>
                <ul class="wxIndex_messageType" style="display:none">
-                   <a href="wxIndex_message_sell_list.html" target="if"><li class="sell">我要卖</li></a>
-                   <a href="issueList.html" target="if"><li class="buy">我要买</li></a>
+                   <a href="../wxIndex_message/list?businessCompany=0" target="if"><li class="sell">我要卖</li></a>
+                   <a href="../wxIndex_message/list?businessCompany=1" target="if"><li class="buy">我要买</li></a>
                </ul>
                
             </div>
