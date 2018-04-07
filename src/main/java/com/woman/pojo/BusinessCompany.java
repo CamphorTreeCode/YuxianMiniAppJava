@@ -43,13 +43,15 @@ public class BusinessCompany {
     //	管理员对象
 	private Admin Admin;
    //图片对象
-	private List<CompanyImg> company;
+	private List<CompanyImg> companyImg;
 	
-	public List<CompanyImg> getCompany() {
-		return company;
+
+
+	public List<CompanyImg> getCompanyImg() {
+		return companyImg;
 	}
-	public void setCompany(List<CompanyImg> company) {
-		this.company = company;
+	public void setCompanyImg(List<CompanyImg> companyImg) {
+		this.companyImg = companyImg;
 	}
 	public Admin getAdmin() {
 		return Admin;
@@ -177,7 +179,8 @@ public class BusinessCompany {
 				+ ", businessCompanyTax=" + businessCompanyTax + ", businessCompanyState=" + businessCompanyState
 				+ ", businessCompanyCreatTime=" + businessCompanyCreatTime + ", businessCompanyBrowse="
 				+ businessCompanyBrowse + ", businessCompany=" + businessCompany + ", adminId=" + adminId
-				+ ", businessCompanyTop=" + businessCompanyTop + ", Admin=" + Admin + ", company=" + company + "]";
+				+ ", businessCompanyTop=" + businessCompanyTop + ", Admin=" + Admin + ", companyImg=" + companyImg
+				+ "]";
 	}
 
 

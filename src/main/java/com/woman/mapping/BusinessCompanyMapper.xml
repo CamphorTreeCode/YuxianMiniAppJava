@@ -34,6 +34,12 @@
 		<result column="adminAction" property="adminAction" jdbcType="VARCHAR" />
 		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 		</association >  
+		 	 <collection  property="companyImg" javaType="java.util.List"  ofType="com.woman.pojo.CompanyImg">  
+                 <id property="logistics_id" column="logisticsId" jdbcType="INTEGER"/>  
+			     <result property="logistics_state" column="logisticsState" jdbcType="INTEGER"/>  
+			     <result property="logistics_sendTime" column="logisticsSendtime" jdbcType="VARCHAR"/>  
+			     <result property="order_id" column="orderId" jdbcType="INTEGER"/>
+		</collection >  
 	</resultMap>
 	
 		<!-- 查询总记录数 -->
