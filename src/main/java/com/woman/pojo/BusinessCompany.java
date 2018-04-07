@@ -1,4 +1,7 @@
 package com.woman.pojo;
+
+import java.util.List;
+
 //买卖公司
 public class BusinessCompany {
   //卖买公司的id
@@ -37,7 +40,26 @@ public class BusinessCompany {
 	private int adminId;
 	//1是置顶 0不是指定
 	private int businessCompanyTop;
+
 	//公司出售获得中的轮播图
+
+    //	管理员对象
+	private Admin Admin;
+   //图片对象
+	private List<CompanyImg> company;
+	
+	public List<CompanyImg> getCompany() {
+		return company;
+	}
+	public void setCompany(List<CompanyImg> company) {
+		this.company = company;
+	}
+	public Admin getAdmin() {
+		return Admin;
+	}
+	public void setAdmin(Admin admin) {
+		Admin = admin;
+	}
 	public int getBusinessCompanyId() {
 		return businessCompanyId;
 	}
@@ -158,7 +180,8 @@ public class BusinessCompany {
 				+ ", businessCompanyTax=" + businessCompanyTax + ", businessCompanyState=" + businessCompanyState
 				+ ", businessCompanyCreatTime=" + businessCompanyCreatTime + ", businessCompanyBrowse="
 				+ businessCompanyBrowse + ", businessCompany=" + businessCompany + ", adminId=" + adminId
-				+ ", businessCompanyTop=" + businessCompanyTop + "]";
+				+ ", businessCompanyTop=" + businessCompanyTop + ", Admin=" + Admin + ", company=" + company + "]";
 	}
-	
+
+
 }
