@@ -22,5 +22,29 @@
 		<result column="businessCompany" property="businessCompany" jdbcType="INTEGER" />
 		<result column="adminId" property="adminId" jdbcType="INTEGER" />
 		<result column="businessCompanyTop" property="businessCompanyTop" jdbcType="INTEGER" />
+		
+ 	   <association  property="Admin" javaType="com.woman.pojo.Admin" >  
+        <id column="adminId" property="adminId" jdbcType="INTEGER" />
+		<result column="adminName" property="adminName" jdbcType="VARCHAR" />
+		<result column="adminPassword" property="adminPassword" jdbcType="VARCHAR" />
+		<result column="adminCrateTime" property="adminCrateTime" jdbcType="VARCHAR" />
+	    <result column="adminImgUrl" property="adminImgUrl" jdbcType="VARCHAR" />
+		<result column="adminNickName" property="adminNickName" jdbcType="VARCHAR" />
+		<result column="adminPhone" property="adminPhone" jdbcType="VARCHAR" />	
+		<result column="adminAction" property="adminAction" jdbcType="VARCHAR" />
+		<result column="adminState" property="adminState" jdbcType="INTEGER" />
+		</association >  
 	</resultMap>
+	
+		<!-- 查询总记录数 -->
+	<select id="selectCount" resultType="Integer" parameterType="Integer">
+	select count(businessCompanyId) from BusinessCompany where 1=1
+	</select>
+	    <!-- 分页查询 -->
+	<select id="findByPage" resultMap="BaseResultMap">
+			select * from  BusinessCompany bc left join admin a on bc.adminId = a.adminId WHERE 1=1 order by businessCompanyCreatTime desc 
+		<if test="start!=null and size!=null">
+			LIMIT #{start},#{size}
+		</if>
+	</select>
 </mapper>
