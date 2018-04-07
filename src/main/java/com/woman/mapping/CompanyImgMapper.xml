@@ -9,4 +9,7 @@
 		<result column="companyCreatTime" property="companyCreatTime" jdbcType="VARCHAR" />
 		<result column="businessCompanyId" property="businessCompanyId" jdbcType="INTEGER" />
 	</resultMap>
+	<select id="selectCompanyImgAll" parameterType="java.lang.Long" resultMap="BaseResultMap">  
+	 SELECT * FROM  CompanyImg WHERE businessCompanyId=#{id}
+	</select>
 </mapper>
