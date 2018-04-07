@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-	var ue = UE.getEditor('container');
+	 var ue = UE.getEditor('container');
 	  $(".del").click(function(){ 
 		  $(".file").val("");
 		  $("#preview").hide();
@@ -28,7 +28,9 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
+
 		 return marker;
+
 		  
 	 
 		  
@@ -40,7 +42,8 @@ $(function(){
 			  marker=false;
 			  alert("标题不能为空")  
 		  }
-		  
+		 
+
 		  return marker;
 		  
 	  })
@@ -61,7 +64,7 @@ $(function(){
 			  marker=false;
 			  alert("正文不能为空")
 		  }
-		  
+		 
 		  return marker;
 		  
 		  

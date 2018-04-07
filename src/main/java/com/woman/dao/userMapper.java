@@ -52,4 +52,6 @@ public interface userMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(user record);
+    //查詢用戶信息
+    user selectUserOne(String s);
 }

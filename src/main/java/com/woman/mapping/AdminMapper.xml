@@ -2,12 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.woman.dao.AdminMapper">
 	<resultMap id="BaseResultMap" type="com.woman.pojo.Admin">
-		<id column="adminId" property="adminId" jdbcType="VARCHAR" />
+		<id column="adminId" property="adminId" jdbcType="INTEGER" />
 		<result column="adminName" property="adminName" jdbcType="VARCHAR" />
-		<result column="adminPassword" property="adminPassword"
-			jdbcType="VARCHAR" />
-		<result column="adminCrateTime" property="adminCrateTime"
-			jdbcType="VARCHAR" />
+		<result column="adminPassword" property="adminPassword" jdbcType="VARCHAR" />
+		<result column="adminCrateTime" property="adminCrateTime" jdbcType="VARCHAR" />
+	   <result column="adminImgUrl" property="adminImgUrl" jdbcType="VARCHAR" />
+		<result column="adminNickName" property="adminNickName" jdbcType="VARCHAR" />
+		<result column="adminPhone" property="adminPhone" jdbcType="VARCHAR" />
+	
+		<result column="adminAction" property="adminAction" jdbcType="VARCHAR" />
+		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 
 	</resultMap>
 	<!--查询用户 -->

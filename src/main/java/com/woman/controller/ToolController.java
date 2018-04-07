@@ -3,7 +3,6 @@ package com.woman.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
@@ -24,9 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.woman.pojo.company;
 import com.woman.pojo.shareholder;
 import com.woman.tool.DateTime;
+import com.woman.tool.UpdataName;
 import com.woman.tool.UploadHelper;
 import com.woman.tool.WordUtils;
 import com.women.service.CompanyService;
+
+import net.coobird.thumbnailator.Thumbnails;
+import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping("/tool")
@@ -34,7 +37,8 @@ public class ToolController {
 	// 上传文件存储目录
 	 @Autowired
 	 private CompanyService companyService;
-    private   String UPLOAD_DIRECTORY = DateTime.getDay();  
+     private   String UPLOAD_DIRECTORY = DateTime.getDay();  
+
 		//查询栏目列
 		 @RequestMapping("/addImg")  
 		public void selectColumn(@RequestParam("file")MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -44,7 +48,7 @@ public class ToolController {
   
 				System.out.println(mypath);
 				  //原始名称
-		        String myappPath = mypath.replace("\\Maven_Project","\\RegistCompanyIMG");
+		        String myappPath = mypath.replace("\\"+UpdataName.projectName,"\\RegistCompanyIMG");
 		        // 如果目录不存在则创建
 		        File uploadDir = new File(myappPath);
 		        if (!uploadDir.exists()) {
@@ -78,8 +82,8 @@ public class ToolController {
 		        //将新图片名称写到itemsCustom中  
 		        
 		        //注意路径http://www.chuanshoucs.com/  http://shensu.free.ngrok.cc/
-		        String mypath1 = mypath.replace("\\Maven_Project","");		        		        
-		        imgpath=imgpath.replace(mypath1,"https://www.chuanshoucs.com/");
+		        String mypath1 = mypath.replace("\\"+UpdataName.projectName,"");		        		        
+		        imgpath=imgpath.replace(mypath1,UpdataName.urlName+"/");
 		        System.out.println(">>>>"+imgpath);	
 		        imgpath = imgpath.replaceAll("\\\\","/");
 		        }      
@@ -105,8 +109,7 @@ public class ToolController {
 	        WordUtils.exportMillCertificateWord(request,response,map);  
 	    }  
 	    
-	    //图片下载
-	  
+	    //图片下载	  
 		@RequestMapping(value = "downloadImg", method = RequestMethod.GET)  
 	    public void download( int companyId,HttpServletRequest request, HttpServletResponse response) throws IOException{
 	    	company  c=   companyService.comList(companyId);
@@ -132,7 +135,100 @@ public class ToolController {
         
     }
             
-           
-       
+             //服务器上传图片 压缩图片	返回地址
+		@RequestMapping(value = "/uploadImg", method = RequestMethod.POST)  
+	    public void uploadImg(@RequestParam("file")MultipartFile file,String imgSize, String imgQuality,HttpServletRequest request, HttpServletResponse response) throws IOException{
+            System.out.println("imgstr"+imgSize+imgQuality);
+			Map<String,String> map = uploadFile(file, request,imgSize,imgQuality);  
+			
+			System.out.println(map.toString());
+			JSONArray jsonObject = JSONArray.fromObject(map);
+			PrintWriter pw = response.getWriter();
+			pw.print(jsonObject);  
+        
+    }
+
+		private Map uploadFile(MultipartFile file, HttpServletRequest request,String imgSize, String imgQuality) throws IOException {
+			/*图片上传*/
+			String imgpath = "";
+			String zipiMG="";
+			Map<String,String> map = new HashMap(); 
+			String mypath = request.getSession().getServletContext().getRealPath("/");
+
+			System.out.println(mypath);
+			//路径转换 用域名转换
+			String mypath1 = mypath.replace("\\"+UpdataName.projectName,"");	
+		  
+			  //原始名称
+	        String myappPath = mypath.replace("\\"+UpdataName.projectName,"\\ServerImg");
+	        // 如果目录不存在则创建
+	        File uploadDir = new File(myappPath);
+	        if (!uploadDir.exists()) {
+	          boolean  t =   uploadDir.mkdir();
+	            System.out.println("OK"+t+myappPath);
+	        }   
+	        String myimgpath = myappPath+UPLOAD_DIRECTORY+"\\";
+	        File fip = new File(myimgpath);
+           //	文件没有创建	        
+	        if (!fip.exists()) {
+	        	  boolean  t =   fip.mkdir();
+	        	    System.out.println("OK"+t+myimgpath);
+	        	} 
+            //上传图片的名称		        
+	        System.out.println(myimgpath);
+	        String originalFilename = file.getOriginalFilename(); 
+	        System.out.println(">>>>>>>>>>>"+originalFilename);
+	 
+	        //上传图片  
+	        if(file!=null && originalFilename!=null && originalFilename.length()>0){          
+	        //存储图片的物理路径  
+	   
+	        //新的图片名称  
+	       String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));  
+	        //新图片  
+	        File newFile = new File(myimgpath+newFileName);  
+	        imgpath=myimgpath+newFileName;
+	
+	        System.out.println(imgpath);
+	        //将内存中的数据写入磁盘  
+	        file.transferTo(newFile);    
+	
+	        map.put("imgpathSize", Long.toString(file.getSize()/1024)+"kb");
+	        //将新图片名称写到itemsCustom中  
+	        
+           //将文件压缩	 开始      
+	         zipiMG = myimgpath+UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));	 
+	        Thumbnails.of(imgpath) 
+	        .scale(Float.parseFloat(imgSize+"f")) 
+	        .outputQuality(Float.parseFloat(imgQuality+"f")) 
+	        .toFile(zipiMG);
+	
+	        map.put("zipImgSize", Long.toString(getFileSize(zipiMG))+"kb");
+	        zipiMG=zipiMG.replace(mypath1,UpdataName.urlName+"/");
+	        zipiMG = zipiMG.replaceAll("\\\\","/");
+	        System.out.println("zipiMG>>>>"+zipiMG);	
+	        map.put("zipiMG",zipiMG);
+	  
+	       //将文件压缩	结束 
+	        
+	        //注意路径http://www.chuanshoucs.com/  http://shensu.free.ngrok.cc/	       	        		        
+	        imgpath=imgpath.replace(mypath1,UpdataName.urlName+"/");	        
+	        imgpath = imgpath.replaceAll("\\\\","/");
+	        System.out.println(">>>>"+imgpath);	
+	        map.put("imgpath",imgpath);
+	      
+	        }
+			return  map;
+		}
+         
+           //读取文件的大小
+	    public static long getFileSize(String filename) {
+	        File file = new File(filename);
+	        if (!file.exists() || !file.isFile()) {
+	            System.out.println("文件不存在");
+	            return -1;
+	        }
+	        return file.length()/1024;
+	    }
 
 }

@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.woman.pojo.user;
 import com.woman.tool.DateTime;
 import com.woman.tool.GetOpenId;
+import com.woman.tool.IsNomber;
 import com.women.service.UserService;
 
 @Controller 
@@ -29,6 +31,8 @@ private UserService userService;
 		 
         //1.接收数据 打印处理	    
 		 System.out.println(user);
+	     user.setNickname(IsNomber.encodeString(user.getNickname()));
+	//	 System.out.println(IsNomber.decodeString());
         //2.取出数据 添加数据
 		  user.setOpenid(GetOpenId.getOpenid(user.getJscode())); 
 		  user.setRegisterdate(DateTime.getDate());

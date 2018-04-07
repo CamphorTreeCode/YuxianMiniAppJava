@@ -48,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
    <form name="myForm" method="post" enctype="multipart/form-data" action="../notice/submit">  
       <div class="content">
+         <input type="hidden" name="token" value="${token}" />
           <input type="hidden" name="file1" value="${notice.img}">
           <input type="hidden" name="noticeid" value="${notice.noticeid }">
           <input type="hidden" name="state" value="${notice.state }">

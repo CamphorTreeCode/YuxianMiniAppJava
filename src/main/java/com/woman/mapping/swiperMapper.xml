@@ -74,7 +74,7 @@
 			</if>
 			<if test="createtime != null">
 				createTime = #{createtime,jdbcType=VARCHAR},
-			</if>
+		   </if>
 		</set>
 		where swiperID = #{swiperid,jdbcType=INTEGER}
 	</update>
@@ -88,7 +88,7 @@
 	</update>
 	<!--查询全部轮播图  -->
 		<select id="selectSwiper" resultMap="BaseResultMap">
-        select * from swiper   order by createTime desc limit 0,3		
+        select * from swiper   order by createTime asc limit 0,3		
 	   </select>
 	   <select id="orderById" resultMap="BaseResultMap"> select * from swiper order by swiperid asc limit 0,3 </select>
 	   
