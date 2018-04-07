@@ -35,10 +35,10 @@
 		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 		</association >  
 		 	 <collection  property="companyImg" javaType="java.util.List"  ofType="com.woman.pojo.CompanyImg">  
-                 <id property="logistics_id" column="logisticsId" jdbcType="INTEGER"/>  
-			     <result property="logistics_state" column="logisticsState" jdbcType="INTEGER"/>  
-			     <result property="logistics_sendTime" column="logisticsSendtime" jdbcType="VARCHAR"/>  
-			     <result property="order_id" column="orderId" jdbcType="INTEGER"/>
+             		<id column="companyImgId" property="companyImgId" jdbcType="INTEGER" />
+		<result column="companyUrl" property="companyUrl" jdbcType="VARCHAR" />
+		<result column="companyCreatTime" property="companyCreatTime" jdbcType="VARCHAR" />
+		<result column="businessCompanyId" property="businessCompanyId" jdbcType="INTEGER" />
 		</collection >  
 	</resultMap>
 	
@@ -48,8 +48,8 @@
 	</select>
 	    <!-- 分页查询 -->
 	<select id="findByPage" resultMap="BaseResultMap">
-			select * from  BusinessCompany bc left join admin a on bc.adminId = a.adminId WHERE 1=1 order by businessCompanyCreatTime desc 
-		<if test="start!=null and size!=null">
+			select * from  BusinessCompany bc left join admin a  on bc.adminId = a.adminId left join CompanyImg ci on bc.businessCompanyId=ci.businessCompanyId WHERE 1=1 order by businessCompanyCreatTime desc
+			 <if test="start!=null and size!=null">
 			LIMIT #{start},#{size}
 		</if>
 	</select>
