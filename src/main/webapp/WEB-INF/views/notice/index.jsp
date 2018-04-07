@@ -74,6 +74,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 	}
+	function sell(){
+	  $(".position span").html("首页信息管理>我要卖")
+		$(".stateType").hide(500);
+		aa();
+		$(".sell").addClass("clickColor");
+	}
+	function buy(){
+	  $(".position span").html("首页信息管理>我要买")
+		$(".stateType").hide(500);
+		aa();
+		$(".buy").addClass("clickColor");
+	}
 	function aa(){
 		$(".stateType").hide(500);
 		$(".stateType li").removeClass("clickColor");
@@ -82,8 +94,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".regist").removeClass("clickColor");
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
-		
+		$(".sell").removeClass("clickColor");
+		$(".buy").removeClass("clickColor");
 	}
+	
+	
+	
+	 $(function(){
+	    
+	    $(".wxIndex_message").click(function(){
+		 $(".wxIndex_messageType").toggle(500);
+		 
+		 
+		 })
+	 
+	 
+	 })
+	 
     
 </script>
 <body>
@@ -104,7 +131,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="../company/companyPage" target="if"><li class="regist"><div class="icon"></div>工商注册信息</li></a>
             <a href="../text/textindex" target="if"><li class="option"><div class="icon"></div>选项管理</li></a>
             <a href="../swiper/swiper" target="if"><li class="swiper"><div class="icon"></div>轮播图管理</li></a>
-           
+            <div class="wxIndex_messageList">
+               <li class="wxIndex_message"><div class="icon"></div><div>首页信息管理</div><div class="icon" id="xhicon"></div></li>
+               <ul class="wxIndex_messageType" style="display:none">
+                   <a href="wxIndex_message_sell_list.html" target="if"><li class="sell">我要卖</li></a>
+                   <a href="issueList.html" target="if"><li class="buy">我要买</li></a>
+               </ul>
+               
+            </div>
           </div>
           <div class="position">当前位置：<span>微信小程序</span></div>
        <div class="right">

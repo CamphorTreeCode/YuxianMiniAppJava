@@ -6,7 +6,7 @@
 .top img{ vertical-align:middle; margin-bottom:3px; margin-right:10px;}
 .content{ width:1200px; background-color:#000; margin:0 auto;}
 .left{ width:20%; background:#eee; float:left; margin-top:20px; background:#FFF; margin-right:15px;}
-.left  li{ height:40px; line-height:40px;font-size:24px; padding:10px; padding-left:30px;}
+.left  li{ height:40px; line-height:40px;font-size:24px; padding:10px; padding-left:0px; padding-left:15px;}
  a{ color:#333;}
 .clickColor{  color: #1897DA;}
 .right{ width:78%;float:left;}
@@ -22,3 +22,8 @@
 .stateType li a{ color:#666;}
 .swiper .icon{ width:26px; height:26px; background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180312143136.png); background-position:50% 50%; float:left; margin-right:5px; margin-top:8px; background-size:38px 38px;}
 .position{ background-color:#FFF; width:943px; height:50px; float:left; margin-top:20px; line-height:50px; font-size:18px; color:#333; text-indent:20px;}
+.wxIndex_messageList{ background-color:#fff; border: 1px solid #F2F2F2; overflow:hidden; cursor:pointer;color:#333;}
+.wxIndex_message .icon{  width:26px; height:26px; background-image:url(../img/xinxi.png); background-position:50% 50%; float:left; margin-right:5px;margin-top:8px;}
+.wxIndex_message div{ float:left;}
+.wxIndex_messageType li{ font-size:18px; text-align:center;}
+.wxIndex_messageType li a{  color:#666;}

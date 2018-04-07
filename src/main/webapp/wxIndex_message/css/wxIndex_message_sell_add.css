@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px; list-style:none; text-decoration:none; box-sizing:border-box;}
+.content{ width:930px; color:#333;}
+/*上传图片设置 start*/
+.noticeImg .img{ height:50px; line-height:50px; font-size:24px; background-color:#FFF; padding-bottom:10px;}
+.noticeImg .img .icon{ width:26px; height:26px;  background-position:50% 50%; float:left; background-size:160px 160px; margin:12px 5px 0 20px;background-image:url(../img/immmmm.png);} 
+.noticeImg .view{ background:#FFF; padding:20px 0; overflow:hidden; width:100%; float:left;}
+.noticeImg .view .viewimg{ background-color:#D3D3D3; border-radius:10px; width:160px; height:160px; margin-left:20px; position:relative; float:left; margin-bottom:20px;}
+.noticeImg .view .viewimg .addIcon{ width:45px; height:45px; background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png); position:absolute; top:33%; left:39%;}/*添加按钮设置*/
+.preview{ width:160px; height:160px; float:left;border-radius:10px;}/*预览显示图片的img*/
+.noticeImg .view .viewimg  .file{ background-image:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314143537.png);  width:45px; height:45px;opacity:0;}/*上传文件的input*/
+.noticeImg .view .viewimg .del{ width:20px; height:20px; background:#000; background:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180314163812.png); background-size:20px 20px; position:absolute; right:0; z-index:999}/*修改图片按钮*/
+/*上传图片设置 end*/
+.clear{ clear:both;}
+/*内容标签设置 start*/
+.zw{ height:50px; line-height:50px; font-size:24px; background-color:#FFF; border-bottom:1px solid #f2f2f2; margin-top:10px; margin-bottom:2px;}
+.zw .icon{ width:26px; height:26px; background-image:url(../img/zhengwen.png); background-position:50% 50%; float:left; background-size:200px 200px; margin:12px 5px 0 20px; }
+/*内容标签设置 end*/
+
+/*内容详情设置 start*/
+.zwContent{ width:100%; height:300px; background-color:#fff; line-height:50px;margin-bottom:10px;}
+.zwContent textarea{ width:100%; height:100%; border:none; font-size:18px; text-indent:2em; padding:20px; overflow:hidden;}
+/*内容详情设置 end*/
+/*公司详情 start*/
+.blue{color:#1897DA;}
+.companyDetails{ height:50px; line-height:50px; font-size:18px; background-color:#FFF; margin-bottom:2px; color:#333;}
+.companyDetails img{ float:left; margin:6px 0 0px 12px;}
+.companyDetails input{ height:40px; line-height:50px; border:none; font-size:18px; width:65%;}
+/*公司详情 end*/
+.leble img{ margin:8px 0 0px 12px;}/*标签特殊样式*/
+/*经营范围  start*/
+.businessScope{ width:100%; height:200px; background-color:#fff; margin-bottom:2px;}
+.businessScope textarea{ width:100%; height:100%; border:none; font-size:18px; text-indent:2em; padding:20px; overflow:hidden;}
+/*经营范围  end*/
+/*注册地址 start*/
+.regisetAddress{ margin-bottom:0px;}
+.address{ padding-left:50px;}
+.address select{ width:100px; height:30px; border:none; color:#666; margin-right:90px;}
+/*注册地址 end*/
+/*公司类型 start*/
+.companyType{margin-bottom:0px;}
+.companyTypeList{  background:#fff; height:150px; padding-left:30px; margin-bottom:2px;}
+.companyTypeList.radio .besetRadio{ width:20%;}
+/*公司类型end*/
+/*单选按钮通用样式 start*/
+.radio span{ font-size:16px; color:#666; height:50px; line-height:50px;}
+.radio div{ float:left; height:50px; line-height:50px;}
+.radio .besetRadio{ margin-right:50px;}
+.radio .besetRadio span:hover{ color:#1897DA !important;}
+.radio input{ width:15px; height:15px; line-height:50px; float:left; margin-top:15px; margin:18px 5px 0 5px;}
+/*单选按钮通用样式 end*/
+/*账户信息区别于单选通用按钮 start*/
+.revenueMesssage{ padding-left:50px;}
+/*账户信息区别于单选通用按钮 end*/
+
+/*是否置顶区别于单选通用按钮 start*/
+.stickChoose{ padding-left:50px;}
+.stickChoose div:nth-child(1){ float:none;}
+/*是否置顶区别于单选通用按钮 end*/
+/*icheck的特殊样式 start*/
+	.iradio_square-blue{background-position:-120px 13px;margin-right:10px; overflow:hidden;}
+	.iradio_square-blue.hover{ background-position:-144px 13px ;margin-right:10px;}	
+	.iradio_square-blue.checked{ background-position:-168px 13px;margin-right:10px;}
+/*icheck的特殊样式 end*/
+
+
+/*公司类型单线按钮特殊样式 start*/
+
+	.companyTypeList .besetRadio:nth-child(1) .iradio_square-blue{
+	    background:url(../img/wenhua.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(1) .iradio_square-blue.hover{
+	    background:url(../img/wenhua2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(2) .iradio_square-blue{
+	    background:url(../img/maoyi.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(2) .iradio_square-blue.hover{
+	    background:url(../img/maoyi2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(3) .iradio_square-blue{
+	    background:url(../img/ke.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(3) .iradio_square-blue.hover{
+	    background:url(../img/ke2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue{
+	    background:url(../img/gong.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue.hover{
+	    background:url(../img/gong2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(5) .iradio_square-blue{
+	    background:url(../img/can.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(5) .iradio_square-blue.hover{
+	    background:url(../img/can2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(6) .iradio_square-blue{
+	    background:url(../img/yin.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(6) .iradio_square-blue.hover{
+	    background:url(../img/yin2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(7) .iradio_square-blue{
+	    background:url(../img/shiye.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(7) .iradio_square-blue.hover{
+	    background:url(../img/shiye2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(8) .iradio_square-blue{
+	    background:url(../img/jinrong.png) no-repeat;
+		background-size:20px 20px;
+		background-position:0px 16px;
+	}
+	.companyTypeList .besetRadio:nth-child(8) .iradio_square-blue.hover{
+	    background:url(../img/jinrong2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+/*公司类型单线按钮特殊样式 end*/
+
+/*提交按钮 start*/
+.foot {  height:100px; line-height:100px; text-align:right;}
+.foot input{ background-color:#1196DB;font-size:24px;margin-right:20px; color:#fff; padding:10px 20px; border-radius:100px;}
+/*提交按钮 end*/

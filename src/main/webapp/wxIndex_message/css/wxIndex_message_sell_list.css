@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px; list-style:none; text-decoration:none;  box-sizing:border-box;}
+.content{ width:930px;  height:800px;}
+.clear{ clear:both;}
+/*右部标题 start*/
+.title{ height:50px; line-height:50px; font-size:24px; background-color:#FFF; border-bottom:1px solid #f2f2f2; margin-bottom:20px; color:#333;}
+.title .icon{ width:26px; height:26px; background-image:url(../img/guanli.png); background-position:50% 50%; float:left; margin:12px 5px 0 20px; }
+/*右部标题 end*/
+/*右部添加按钮 start*/
+.addMessage{ font-size:18px; color:#1897DA;}
+.addMessage img{ float:left; margin:5px 0px 0 13px;}
+/*右部添加按钮 end*/
+
+/*列表名称  start*/
+.property{ width:930px; height:42px; overflow:hidden; color:#333; border:1px solid #ccc;}
+.property li{ float: left; background-color:#fff; height:40px; line-height:40px; font-size:18px;  text-align:center; width:12.4%; border-right:1px solid #ccc;}
+.property li:last-child{ border:none;}
+/*列表名称  end*/
+
+/*列表值 start*/
+.context{width:930px; height:80px; overflow:hidden; color:#333; border:1px solid #ccc; border-top:none;}
+.context li{ float: left; background-color:#fff; font-size:18px;  text-align:center; height:80px;width:12.4%; line-height:80px;  border-right:1px solid #ccc; font-size:16px;}
+.context li:last-child{  border:none;}
+/* 特殊li列 配置 start*/
+.context li:nth-child(5){ line-height:40px;}
+.context li:nth-child(7){ line-height:40px;}
+.context li:nth-child(7) span{ display:block; float:left; height:18px; width:100%; height:40px; line-height:40px; width:50%; }
+/* 特殊li列 配置 end*/
+
+/*图片预览列配置 start*/
+.context .img{ box-sizing:border-box; padding:10px 5px; }
+.context .img .slideshow{ width:100%; height:100%;overflow:hidden; position:relative;}
+.context .img .slideshow .preview{ position:absolute; width:100%; height:100%;  background-color:rgba(250,250,250,0.5); }
+.context .img .slideshow .preview span{ color:#1897DA;}
+.context .img .slideshow .savaimg{ width:100%; height:100%;}
+.context .img .slideshow .savaimg div{ width:100%; height:100%;}
+.context .img .slideshow img{ float:left; height:100%;}
+
+/*图片预览列配置 end*/
+
+
+/*列表值  end*/
+
+.blue{ color:#1897DA;}/*蓝色设置*/
+/*下标配置  start*/
+.index{ width:930px;padding-left:230px; margin-top:10px;}
+.index li{ float:left; width:25px; height:25px; border-radius:5px; border:1px solid #1897DA; margin:10px; text-align:center; line-height:25px;}
+#front{ background-image:url(../img/next2.png); background-size:200px 200px; background-position:49% 49%; border:none;}
+#rear{  background-image:url(../img/next.png); background-size:200px 200px; background-position:49% 49%;  border:none;}
+/*下标配置 end*/
+
+/*图片预览配置 start*/
+.bigImgPreview{ width:548px; height:450px; position:fixed; top:15%; left:20%; border:none; padding:10px; background-color:#333;}/*预览总大框*/
+.bigImgFront{ width:100px; height:100px;  position:fixed; top:30%; padding:10px; transition:1s;}
+.bigImgFront img{ float:left; width:90px; height:90px;}/*上一页图片*/
+.bigImgFront:hover{ background:#999;}
+.bigImgRear{  width:100px; height:100px;  position:fixed; top:30%; padding:10px; transition:1s; right:0;}
+.bigImgRear img{ float:left; width:70px; height:70px; margin:10px;}
+.bigImgRear:hover{ background:#999;}
+/*下一页图片*/
+/*关闭预览 start*/
+.bigImgPreviewClose{ width:51px; height:51px; position:fixed; top:0; right:5%; transition:1s; padding:3px;}
+.bigImgPreviewClose:hover{ background:#999;}
+/*关闭预览 end*/
+.bigImgPreview .window{ width:100%; height:100%; overflow:hidden;}/*预览窗口小div*/
+.bigImgPreview .window .vessel{ height:100%; overflow:hidden;transition:1s; width:4752px; }/*窗口里面放置图片列表大div*/
+/*放置单个图片的div start*/
+.vessel div{ width:528px; height:430px; float:left;}
+.vessel div img{ width:100%; height:100%;}
+/*放置单个图片的div start*/
+/*图片预览配置 end*/
