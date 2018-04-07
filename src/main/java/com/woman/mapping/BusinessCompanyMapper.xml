@@ -33,9 +33,17 @@
 		<result column="adminAction" property="adminAction" jdbcType="VARCHAR" />
 		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 		</association >  
+
+		<collection  property="companyImg" javaType="java.util.List"  ofType="com.woman.pojo.CompanyImg">  
+                 <id property="logistics_id" column="logisticsId" jdbcType="INTEGER"/>  
+			     <result property="logistics_state" column="logisticsState" jdbcType="INTEGER"/>  
+			     <result property="logistics_sendTime" column="logisticsSendtime" jdbcType="VARCHAR"/>  
+			     <result property="order_id" column="orderId" jdbcType="INTEGER"/>
+		</collection >  
+
 	</resultMap>
 	
-
+    <!-- 根据状态分页查询  -->
 	<select id="getByBusinessCompany" resultMap="BaseResultMap">
 	    select * from BusinessCompany
 	    where 1=1
@@ -49,10 +57,10 @@
 			LIMIT #{start},#{size}
 		</if>
 	</select>
-	
+	<!-- 根据状态查询一类的总数 -->
 	<select id="SelectCount" resultType="Integer">
-	 select count(*) from BusinessCompany
-
+	 select count(*) from BusinessCompany where businessCompany=#{businessCompany}
+    </select>
 		<!-- 查询总记录数 -->
 	<select id="selectCount" resultType="Integer" parameterType="Integer">
 	select count(businessCompanyId) from BusinessCompany where 1=1

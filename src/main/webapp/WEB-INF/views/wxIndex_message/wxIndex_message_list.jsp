@@ -32,9 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <li></li>
            </ul>
            <div class="clear"></div>
-                   <c:forEach items="${businessCompany }" var="b">
+                   <c:forEach items="${businessCompanyPage.lists}" var="b">
                    <ul class="context">
-                      <li></li>
+                      <li>${b.businessCompanyId }</li>
                       <li></li>
                       <li class="img">
                            <div class="slideshow">
