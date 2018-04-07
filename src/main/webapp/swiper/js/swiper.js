@@ -72,7 +72,6 @@ $(function(){
 			  var id=$("[name=swiperid]").val();
 			  var file=$(".file")[0].files[0];
 			  var img1=$("[name=img]").val();
-		      alert(file)
 		      var formFile = new FormData();
                 formFile.append("swiperid", id);   
                 formFile.append("file", file);
@@ -100,8 +99,7 @@ $(function(){
 			  var id=$("[name=swiperid1]").val();
 			  var file=$(".file1")[0].files[0];
 			  var img1=$("[name=img1]").val();
-			  console.log(file)
-		      alert(file)
+			  console.log(file)		     
 		      var formFile = new FormData();
                 formFile.append("swiperid", id);   
                 formFile.append("file", file); //加入文件对象
@@ -130,7 +128,7 @@ $(function(){
 			  var file=$(".file2")[0].files[0];
 			  var img1=$("[name=img2]").val();
 			  console.log(file)
-		      alert(file)
+		  
 		      var formFile = new FormData();
                 formFile.append("swiperid", id);   
                 formFile.append("file", file); //加入文件对象
