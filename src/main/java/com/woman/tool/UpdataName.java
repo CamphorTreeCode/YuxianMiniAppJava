@@ -1,7 +1,7 @@
 package com.woman.tool;
 
 public class UpdataName {
-       // Maven_Project 修改项目 appid 密钥 域名
+       // Maven_Project RegCompany 修改项目 appid 密钥 域名
 	public static String  projectName="Maven_Project";
 	//玉先的
 	//public static  String appid =  "wxbe3edd9434a14587";

@@ -22,7 +22,7 @@ public class WXBusinessCompanyServiceImpl implements WXBusinessCompanyService {
 	@Autowired
 	BusinessCompanyMapper bcm;
 	@Override
-	public Page<BusinessCompany> selectBusinessCompany(int currentPage) {
+	public Page<BusinessCompany> selectBusinessCompany(int currentPage,BusinessCompany bcy) {
 		HashMap<String,Object> map = new HashMap<String,Object>();
         Page<BusinessCompany> pageBean = new Page<BusinessCompany>();
 
@@ -40,7 +40,16 @@ public class WXBusinessCompanyServiceImpl implements WXBusinessCompanyService {
         double tc = totalCount;
         Double num =Math.ceil(tc/pageSize);//向上取整
         pageBean.setTotalPage(num.intValue());
-       
+        System.out.println(bcy);
+        System.out.println(bcy.getBusinessCompany());
+     System.out.println(bcy.getBusinessCompanyRegion()!=null);
+     System.out.println(bcy.getBusinessCompany()!=null);
+     System.out.println(bcy.getBusinessCompanyAccount()!=null);
+       map.put("businessCompanyRegion",bcy.getBusinessCompanyRegion());
+       map.put("businessCompany",bcy.getBusinessCompany());
+       map.put("businessCompanyPayTaxes",bcy.getBusinessCompanyPayTaxes());
+       map.put("businessCompanyAccount",bcy.getBusinessCompanyAccount());
+        map.put("businessCompanyIndustry",bcy.getBusinessCompanyIndustry());
         map.put("start",(currentPage-1)*pageSize);
         map.put("size", pageBean.getPageSize());
         //封装每页显示的数据
@@ -48,6 +57,20 @@ public class WXBusinessCompanyServiceImpl implements WXBusinessCompanyService {
         pageBean.setLists(lists);
 
         return pageBean;
+	}
+	//查询单个信息 增加浏览量
+	@Override
+	public BusinessCompany selectOneBusinessCompany(int businessCompanyOId) {
+		BusinessCompany bc  =	bcm.selectBusinessCompanys(businessCompanyOId);
+		if(bc != null){
+			System.out.println(bc.getBusinessCompanyBrowse()+1);
+			bc.setBusinessCompanyBrowse(bc.getBusinessCompanyBrowse()+1);
+			int num =bcm.updateViews(bc.getBusinessCompanyBrowse(), businessCompanyOId);
+			if(num>0){
+				System.out.println("增加浏览量成功");
+			}
+		}
+		return bc;
 	}
 
 }

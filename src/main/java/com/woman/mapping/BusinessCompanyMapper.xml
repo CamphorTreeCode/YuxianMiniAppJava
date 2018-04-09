@@ -22,7 +22,7 @@
 		<result column="businessCompany" property="businessCompany" jdbcType="INTEGER" />
 		<result column="adminId" property="adminId" jdbcType="INTEGER" />
 		<result column="businessCompanyTop" property="businessCompanyTop" jdbcType="INTEGER" />
-		
+				
  	   <association  property="Admin" javaType="com.woman.pojo.Admin" >  
         <id column="adminId" property="adminId" jdbcType="INTEGER" />
 		<result column="adminName" property="adminName" jdbcType="VARCHAR" />
@@ -34,8 +34,8 @@
 		<result column="adminAction" property="adminAction" jdbcType="VARCHAR" />
 		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 		</association >  
-		 	 <collection  property="companyImg" javaType="java.util.List"  ofType="com.woman.pojo.CompanyImg" column="businessCompanyId" select="com.woman.dao.CompanyImgMapper.selectCompanyImgAll">  
-             <id column="companyImgId" property="companyImgId" jdbcType="INTEGER" />
+	<collection  property="companyImg" javaType="java.util.List"  ofType="com.woman.pojo.CompanyImg" column="businessCompanyId" select="com.woman.dao.CompanyImgMapper.selectCompanyImgAll">  
+        <id column="companyImgId" property="companyImgId" jdbcType="INTEGER" />
 		<result column="companyUrl" property="companyUrl" jdbcType="VARCHAR" />
 		<result column="companyCreatTime" property="companyCreatTime" jdbcType="VARCHAR" />
 		<result column="businessCompanyId" property="businessCompanyId" jdbcType="INTEGER" />
@@ -43,14 +43,38 @@
 	</resultMap>
 	
 		<!-- 查询总记录数 -->
-	<select id="selectCount" resultType="Integer" parameterType="Integer">
+   <select id="selectCount" resultType="Integer" parameterType="Integer">
 	select count(businessCompanyId) from BusinessCompany where 1=1
 	</select>
 	    <!-- 分页查询 -->
 	<select id="findByPage" resultMap="BaseResultMap">
-			select * from  BusinessCompany bc left join admin a  on bc.adminId = a.adminId WHERE 1=1 order by bc.businessCompanyCreatTime desc
-			 <if test="start!=null and size!=null">
+	select * from  BusinessCompany bc left join admin a  on bc.adminId = a.adminId WHERE 1=1  
+	 <if test="businessCompanyRegion!=null">
+	 and bc.businessCompanyRegion LIKE "%"#{businessCompanyRegion}"%"
+	 </if>
+ 	 <if test="businessCompany!=null">
+	 and bc.businessCompany = #{businessCompany}
+	 </if>
+	 <if test="businessCompanyPayTaxes!=null">
+	 and bc.businessCompanyPayTaxes = #{businessCompanyPayTaxes}
+	 </if>
+     <if test="businessCompanyAccount!=null">
+	 and bc.businessCompanyAccount = #{businessCompanyAccount}
+	 </if>
+	 <if test="businessCompanyIndustry">
+	 and bc.businessCompanyIndustry = #{businessCompanyIndustry}
+	 </if>	  	 
+	 order by bc.businessCompanyTop desc , bc.businessCompanyCreatTime desc 
+	<if test="start!=null and size!=null">
 			LIMIT #{start},#{size}
 		</if>
 	</select>
+	 <!--查询单个数据 -->	
+	   <select id="selectBusinessCompanys" resultMap="BaseResultMap" parameterType="Integer">
+	    select * from BusinessCompany bc left join admin a  on bc.adminId = a.adminId  where businessCompanyId = #{businessCompanyId,jdbcType=INTEGER}
+	</select>
+	<!--  增加浏览量 -->
+	   <update id="updateViews"  parameterType="Integer" >
+     	update BusinessCompany set businessCompanyBrowse = #{businessCompanyBrowse,jdbcType=INTEGER} 	where businessCompanyId = #{businessCompanyId,jdbcType=INTEGER}
+   </update>
 </mapper>

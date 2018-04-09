@@ -14,7 +14,7 @@
 		<result column="adminState" property="adminState" jdbcType="INTEGER" />
 
 	</resultMap>
-	<!--查询用户 -->
+	<!--查询用户  -->
 	<select id="selectAdmin" resultType="com.woman.pojo.Admin">
 		select adminId,adminName,adminPassword from admin where
 		adminName=#{adminName,jdbcType=VARCHAR} and
