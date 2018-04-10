@@ -131,6 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="../company/companyPage" target="if"><li class="regist"><div class="icon"></div>工商注册信息</li></a>
             <a href="../text/textindex" target="if"><li class="option"><div class="icon"></div>选项管理</li></a>
             <a href="../swiper/swiper" target="if"><li class="swiper"><div class="icon"></div>轮播图管理</li></a>
+                <a href="../employee/EmployeePage" target="if"><li class="swiper"><div class="icon"></div>员工管理</li></a>
             <div class="wxIndex_messageList">
                <li class="wxIndex_message"><div class="icon"></div><div>首页信息管理</div><div class="icon" id="xhicon"></div></li>
                <ul class="wxIndex_messageType" style="display:none">

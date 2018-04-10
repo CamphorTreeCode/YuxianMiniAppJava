@@ -19,6 +19,7 @@ $("#upload_file").change(function(){
       console.log(1,url)
       if(url){
       $("#head").attr("src",url); 
+     
       $("#head").attr("class","imgcss")
    }
  })
