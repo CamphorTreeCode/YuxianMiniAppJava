@@ -20,7 +20,7 @@
 
 /*内容详情设置 start*/
 .zwContent{ width:100%; height:300px; background-color:#fff; line-height:50px;margin-bottom:10px;}
-.zwContent textarea{ width:100%; height:100%; border:none; font-size:18px; text-indent:2em; padding:20px; overflow:hidden;}
+.zwContent textarea{ width:100%; height:100%; border:none; font-size:18px; text-indent:2em; padding:20px;}
 /*内容详情设置 end*/
 /*公司详情 start*/
 .blue{color:#1897DA;}
@@ -56,10 +56,10 @@
 
 /*是否置顶区别于单选通用按钮 start*/
 .stickChoose{ padding-left:50px;}
-.stickChoose div:nth-child(1){ float:none;}
+.stickChoose .besetRadio{height:50px;}
 /*是否置顶区别于单选通用按钮 end*/
 /*icheck的特殊样式 start*/
-	.iradio_square-blue{background-position:-120px 13px;margin-right:10px; overflow:hidden;}
+	.iradio_square-blue{background:url(../img/blue.png) no-repeat;background-position:-120px 13px;margin-right:10px; overflow:hidden; width:22px; height:50px;}
 	.iradio_square-blue.hover{ background-position:-144px 13px ;margin-right:10px;}	
 	.iradio_square-blue.checked{ background-position:-168px 13px;margin-right:10px;}
 /*icheck的特殊样式 end*/
@@ -77,12 +77,22 @@
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
 	}
+	.companyTypeList .besetRadio:nth-child(1) .iradio_square-blue.checked{
+	    background:url(../img/wenhua2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
 	.companyTypeList .besetRadio:nth-child(2) .iradio_square-blue{
 	    background:url(../img/maoyi.png) no-repeat;
 		background-size:20px 20px;
 		background-position:0px 16px;
 	}
 	.companyTypeList .besetRadio:nth-child(2) .iradio_square-blue.hover{
+	    background:url(../img/maoyi2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(2) .iradio_square-blue.checked{
 	    background:url(../img/maoyi2.png) no-repeat !important;
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
@@ -96,12 +106,24 @@
 	    background:url(../img/ke2.png) no-repeat !important;
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
-	}.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue{
+	}
+	.companyTypeList .besetRadio:nth-child(3) .iradio_square-blue.checked{
+	    background:url(../img/ke2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue{
 	    background:url(../img/gong.png) no-repeat;
 		background-size:20px 20px;
 		background-position:0px 16px;
 	}
 	.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue.hover{
+	    background:url(../img/gong2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	
+	.companyTypeList .besetRadio:nth-child(4) .iradio_square-blue.checked{
 	    background:url(../img/gong2.png) no-repeat !important;
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
@@ -116,12 +138,23 @@
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
 	}
+	.companyTypeList .besetRadio:nth-child(5) .iradio_square-blue.checked{
+	    background:url(../img/can2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	
 	.companyTypeList .besetRadio:nth-child(6) .iradio_square-blue{
 	    background:url(../img/yin.png) no-repeat;
 		background-size:20px 20px;
 		background-position:0px 16px;
 	}
 	.companyTypeList .besetRadio:nth-child(6) .iradio_square-blue.hover{
+	    background:url(../img/yin2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
+	.companyTypeList .besetRadio:nth-child(6) .iradio_square-blue.checked{
 	    background:url(../img/yin2.png) no-repeat !important;
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
@@ -136,6 +169,11 @@
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
 	}
+	.companyTypeList .besetRadio:nth-child(7) .iradio_square-blue.checked{
+	    background:url(../img/shiye2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
 	.companyTypeList .besetRadio:nth-child(8) .iradio_square-blue{
 	    background:url(../img/jinrong.png) no-repeat;
 		background-size:20px 20px;
@@ -146,9 +184,13 @@
 		background-size:20px 20px !important;
 		background-position:0px 16px !important;
 	}
+	.companyTypeList .besetRadio:nth-child(8) .iradio_square-blue.checked{
+	    background:url(../img/jinrong2.png) no-repeat !important;
+		background-size:20px 20px !important;
+		background-position:0px 16px !important;
+	}
 /*公司类型单线按钮特殊样式 end*/
 
 /*提交按钮 start*/
-.foot {  height:100px; line-height:100px; text-align:right;}
-.foot input{ background-color:#1196DB;font-size:24px;margin-right:20px; color:#fff; padding:10px 20px; border-radius:100px;}
+#submit{ background-color:#1196DB;font-size:24px;margin-right:20px; color:#fff; padding:10px 20px; border-radius:100px; margin-left:700px; margin-top:30px;}
 /*提交按钮 end*/

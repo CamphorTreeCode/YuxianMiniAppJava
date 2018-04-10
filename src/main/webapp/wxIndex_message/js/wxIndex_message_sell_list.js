@@ -89,4 +89,49 @@ $(function(){
 		  })
 	  /*图片轮播下一页 end*/
 	
+     /*进入页面相应导航栏变为蓝色 start*/
+	     $(function(){
+	      var businessCompany=$("[name=businessCompany]").val()
+	      
+	      if(businessCompany==0){
+	         parent.sell();
+	      }
+	      if(businessCompany==1){
+	         parent.buy();
+	      }
+	      
+	     })
+     /*进入页面相应导航栏变为蓝色 end*/
+	     
+	 /*分页样式 start*/
+	   var a=$("[name=ym]").val();
+    var b=$("[name=zys]").val();
+    if(b<=5){
+       $(".pageNumber")[a-1].setAttribute("class","click");
+        $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+    }
+    if(b>5){
+        if(b-a>=2){
+	        if(a>=4){
+	            $(".pageNumber")[2].setAttribute("class","click");
+	             $(".pageNumberA")[2].setAttribute("class","clickNumber");
+	        }
+	        
+	        if(a<4){
+	            $(".pageNumber")[a-1].setAttribute("class","click");
+	             $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
+	        }
+        }else{
+             $(".pageNumber")[5-(b-a)-1].setAttribute("class","click");
+              $(".pageNumberA")[5-(b-a)-1].setAttribute("class","clickNumber");
+        }
+       
+    }
+     
+     $(".pageNumber").bind("click",function(){
+	      $(".pageNumber").removeClass("click")
+	 })
+    
+	     
+	 /*分页样式  end*/    
 	})

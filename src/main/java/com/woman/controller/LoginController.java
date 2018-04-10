@@ -34,7 +34,7 @@ public class LoginController {
 			 request.getSession().removeAttribute("error");
 			 Admin adm = new Admin(user_name,user_password);
 			 Admin user=LoginService.Login(adm);
-			 
+			 System.out.println(user.getAdminState()+"lllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
 			 if(user==null){
 				 request.getSession().setAttribute("error", "用户名或密码错误");
 				 return "redirect:/index.jsp";
@@ -60,6 +60,7 @@ public class LoginController {
 						pwCookie.setMaxAge(0);
 						response.addCookie(unCookie);
 						response.addCookie(pwCookie);
+						request.getSession().setAttribute("user", user);
 						request.getSession().setAttribute("user_name", user.getAdminName());
 						 return "redirect:/notice/index";
 					//}

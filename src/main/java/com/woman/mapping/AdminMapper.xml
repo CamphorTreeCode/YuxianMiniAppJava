@@ -16,7 +16,7 @@
 	</resultMap>
 	<!--查询用户 -->
 	<select id="selectAdmin" resultType="com.woman.pojo.Admin">
-		select adminId,adminName,adminPassword from admin where
+		select adminId,adminName,adminPassword,adminState from admin where
 		adminName=#{adminName,jdbcType=VARCHAR} and
 		adminPassword=#{adminPassword,jdbcType=VARCHAR}
 	</select>

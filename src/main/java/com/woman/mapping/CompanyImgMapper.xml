@@ -9,4 +9,19 @@
 		<result column="companyCreatTime" property="companyCreatTime" jdbcType="VARCHAR" />
 		<result column="businessCompanyId" property="businessCompanyId" jdbcType="INTEGER" />
 	</resultMap>
+	<!-- 插入一条记录 -->
+	<insert id="insertCompanyImgMapper">
+	   insert into CompanyImg values(null,#{companyUrl},#{companyCreatTime},#{businessCompanyId})
+	</insert>
+	<!-- 根据businessCompanyId得到和他关联的图片集合 -->
+	<select id="getByBid" resultMap="BaseResultMap">
+	   select * from CompanyImg where businessCompanyId=#{businessCompanyId}
+	</select>
+	
+	<delete id="deleteByBid">
+	    delete from CompanyImg where businessCompanyId=#{BusinessCompanyId}
+	</delete>
+	
+	
 </mapper>
+
