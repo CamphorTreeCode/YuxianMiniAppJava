@@ -7,7 +7,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>玉先后台</title>
+<title>申肃后台</title>
 <script type="text/javascript">
 
 </script>

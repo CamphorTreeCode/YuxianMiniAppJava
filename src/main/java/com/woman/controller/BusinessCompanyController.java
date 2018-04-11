@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.woman.pojo.Admin;
 import com.woman.pojo.BusinessCompany;
 import com.woman.pojo.CompanyImg;
-import com.woman.pojo.company;
 import com.woman.tool.DateTime;
 import com.woman.tool.Token;
 import com.woman.tool.UploadHelper;

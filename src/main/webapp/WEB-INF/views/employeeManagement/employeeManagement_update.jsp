@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'employeeManagement_add.jsp' starting page</title>
+<title>申肃后台</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -30,25 +30,30 @@
 <script type="text/javascript">
    $(function(){
       
-     
+       $("[name=adminName]").attr({maxlength:25})
+       $("[name=adminNickName]").attr({maxlength:45})
+       $("[name=adminPhone]").attr({maxlength:11})
+       $("[name=adminPassword]").attr({maxlength:25})
       
       
       $(".commitAdd").click(function(){
           var r=true;
-          
-          $(".inputText input").each(function(i){
-            
-             if( $("[name=file]").val()==""){
+          if($("[name=file1]").length==0){
+           if( $("[name=file]").val()==""){
                 r=false;
                 alert("请选择员工头像")
                 return false;
              }
+            }
+          $(".inputText input").each(function(i){
+                
              if($(this).val()==""){
                 r=false;
                 alert($(this).attr("placeholder"))
                 return false;
              }
           })
+         
           return r;
       })
    })
@@ -68,6 +73,7 @@
 		</div>
 
 		<div class="headBodyImg htext box">
+		    
 			<div id="upimg"  class="headBodybox hbb boxCenter">
 				<img id="head" class="upimgcss" alt="" src="${requestScope.admin.adminImgUrl}" >
 
@@ -75,7 +81,9 @@
 		</div>
 	</div>
   <input type="text"  name="adminId"   value="${requestScope.admin.adminId}"  style="display: none" />
+    <input type="hidden" value="${requestScope.admin.adminImgUrl}" name="file1">
    <input type="file" id="upload_file" name="file"   style="display: none" />
+   
    
 	<!--设置帐号  -->
 	<div class="headImg userNumber">

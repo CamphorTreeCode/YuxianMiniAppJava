@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<title>申肃后台</title>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   </head>
@@ -19,6 +19,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
    <script type="text/javascript">
      $(function(){
+           $(document).ready(function(){
+              $('input').each(function(){
+                 if($(this).prop("checked")){
+                     
+                     $(this).parent().parent().parent().css("color","#1897DA")
+                 }
+              
+              })
+            })
+           
         //修改页面获取地区
 	var addre=$("[name=addre]").val()
 	if(addre!="undefined"){

@@ -88,7 +88,6 @@ $(function(){
         
     })
 	        /*icheck回掉函数 start*/
-
             $('input').on('ifChecked', function(event){ //ifCreated 事件应该在插件初始化之前绑定 
 				  $(this).parent().parent().parent().css("color","#1897DA")
 		    });
@@ -97,6 +96,8 @@ $(function(){
 				  $(this).parent().parent().parent().css("color","#666")
 		    });
             /*icheck回掉函数 end*/	
+		
+			
 			/*表单验证 start*/
 			/*设置一些表单的最大长度 start*/
 			$("[name=businessCompanyName]").attr({maxlength:45})

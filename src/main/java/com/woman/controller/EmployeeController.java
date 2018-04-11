@@ -52,11 +52,15 @@ public class EmployeeController {
 	  //	 修改员工数据
 	     @Token(remove=true)
 		 @RequestMapping(value="/updateEmployee",method = RequestMethod.POST)  
-		 public String updateEmployee(Admin adm, MultipartFile file,HttpServletRequest request) throws IOException{
+		 public String updateEmployee(Admin adm, MultipartFile file,HttpServletRequest request,String file1) throws IOException{
 			 adm.setAdminCrateTime(DateTime.getDate());
 			 String img=UploadHelper.upload(file, request);
-			 System.out.println(img);
+			 if(img==""){
+				 adm.setAdminImgUrl(file1);
+			 }
+			 else{
 			 adm.setAdminImgUrl(img);
+			 }
 		     System.out.println("进来");
 		     int num =es.updateEmployee(adm);
 		     if(num>0){
