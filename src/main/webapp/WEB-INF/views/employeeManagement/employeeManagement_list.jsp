@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>申肃后台</title>
 </head>
 <base href="<%=basePath%>">
 <script src="js/jquery-1.10.2.min.js"></script>
@@ -24,7 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    /*删除确认*/
    $(".employeeDel").click(function(){
      var name=$(this).attr("adminName")
-     alert(name)
      var con=confirm("确认删除该信息吗")
 		  if(!con){
 			return false;

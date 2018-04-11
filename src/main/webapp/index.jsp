@@ -10,6 +10,158 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>申肃后台</title>
+
+<script type="text/javascript">
+
+</script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.lf {
+	float: left
+}
+
+.cl {
+	clear: both;
+}
+
+.ri {
+	float: right;
+}
+
+.box {
+	display: flex;
+	display: -webkit-flex; /*webkit*/
+	-moz-justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.boxCenter {
+	display: flex;
+	display: -webkit-flex; /*webkit*/
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	justify-content: centert;
+	-webkit-box-align: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.body {
+	height: 100%;
+	width: 100%;
+	background-image: url('img/background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+}
+
+.lineBule {
+	height: 6%;
+	background-image: url('img/topback.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+}
+
+.leftImg {
+	height: 70%;
+	width: 3%;
+	margin-left: 10%;
+}
+
+.leftImg img {
+	width: 100%;
+	height: 100%;
+}
+
+.leftWord {
+	color: #fff;
+	font-size: 1.4rem;
+	margin-left: 1%;
+}
+
+.bodyCenter {
+	height: 94%;
+}
+
+.contenBody {
+	height: 50%;
+	width: 39%;
+	margin: 0 auto;
+}
+
+.headImg {
+	height: 20%;
+}
+
+.headImg img {
+	border-radius: 50%;
+	height: 100%;
+}
+
+.welcome {
+	color: #6BC9FF;
+	font-size: 1.3rem;
+	height: 15%;
+}
+
+.userName {
+	height: 16%;
+}
+
+.userNameContent {
+	background: #DEF2FD;
+	width: 62%;
+	height: 80%;
+	border-radius: 300px;
+}
+
+.userNameContent input {
+	background: #DEF2FD;
+	border: none;
+	width: 73%;
+	margin-left: 10%;
+	height: 67%;
+	font-size: 1.3rem;
+	color: #9CD8FE;
+	outline: none;
+}
+
+.userNameContent img {
+	width: 10%;
+	height: 78%;
+}
+
+.loginBut {
+	height: 20%;
+}
+
+.loginBut button {
+	width: 32%;
+	color: #fff;
+	background: #8AD5FD;
+	height: 50%;
+	font-size: 1.3rem;
+	border-radius: 300px;
+	border: none;
+	outline: none;
+}
+
+input::-webkit-input-placeholder {
+	color: #9CD8FE;
+}
+</style>
+>>>>>>> branch 'master' of https://git.cloud.tencent.com/w602542704/regCompany.git
 </head>
 <link rel="stylesheet" href="css/index.css" type="text/css" />
 <script src="js/jquery-1.10.2.min.js"></script>

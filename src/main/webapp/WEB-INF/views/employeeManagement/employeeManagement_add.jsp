@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'employeeManagement_add.jsp' starting page</title>
+<title>申肃后台</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -28,10 +28,10 @@
 <script src="js/employeeManagement.js"></script>
 <script type="text/javascript">
    $(function(){
-      
-      console.info($("[name=token]").val()+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-      
-      
+       $("[name=adminName]").attr({maxlength:25})
+       $("[name=adminNickName]").attr({maxlength:45})
+       $("[name=adminPhone]").attr({maxlength:11})
+       $("[name=adminPassword]").attr({maxlength:25})
       $(".commitAdd").click(function(){
           var r=true;
           

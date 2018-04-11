@@ -4,7 +4,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<head>
+<title>申肃后台</title>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   </head>
@@ -62,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="companyDetails radio">
              <div><img src="img/shui.png" />
              纳税类型:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-             <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="1" alertvalue="请选择纳税类型"/>一般纳税人</label></span></div>
-             <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="0" />小规模</label></span></div>
+             <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="1" alertvalue="请选择纳税类型"/><span>一般纳税人</span></label></span></div>
+             <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="0" /><span>小规模</span></label></span></div>
          </div>
          <div class="companyDetails"><img src="img/riqi.png" />成立时间:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司成立时间(XXXX-XX-XX)" vtype="date:yyyy-MM-dd" name="businessCompanyCreatDate"/></div>
          <div class="companyDetails"><img src="img/fuwufanwei.png" />经营范围</div>
@@ -92,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <c:if test="${b==0}">
       <div class="companyDetails companyType"><img src="img/lingdai.png" />公司行业</div>
       <div class="companyTypeList radio">
-           <div class="besetRadio"><span><label><input type="radio"  name="businessCompanyIndustry" value="文化咨询服务类公司" alertvalue="请选择公司行业"/>文化咨询服务类公司</label></span></div>
+           <div class="besetRadio"><span><label><input type="radio"  name="businessCompanyIndustry" value="文化咨询服务类公司" alertvalue="请选择公司行业"/><span>文化咨询服务类公司</span></label></span></div>
            <div class="besetRadio"><span><label><input type="radio"  name="businessCompanyIndustry" value="贸易类公司"/>贸易类公司</label></span></div>
            <div class="besetRadio"><span><label><input type="radio"  name="businessCompanyIndustry" value="科技类公司"/>科技类公司</label></span></div>
            <div class="besetRadio"><span><label><input type="radio"  name="businessCompanyIndustry" value="工程类公司"/>工程类公司</label></span></div>

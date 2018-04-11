@@ -4,9 +4,10 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<head>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<title>申肃后台</title>
   </head>
    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
    <script src="js/icheck.js"></script>
@@ -19,6 +20,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
    <script type="text/javascript">
      $(function(){
+     $(document).ready(function(){
+              $('input').each(function(){
+                 if($(this).prop("checked")){
+                     
+                     $(this).parent().parent().parent().css("color","#1897DA")
+                 }
+              
+              })
+            })
         //修改页面获取地区
 	var addre=$("[name=addre]").val()
 	if(addre!="undefined"){
@@ -47,9 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <c:forEach items="${imgList }" var="i">
                   <div class="viewimg">
                      <img class="preview" src="${i}"/>
-                     <div class="addIcon"><input type="file" name="file" class="file" /></div>
-                     <div class="del" style="display:none"></div>
-                     <input type="hidden" name="file1"  value="${i.companyUrl}" />
+                   
                   </div>
                   </c:forEach>
                 </div>
