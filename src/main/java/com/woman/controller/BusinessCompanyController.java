@@ -1,12 +1,7 @@
 package com.woman.controller;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.woman.pojo.Admin;
 import com.woman.pojo.BusinessCompany;
 import com.woman.pojo.CompanyImg;
@@ -60,6 +54,9 @@ public class BusinessCompanyController {
     @RequestMapping(value="add",method=RequestMethod.POST)
     public String insertsave(BusinessCompany b,@RequestParam("file") MultipartFile file[],HttpServletRequest request,String address[])throws IOException{
     	String ars="";
+    	if(b.getBusinessCompanyTop()==null){
+    		b.setBusinessCompanyTop(0);
+    	}
     	for (int i = 0; i < address.length; i++) {
 			if(i<address.length-1){
     		  ars+=address[i]+"-";
@@ -147,7 +144,7 @@ public class BusinessCompanyController {
     //修改置顶状态
     @RequestMapping("updataTop")
     public String updataTop(int id,int businessCompany,int businessCompanyTop){
-    	System.out.println(businessCompanyTop+"**********************************************************");
+    	
     	BusinessCompany buc=businessCompanyService.findById(id);
     	
     	buc.setBusinessCompanyTop(businessCompanyTop);
@@ -157,6 +154,7 @@ public class BusinessCompanyController {
     //查看一条记录的详情
     @RequestMapping("look")
     public String look(int id,HttpServletRequest request){
+    	System.out.println("进入查看方法*****************************************************************************************");
     	BusinessCompany buc=businessCompanyService.findById(id);
     	List<CompanyImg> imgList=companyImgService.getByBid(id);
     	int b=buc.getBusinessCompany();

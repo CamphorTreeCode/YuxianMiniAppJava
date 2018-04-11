@@ -32,8 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
      
      })
+  </script>  
 <body>
-   <form method="post" enctype="multipart/form-data" action="../wxIndex_message/update" class="form-inline">
+   <form method="post" enctype="multipart/form-data" action="../wxIndex_message/update" class="form-inline"/>
       <input type="hidden" value="${sessionScope.user.adminId}" name="adminId">
       <input type="hidden" value="${buc.businessCompanyId }" name="businessCompanyId">
       <input type="hidden" value="${b}" name="businessCompany"> 

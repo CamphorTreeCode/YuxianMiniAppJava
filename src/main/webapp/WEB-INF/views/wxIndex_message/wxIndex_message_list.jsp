@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            </ul>
            <div class="clear"></div>
                    <c:forEach items="${businessCompanyPage.lists}" var="b">
-                   <ul class="context">
+                   <ul class="context" style="background:#fff;">
                       <li>
                         
                         <img src="${b.admin.adminImgUrl }" style="width:80%; height:80%; margin:7px auto;"/>
@@ -61,14 +61,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </c:if>
                       <li class="handle">
                           <a href="../wxIndex_message/update?id=${b.businessCompanyId}" class="blue"><span>修改</span></a>
-                          <a href="../wxIndex_message/del?id=${b.businessCompanyId}&&businessCompany=${b.businessCompany}" class="blue"><span>删除</span></a>
+                          <a href="../wxIndex_message/del?id=${b.businessCompanyId}&&businessCompany=${b.businessCompany}" class="blue wxIndex_messageDel"><span>删除</span></a>
                           <a href="../wxIndex_message/look?id=${b.businessCompanyId}" class="blue"><span>查看</span></a>
                       </li>
+                       <c:if test="${sessionScope.user.adminState==0 }">
                       <c:if test="${b.businessCompanyTop==1 }">
                       <a href="../wxIndex_message/updataTop?id=${b.businessCompanyId}&&businessCompany=${b.businessCompany}&&businessCompanyTop=0" class="blue"><li>取消置顶</li></a>
                       </c:if>
                       <c:if test="${b.businessCompanyTop==0}">
                       <a href="../wxIndex_message/updataTop?id=${b.businessCompanyId}&&businessCompany=${b.businessCompany}&&businessCompanyTop=1" class="blue"><li>置顶</li></a>
+                      </c:if>
                       </c:if>
                    </ul>
                    </c:forEach>

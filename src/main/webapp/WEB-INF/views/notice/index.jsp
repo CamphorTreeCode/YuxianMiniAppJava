@@ -83,6 +83,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 	}
+	function employee(){
+		$(".position span").html("员工管理")
+		$(".stateType").hide(500);
+		aa();
+		$(".employee").addClass("clickColor");
+		
+		
+	}
 	function sell(){
 	  $(".position span").html("首页信息管理>我要卖")
 		$(".stateType").hide(500);
@@ -92,10 +100,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".regist").removeClass("clickColor");
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
-		$(".notice").addClass("clickColor");
+		$(".notice").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".sell").addClass("clickColor");
+		$(".employee").removeClass("clickColor");
 	}
 	function buy(){
 	  $(".position span").html("首页信息管理>我要买")
@@ -104,12 +113,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".stateType li").removeClass("clickColor");
 		$(".wxIndex").removeClass("clickColor");
 		$(".regist").removeClass("clickColor");
+		$(".wxIndex_messageType").show(500);
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
-		$(".notice").addClass("clickColor");
+		$(".notice").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".buy").addClass("clickColor");
+		$(".employee").removeClass("clickColor");
 		
 	}
 	function aa(){
@@ -124,6 +135,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
+		$(".employee").removeClass("clickColor");
 	}
 	
 	
@@ -144,6 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(".buy").removeClass("clickColor");
 	        $(".wxIndex_message").addClass("clickColor");
 		    $(".wxIndex_messageType").show(500);
+		    $(".employee").removeClass("clickColor");
 		 
 		 
 		 })
@@ -157,11 +170,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".regist").removeClass("clickColor");
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
-		$(".notice").addClass("clickColor");
+		$(".notice").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
-		$(".sell").addClass("clickColor");
-		    
+		$(".sell").removeClass("clickColor");
+		$(".employee").removeClass("clickColor");
 		 
 		 
 		 
@@ -175,12 +188,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".regist").removeClass("clickColor");
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
-		$(".notice").addClass("clickColor");
+		$(".notice").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
+		$(".employee").removeClass("clickColor");
 		$(".buy").addClass("clickColor");
-		 
-		 
 		 
 		 })
 	 
@@ -209,7 +221,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="../company/companyPage" target="if"><li class="regist"><div class="icon"></div>工商注册信息</li></a>
             <a href="../text/textindex" target="if"><li class="option"><div class="icon"></div>选项管理</li></a>
             <a href="../swiper/swiper" target="if"><li class="swiper"><div class="icon"></div>轮播图管理</li></a>
-           </c:if>
+
+           
+
+                <a href="../employee/list" target="if"><li class="employee"><div class="icon"></div>员工管理</li></a>
+            </c:if>
             <div class="wxIndex_messageList">
                <li class="wxIndex_message"><div class="icon"></div><div>首页信息管理</div><div class="icon" id="xhicon"></div></li>
                <ul class="wxIndex_messageType" style="display:none">
@@ -221,8 +237,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
           <div class="position">当前位置：<span>微信小程序</span></div>
        <div class="right">
-          <c:if test="${sessionScope.user.adminState==0 }">
-         <iframe src="../notice/wxIndex" name="if"></iframe>
+         
+         <c:if test="${sessionScope.user.adminState==null }">
+         <iframe src="../notice/wxIndex?businessCompany=0" name="if"></iframe>
+         </c:if>
+       
+         <c:if test="${sessionScope.user.adminState==0 }">
+         <iframe src="../notice/wxIndex?businessCompany=0" name="if"></iframe>
          </c:if>
          
          <c:if test="${sessionScope.user.adminState==1 }">

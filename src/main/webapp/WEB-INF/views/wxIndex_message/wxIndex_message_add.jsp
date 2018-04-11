@@ -20,7 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
    <form method="post" class="form-inline" enctype="multipart/form-data" action="../wxIndex_message/add" >
       <input type="hidden" name="token" value="${token}" />
-      <input type="hidden" value="${sessionScope.user.adminId}" name="adminId"> 
+      <input type="hidden" value="${sessionScope.user.adminId}" name="adminId">
+      <input type="hidden" value="${sessionScope.user.adminState}" name="adminState">
       <input type="hidden" value="${b}" name="businessCompany"> 
       
       <div class="content">
@@ -64,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="1" alertvalue="请选择纳税类型"/>一般纳税人</label></span></div>
              <div class="besetRadio"><span><label><input type="radio" name="businessCompanyPayTaxes" value="0" />小规模</label></span></div>
          </div>
-         <div class="companyDetails"><img src="img/riqi.png" />成立时间:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司成立时间" name="businessCompanyCreatDate"/></div>
+         <div class="companyDetails"><img src="img/riqi.png" />成立时间:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司成立时间(XXXX-XX-XX)" vtype="date:yyyy-MM-dd" name="businessCompanyCreatDate"/></div>
          <div class="companyDetails"><img src="img/fuwufanwei.png" />经营范围</div>
          <div class="businessScope">
             <textarea placeholder="请输入公司经营范围" name="businessCompanyRange"></textarea>

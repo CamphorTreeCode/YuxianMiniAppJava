@@ -104,10 +104,11 @@ $(function(){
      /*进入页面相应导航栏变为蓝色 end*/
 	     
 	 /*分页样式 start*/
-	   var a=$("[name=ym]").val();
+	var a=$("[name=ym]").val();
     var b=$("[name=zys]").val();
+    if(b!=0){
     if(b<=5){
-       $(".pageNumber")[a-1].setAttribute("class","click");
+        $(".pageNumber")[a-1].setAttribute("class","click");
         $(".pageNumberA")[a-1].setAttribute("class","clickNumber");
     }
     if(b>5){
@@ -131,7 +132,15 @@ $(function(){
      $(".pageNumber").bind("click",function(){
 	      $(".pageNumber").removeClass("click")
 	 })
-    
+    }
 	     
 	 /*分页样式  end*/    
+	 $(".wxIndex_messageDel").click(function(){
+		 
+		  var con=confirm("确认删除该信息吗")
+		  if(!con){
+			    return false;
+		  }
+	  })
+	 
 	})

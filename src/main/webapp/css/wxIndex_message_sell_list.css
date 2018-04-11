@@ -55,7 +55,7 @@ a.pageNumberA{color:#1897DA;}
 /*下标配置 end*/
 
 /*图片预览配置 start*/
-.bigImgPreview{ width:548px; height:450px; position:fixed; top:15%; left:20%; border:none; padding:10px;}/*预览总大框*/
+.bigImgPreview{ width:548px; height:450px; position:fixed; top:15%; left:20%; border:none; padding:10px; background-color:#333;}/*预览总大框*/
 .bigImgFront{ width:100px; height:100px;  position:fixed; top:30%; padding:10px; transition:1s;}
 .bigImgFront img{ float:left; width:90px; height:90px;}/*上一页图片*/
 .bigImgFront:hover{ background:#999;}
@@ -71,6 +71,6 @@ a.pageNumberA{color:#1897DA;}
 .bigImgPreview .window .vessel{ height:100%; overflow:hidden;transition:1s; width:4752px; }/*窗口里面放置图片列表大div*/
 /*放置单个图片的div start*/
 .vessel div{ width:528px; height:430px; float:left;}
-.vessel div img{ width:100%;}
+.vessel div img{ width:100%; height:100%;}
 /*放置单个图片的div start*/
 /*图片预览配置 end*/

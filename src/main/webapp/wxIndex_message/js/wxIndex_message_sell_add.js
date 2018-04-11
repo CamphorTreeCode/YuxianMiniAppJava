@@ -103,6 +103,8 @@ $(function(){
 	        $("[name=businessCompanyCapital]").attr({maxlength:8})
 	        $("[name=businessCompanyNumber]").attr({maxlength:45})
 	        $("[name=businessCompanyCreatDate]").attr({maxlength:30})
+	        var bus=$("[name=businessCompany]").val()
+	        var adminState=$("[name=adminState]").val();
 	        /*设置一些表单的最大长度  end*/
            $("#submit").click(function(){
 		    	var r=true;
@@ -132,6 +134,7 @@ $(function(){
 		    		alert($("[name=businessCompanyContent]").attr('placeholder'))
 	    			return false;
 		    	}
+		    	if(bus==0){
 		    	//判断公司名称最大长度不能超过45
 		        
 		    	if($("[name=businessCompanyName]").val()==""){
@@ -181,6 +184,12 @@ $(function(){
 		    		alert("请输入公司注册时间")
 		    		return false;
 		    	}
+		        re=/\d{4}\-\d{2}\-\d{2}/g
+		        if(!re.test($("[name=businessCompanyCreatDate]").val())){
+		        	r=false;
+		        	alert("请按提示格式输入日期")
+		        	return false;
+		        }
 		        //判断经营范围是否为空
 		        if($("[name=businessCompanyRange]").val()==""){
 		    		r=false
@@ -229,19 +238,19 @@ $(function(){
 		        
 		        
 		        //判断是否置顶
-		        
-		        var sign4=false
-		        $("[name=businessCompanyTop]").each(function(){
-		        	if($(this).prop("checked")){
-    		    		sign4=true;	
-    		    	}
-		        })
-		        if(sign4==false){
-    		    	r=false;
-    		    	alert($("[name=businessCompanyTop]").attr("alertvalue"))
-    		    	return false;
-    		    }
-		        
+		        if(adminState==0){
+			        var sign4=false
+			        $("[name=businessCompanyTop]").each(function(){
+			        	if($(this).prop("checked")){
+	    		    		sign4=true;	
+	    		    	}
+			        })
+			        if(sign4==false){
+	    		    	r=false;
+	    		    	alert($("[name=businessCompanyTop]").attr("alertvalue"))
+	    		    	return false;
+	    		    }
+		        }
 		    	/*
 		    	var list=$(".companyDetails input")
 		    	list.each(function(i){
@@ -284,7 +293,7 @@ $(function(){
 		    		}
 		    		
 		    	})*/
-		    	      
+		    	}    
 		    	
 		     return r;
 		    	
