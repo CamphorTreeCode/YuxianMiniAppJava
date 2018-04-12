@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/wxIndex_message_sell_add.js"></script>
    <link rel="stylesheet" href="skins/all.css" type="text/css" />
    <link rel="stylesheet" href="css/wxIndex_message_sell_add.css" type="text/css" />
-   <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
+   <link href="css/bootstrap.css" rel="stylesheet">
    <script type="text/javascript">
      $(function(){
            $(document).ready(function(){

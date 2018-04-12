@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/wxIndex_message_sell_add.js"></script>
    <link rel="stylesheet" href="skins/all.css" type="text/css" />
    <link rel="stylesheet" href="css/wxIndex_message_sell_add.css" type="text/css" />
-   <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">
+   <link href="css/bootstrap.css" rel="stylesheet">
    <script src="js/distpicker.data.js"></script>
    <script src="js/distpicker.js"></script>
    <script src="js/main.js"></script>
@@ -23,8 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <input type="hidden" name="token" value="${token}" />
       <input type="hidden" value="${sessionScope.user.adminId}" name="adminId">
       <input type="hidden" value="${sessionScope.user.adminState}" name="adminState">
-      <input type="hidden" value="${b}" name="businessCompany"> 
-      
+      <input type="hidden" value="${b}" name="businessCompany">      
       <div class="content">
           <div class="noticeImg">
              <div class="img"><div class="icon"></div>上传图片</div>

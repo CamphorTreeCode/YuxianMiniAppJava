@@ -12,7 +12,7 @@ public class UpdataName {
 //	
 	public static  String appid = 	"wxc40b6179d3eb2ba4";
 	public static  String secret =  "947f146a015cb8653e55ef2ad26987b1";
-//	https://www.chuanshoucs.com
-    public static  String urlName =  "http://localhost";
+//	https://www.chuanshoucs.com http://localhost
+    public static  String urlName =  "https://www.chuanshoucs.com";
     
 }

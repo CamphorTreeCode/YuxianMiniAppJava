@@ -33,7 +33,7 @@
        $("[name=adminNickName]").attr({maxlength:45})
        $("[name=adminPhone]").attr({maxlength:11})
        $("[name=adminPassword]").attr({maxlength:25})
-       $("[name=adminPassword]").attr({minlength:6})
+       $("[name=adminPhone]").attr({minlength:6})
        var r1;
        $("[name=adminName]").blur(function(){
            

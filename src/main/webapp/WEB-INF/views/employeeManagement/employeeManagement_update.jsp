@@ -25,7 +25,6 @@
 <link href="css/public.css" type="text/css" rel="stylesheet" />
 <link href="css/employeeManagement.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="${pageContext.request.contextPath }/notice/js/jquery-1.10.2.min.js"></script>
-<script src="http://www.jq22.com/jquery/vue.min.js"></script>
 <script src="js/employeeManagement.js"></script>
 <script type="text/javascript">
    $(function(){
@@ -80,13 +79,23 @@
                 return false;
              }
           })
+          if($("[name=adminPassword]").val()!=$("[name=adminPassword1]").val()){
+                  r=false;
+                  alert("两次输入密码不一样")
+          }
          
           return r;
       })
    })
 </script>
 </head>
-
+  <style>
+  .upimgcss {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+  </style>
 <body>
 	<!--头像部分  -->
 	<form method="post" enctype="multipart/form-data" action="./employee/updateEmployee">
@@ -153,7 +162,8 @@
 			</div>
 			<div class="headTitleText lf">设置密码</div>
 		</div>
-		<div class="inputText"><input type="password" name="adminPassword"  value="${requestScope.admin.adminPassword}" placeholder="在此输入登录所用密码"></div>
+		<div class="inputText"><input type="text" name="adminPassword" placeholder="在此输入登录所用密码" value="${requestScope.admin.adminPassword}"></div>
+		<div class="inputText"><input type="text" name="adminPassword1" placeholder="在次输入登录所用密码" value="${requestScope.admin.adminPassword}"></div>
 	   
 	</div>
 	<button type="submit" class="commitAdd ri">修改员工</button>
