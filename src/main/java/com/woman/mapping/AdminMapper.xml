@@ -61,4 +61,10 @@
 	       delete from admin where adminId=#{adminid}
 	    </delete>
 	    
+	    <!-- 根据员工名称查询员工 -->
+	    
+	    <select id="getByAdminname" resultType="String" >
+	       select adminName from admin where adminName=#{adminName}
+	    </select>
+	    
 </mapper>

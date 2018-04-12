@@ -22,8 +22,10 @@ public class LoginController {
 	 	
 	//注销登录跳转
 	 @RequestMapping(value="tologin",method = RequestMethod.GET)  
-	 public String login() throws IOException{
+	 public String login(HttpServletRequest request) throws IOException{
 		 System.out.println("tologin");
+		 request.getSession().setAttribute("user_name",null);
+		 request.getSession().setAttribute("user",null);
       return "redirect:/index.jsp";
 	 }
     //登录

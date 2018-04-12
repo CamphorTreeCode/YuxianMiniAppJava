@@ -34,10 +34,28 @@
        $("[name=adminNickName]").attr({maxlength:45})
        $("[name=adminPhone]").attr({maxlength:11})
        $("[name=adminPassword]").attr({maxlength:25})
+        var r1;
+       $("[name=adminName]").blur(function(){
+           
+            var AdminName=$("[name=adminName]").val();
+            $.get("./employee/verify",{name:AdminName},function(data){
+                       if(data==0){
+                           r1=false
+                           alert("不能添加账号一样的两个管理员")
+                           alert(r)
+                       }
+                       if(data==1){
+                           r1=true
+                       }
+                       
+          })
+       
+       })
       
       
       $(".commitAdd").click(function(){
           var r=true;
+          
           if($("[name=file1]").length==0){
            if( $("[name=file]").val()==""){
                 r=false;
@@ -45,6 +63,15 @@
                 return false;
              }
             }
+           if(r1==false){
+             alert("不能添加账号一样的两个管理员")
+             r=false;
+             return false;
+           }
+          if(r1==true){
+            r=true;
+            
+          }
           $(".inputText input").each(function(i){
                 
              if($(this).val()==""){

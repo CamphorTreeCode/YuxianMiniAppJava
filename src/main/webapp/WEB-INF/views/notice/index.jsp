@@ -193,8 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
 		$(".buy").addClass("clickColor");
-		 
-		 })
+     })
 	 
 	 
 	 })
@@ -203,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 <body>
    <div class="body">
-       <div  class="top"><img src="img/微信图片_20180313180704.png" />小程序后台</div>
+       <div  class="top"><img src="img/微信图片_20180313180704.png" />小程序后台<a href="../login/tologin"><img style="width: 30px; height:30px; margin-left:900px;"  src="img/tuichu.png"></a></div>
        <div class="content">
        <div class="left">
             <c:if test="${sessionScope.user.adminState==0 }">

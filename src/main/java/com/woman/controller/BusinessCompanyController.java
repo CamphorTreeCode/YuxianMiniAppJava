@@ -56,6 +56,9 @@ public class BusinessCompanyController {
     	if(b.getBusinessCompanyTop()==null){
     		b.setBusinessCompanyTop(0);
     	}
+    	if(b.getBusinessCompanyBrowse()==null){
+    		b.setBusinessCompanyBrowse(0);
+    	}
     	for (int i = 0; i < address.length; i++) {
 			if(i<address.length-1){
     		  ars+=address[i]+"-";

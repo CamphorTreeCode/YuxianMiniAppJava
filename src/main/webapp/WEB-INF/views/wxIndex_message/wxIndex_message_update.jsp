@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="view">
                   <c:forEach items="${imgList }" var="i">
                   <div class="viewimg">
-                     <img class="preview" src="${i}"/>
+                     <img class="preview" src="${i.companyUrl}"/>
                      <div class="addIcon"><input type="file" name="file" class="file" /></div>
                      <div class="del" style="display:none"></div>
                      <input type="hidden" name="file1"  value="${i.companyUrl}" />
@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </c:if>
          <c:if test="${b==0}">
          <div class="companyDetails"><img src="img/gongsi.png" />公司名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入您的公司名称" name="businessCompanyName" value="${buc.businessCompanyName }"/></div>
-         <div class="companyDetails"><img src="img/qian.png" />注册资本:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司注册资本" name="businessCompanyCapital" value="${buc.businessCompanyCapital }"/></div>
+         <div class="companyDetails"><img src="img/qian.png" />注册资本:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司注册资本(万元)" name="businessCompanyCapital" value="${buc.businessCompanyCapital }"/></div>
          <div class="companyDetails"><img src="img/zhuce.png" />注册号/统一社会信用代码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请填写正确的社会信用代码" name="businessCompanyNumber" value="${buc.businessCompanyNumber}"/></div>
          
        

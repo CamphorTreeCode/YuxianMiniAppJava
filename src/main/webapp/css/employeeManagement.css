@@ -7,6 +7,7 @@
 .himg{
   border-bottom: none;
 }
+.title .icon{ width:26px; height:26px; background-image:url(../img/guanli.png); background-position:50% 50%; float:left; background-size:200px 200px; margin:12px 5px 0 20px; }
 .htext{
  padding-bottom:1%;
 }

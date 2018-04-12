@@ -17,5 +17,6 @@ public interface EmployeeService {
     
   //删除一个员工
   	int del(int adminid);
-    
+    //根据名字查询员工
+  	String getByAdminname(String Adminname);
 }

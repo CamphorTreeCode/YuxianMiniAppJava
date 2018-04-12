@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.woman.pojo.Admin;
@@ -36,18 +38,20 @@ public class EmployeeController {
   //	 增加员工数据
 	 @Token(remove=true)
 	 @RequestMapping(value="/addEmployee",method = RequestMethod.POST)  
-	 public String addEmployee(Admin adm,MultipartFile file,HttpServletRequest request) throws IOException{
-		 adm.setAdminCrateTime(DateTime.getDate());
-		 String img=UploadHelper.upload(file, request);
-		 System.out.println(img);
-		 adm.setAdminImgUrl(img);
-	     System.out.println("进来"+adm);
-	     adm.setAdminState(1);
-	     int num =es.addEmployee(adm);
-	     if(num>0){
-	    	 System.out.println("增加成功！");
-	     }
-	 return "redirect:list";
+	 public String addEmployee(Admin adm,MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		     adm.setAdminCrateTime(DateTime.getDate());
+			 String img=UploadHelper.upload(file, request);
+			 System.out.println(img);
+			 adm.setAdminImgUrl(img);
+		     System.out.println("进来"+adm);
+		     adm.setAdminState(1);
+		     int num =es.addEmployee(adm);
+		     if(num>0){
+		    	 System.out.println("增加成功！");
+		     }
+		    
+		
+		 return "redirect:list";
 	 }
 	  //	 修改员工数据
 	     @Token(remove=true)
@@ -89,4 +93,18 @@ public class EmployeeController {
 			 es.del(adminid);
 			 return "redirect:list";
 		 }
-}
+		 //判断添加的员工
+		 @ResponseBody
+		 @RequestMapping("verify")
+		 public String verify(String name){
+			 
+			String  admin=es.getByAdminname(name);
+			System.out.println(admin+"String*******************************************************************************************String");
+			if(admin==null){
+				return "1";
+			}else{
+				return "0";
+			}
+		 }
+		 
+} 

@@ -29,12 +29,33 @@
 <script type="text/javascript">
    $(function(){
        $("[name=adminName]").attr({maxlength:25})
+       $("[name=adminName]").attr({minlength:6})
        $("[name=adminNickName]").attr({maxlength:45})
        $("[name=adminPhone]").attr({maxlength:11})
        $("[name=adminPassword]").attr({maxlength:25})
+       $("[name=adminPassword]").attr({minlength:6})
+       var r1;
+       $("[name=adminName]").blur(function(){
+           
+            var AdminName=$("[name=adminName]").val();
+            $.get("./employee/verify",{name:AdminName},function(data){
+                       if(data==0){
+                           r1=false
+                           alert("不能添加账号一样的两个管理员")
+                           alert(r)
+                       }
+                       if(data==1){
+                           r1=true
+                       }
+                       
+          })
+       
+       })
+       
+       
       $(".commitAdd").click(function(){
           var r=true;
-          
+         
           $(".inputText input").each(function(i){
             
              if( $("[name=file]").val()==""){
@@ -42,12 +63,25 @@
                 alert("请选择员工头像")
                 return false;
              }
+              if(r1==false){
+             alert("不能添加账号一样的两个管理员")
+             r=false;
+             return false;
+          }
+          if(r1==true){
+            r=true;
+            
+          }
              if($(this).val()==""){
                 r=false;
                 alert($(this).attr("placeholder"))
                 return false;
              }
           })
+          if($("[name=adminPassword]").val()!=$("[name=adminPassword1]").val()){
+                  r=false;
+                  alert("两次输入密码不一样")
+          }
           return r;
       })
    })
@@ -117,7 +151,8 @@
 			</div>
 			<div class="headTitleText lf">设置密码</div>
 		</div>
-		<div class="inputText"><input type="password" name="adminPassword" placeholder="在此输入登录所用密码"></div>
+		<div class="inputText"><input type="text" name="adminPassword" placeholder="在此输入登录所用密码"></div>
+		<div class="inputText"><input type="text" name="adminPassword1" placeholder="在次输入登录所用密码"></div>
 	   
 	</div>
 	<button type="submit" class="commitAdd ri">添加员工</button>

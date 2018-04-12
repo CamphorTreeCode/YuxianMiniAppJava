@@ -20,4 +20,6 @@ public interface AdminMapper {
 	int selectCount();
 	//删除一个员工
 	int del(int adminid);
+	//根据名称获取用户
+	String getByAdminname(String Adminname);
 }

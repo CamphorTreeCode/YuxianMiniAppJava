@@ -55,7 +55,7 @@ a.pageNumberA{color:#1897DA;}
 /*下标配置 end*/
 
 /*图片预览配置 start*/
-.bigImgPreview{ width:548px; height:450px; position:fixed; top:15%; left:20%; border:none; padding:10px;}/*预览总大框*/
+.bigImgPreview{ width:548px;  position:fixed; top:15%; left:20%; border:none; padding:10px;}/*预览总大框*/
 .bigImgFront{ width:100px; height:100px;  position:fixed; top:30%; padding:10px; transition:1s;}
 .bigImgFront img{ float:left; width:90px; height:90px;}/*上一页图片*/
 .bigImgFront:hover{ background:#999;}

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    /*删除确认*/
    $(".employeeDel").click(function(){
      var name=$(this).attr("adminName")
-     var con=confirm("确认删除该信息吗")
+     var con=confirm("确认删除管理员"+name+"吗")
 		  if(!con){
 			return false;
 		  }

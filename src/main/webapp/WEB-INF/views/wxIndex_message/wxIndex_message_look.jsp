@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="view">
                   <c:forEach items="${imgList }" var="i">
                   <div class="viewimg">
-                     <img class="preview" src="${i}"/>
+                     <img class="preview" src="${i.companyUrl}"/>
                    
                   </div>
                   </c:forEach>

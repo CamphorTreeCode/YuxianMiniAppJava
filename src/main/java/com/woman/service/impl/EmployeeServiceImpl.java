@@ -70,5 +70,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		return adm.del(adminid);
 	}
+	@Override
+	public String getByAdminname(String Adminname) {
+		// TODO Auto-generated method stub
+		return adm.getByAdminname(Adminname);
+	}
 
 }

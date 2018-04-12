@@ -2,7 +2,6 @@
 /* CSS Document */
 *{ margin:0px; padding:0px; list-style:none; text-decoration:none;}
 .body{ background:#F2F2F2; overflow:hidden; width:1200px; margin:0 auto;}
-html { overflow: hidden; }
 .top{ height:70px; color:#FFF; line-height:70px; text-indent:1.5em; font-size:30px; width:1200px; margin:0 auto; background:url(../img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180313180648.png); font-size:24px;}
 .top img{ vertical-align:middle; margin-bottom:3px; margin-right:10px;}
 .content{ width:1200px; background-color:#000; margin:0 auto;}
