@@ -51,7 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		        pageBean.setPageSize(pageSize);
 
 		        //封装总记录数
-		        int totalCount = adm.selectCount()-1;
+		        int totalCount = adm.selectCount();
 		        //封装总页数
 		        double tc = totalCount;
 		        Double num =Math.ceil(tc/pageSize);//向上取整
