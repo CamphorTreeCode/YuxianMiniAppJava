@@ -125,7 +125,7 @@ public class BusinessCompanyController {
 			    cimg.setCompanyCreatTime(new DateTime().getDate());
 				companyImgService.insertCompanyImgMapper(cimg);
     		}else{
-    			if(file1[i]!=""){
+    			if(!file1[i].equals("")){
 	    			CompanyImg cimg=new CompanyImg();
 					cimg.setCompanyUrl(file1[i]);
 					cimg.setBusinessCompanyId(a);

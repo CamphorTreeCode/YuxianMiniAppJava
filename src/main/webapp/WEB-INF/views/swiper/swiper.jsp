@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
    <script type="text/javascript" src="js/swiper.js"></script>
    <link rel="stylesheet" href="css/swiper.css" type="text/css" />
+   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
    <script type="text/javascript">
         function imgPreview(fileDom){
 				 $("#preview").show();

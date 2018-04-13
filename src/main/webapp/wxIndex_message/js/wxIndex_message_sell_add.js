@@ -35,11 +35,12 @@ $(function(){
 			
 			}   
 			$(".view .viewimg").each(function(i){
-				   
-				 if($(this).find(".addIcon").find("input").val()==""){	   
-					   signadd=false;   
-					 }
-				
+				     if($(this).find("[name=file1]").val()==""){
+				    	 if($(this).find(".addIcon").find("input").val()==""){	   
+							   signadd=false;   
+						 }
+				     }
+					 
 				
 				})
             //图片路径设置为读取的图片
@@ -49,6 +50,7 @@ $(function(){
 					 div+="<img class='preview' />"
 					 div+=" <div class='addIcon'><input type='file' name='file' class='file' /></div>"
 					 div+=" <div class='del' style='display:none'></div>"
+					 div+=" <input type='hidden' name='file1'/>"
 					 div+="</div>"
 				$(".view").append(div)
 			}
@@ -62,12 +64,19 @@ $(function(){
 	 /*图片上传 end*/
 	
 	$('.view').on('click','.viewimg .del',function(){
+		
+		 if($(".view .viewimg").length<=10){
+			     $(".view .viewimg:last").show();
+			     
+			  }
 		  /*删除上传的图片时 如果有多余的上传图片div 删除自身div start*/
 		  var signdel=false;
-		  $(".view .viewimg").each(function(i){			  
-				 if($(this).find(".addIcon").find("input").val()==""){
-					   signdel=true;					   
-					 }		
+		  $(".view .viewimg").each(function(i){	
+			   
+					 if($(this).find(".addIcon").find("input").val()==""){
+						   signdel=true;					   
+					 }	
+			   
 				})
 		   if(signdel){
                $(this).parent(".viewimg").remove();
@@ -101,7 +110,7 @@ $(function(){
 			/*表单验证 start*/
 			/*设置一些表单的最大长度 start*/
 			$("[name=businessCompanyName]").attr({maxlength:45})
-	        $("[name=businessCompanyCapital]").attr({maxlength:8})
+	        $("[name=businessCompanyCapital]").attr({maxlength:7})
 	        $("[name=businessCompanyNumber]").attr({maxlength:45})
 	        $("[name=businessCompanyCreatDate]").attr({maxlength:30})
 	        var bus=$("[name=businessCompany]").val()

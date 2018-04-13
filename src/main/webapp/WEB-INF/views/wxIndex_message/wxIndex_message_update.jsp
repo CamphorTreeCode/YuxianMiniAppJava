@@ -39,7 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   district: addressList[2]
 	     });
 	}
-     
+     if($(".view .viewimg").length==10){
+     $(".view .viewimg:last").hide();    
+  }
      
      })
    </script>
@@ -59,11 +61,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <c:forEach items="${imgList }" var="i">
                   <div class="viewimg">
                      <img class="preview" src="${i.companyUrl}"/>
-                     <div class="addIcon"><input type="file" name="file" class="file" /></div>
-                     <div class="del" style="display:none"></div>
+                     <div class="addIcon" style="display:none"><input type="file" name="file" class="file" /></div>
+                     <div class="del" ></div>
                      <input type="hidden" name="file1"  value="${i.companyUrl}" />
                   </div>
-                  </c:forEach>
+                   </c:forEach>
+                  <div class="viewimg">
+                     <img class="preview"/>
+                     <div class="addIcon"><input type="file" name="file" class="file" /></div>
+                     <div class="del" style="display:none"></div>
+                     <input type="hidden" name="file1"  />
+                  </div>
+                 
                 </div>
            
              </div>
@@ -82,6 +91,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          
          <c:if test="${b==1}">
          <div class="companyDetails leble"><img src="img/biaoqian.png" />标签:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">收购</span></div>
+         </c:if>
+         
+          <c:if test="${b==2}">
+         <div class="companyDetails leble"><img src="img/biaoqian.png" />标签:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">注册/代理</span></div>
          </c:if>
          <c:if test="${b==0}">
          <div class="companyDetails"><img src="img/gongsi.png" />公司名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入您的公司名称" name="businessCompanyName" value="${buc.businessCompanyName }"/></div>

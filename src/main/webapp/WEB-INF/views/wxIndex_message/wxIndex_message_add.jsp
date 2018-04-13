@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/wxIndex_message_sell_add.js"></script>
    <link rel="stylesheet" href="skins/all.css" type="text/css" />
    <link rel="stylesheet" href="css/wxIndex_message_sell_add.css" type="text/css" />
+   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
    <link href="css/bootstrap.css" rel="stylesheet">
    <script src="js/distpicker.data.js"></script>
    <script src="js/distpicker.js"></script>
@@ -23,7 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <input type="hidden" name="token" value="${token}" />
       <input type="hidden" value="${sessionScope.user.adminId}" name="adminId">
       <input type="hidden" value="${sessionScope.user.adminState}" name="adminState">
-      <input type="hidden" value="${b}" name="businessCompany">      
+      <input type="hidden" value="${b}" name="businessCompany"> 
+      
       <div class="content">
           <div class="noticeImg">
              <div class="img"><div class="icon"></div>上传图片</div>
@@ -53,12 +55,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <c:if test="${b==1}">
          <div class="companyDetails leble"><img src="img/biaoqian.png" />标签:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">收购</span></div>
          </c:if>
+         
+         <c:if test="${b==2}">
+         <div class="companyDetails leble"><img src="img/biaoqian.png" />标签:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">注册/代理</span></div>
+         </c:if>
+         
          <c:if test="${b==0}">
          <div class="companyDetails"><img src="img/gongsi.png" />公司名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入您的公司名称" name="businessCompanyName"/></div>
          <div class="companyDetails"><img src="img/qian.png" />注册资本:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入公司注册资本(万元)" name="businessCompanyCapital"/></div>
          <div class="companyDetails"><img src="img/zhuce.png" />注册号/统一社会信用代码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请填写正确的社会信用代码" name="businessCompanyNumber"/></div>
          
-       
+      
          <div class="companyDetails radio">
              <div><img src="img/shui.png" />
              纳税类型:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>

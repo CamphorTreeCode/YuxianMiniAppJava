@@ -17,6 +17,7 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <meta http-equiv="description" content="This is my page">
 <style>
 

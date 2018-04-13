@@ -99,6 +99,9 @@ $(function(){
 	      if(businessCompany==1){
 	         parent.buy();
 	      }
+	      if(businessCompany==2){
+		         parent.charge();
+		      }
 	      
 	     })
      /*进入页面相应导航栏变为蓝色 end*/

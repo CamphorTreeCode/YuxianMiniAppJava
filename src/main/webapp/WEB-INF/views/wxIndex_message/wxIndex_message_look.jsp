@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <script type="text/javascript" src="js/wxIndex_message_sell_add.js"></script>
    <link rel="stylesheet" href="skins/all.css" type="text/css" />
    <link rel="stylesheet" href="css/wxIndex_message_sell_add.css" type="text/css" />
+   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
    <link href="css/bootstrap.css" rel="stylesheet">
    <script type="text/javascript">
      $(function(){

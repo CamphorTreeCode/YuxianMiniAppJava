@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <link rel="stylesheet" href="css/index.css" type="text/css" />
 <script src="js/jquery-1.10.2.min.js"></script>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <script type="text/javascript">
   function notice(){
 		$(".position span").html("发布公告")
@@ -27,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".notice").addClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
 		}
 	
 	 function stateTypeli1(){
@@ -40,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".sell").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
 	    $(".stateType li:eq(1)").addClass("clickColor");
-		
+		$(".charge").removeClass("clickColor");
 		}
 		 function stateTypeli2(){
 	    $(".position span").html("公告查询")
@@ -52,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".swiper").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
 	    $(".stateType li:eq(0)").addClass("clickColor");
 		
 		}
@@ -104,6 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".buy").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".sell").addClass("clickColor");
+		$(".charge").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
 	}
 	function buy(){
@@ -120,7 +124,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".sell").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".buy").addClass("clickColor");
+		$(".charge").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
+		
+	}
+	function charge(){
+	  $(".position span").html("首页信息管理>我要买")
+		$(".stateType").hide(500);
+		$(".wxIndex_messageType").show(500);
+		$(".stateType li").removeClass("clickColor");
+		$(".wxIndex").removeClass("clickColor");
+		$(".regist").removeClass("clickColor");
+		$(".wxIndex_messageType").show(500);
+		$(".option").removeClass("clickColor");
+		$(".swiper").removeClass("clickColor");
+		$(".notice").removeClass("clickColor");
+		$(".sell").removeClass("clickColor");
+		$(".wxIndex_message").removeClass("clickColor");
+		$(".buy").removeClass("clickColor");
+		
+		$(".employee").removeClass("clickColor");
+		$(".charge").addClass("clickColor");
 		
 	}
 	function aa(){
@@ -136,6 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".sell").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
 	}
 	
 	
@@ -154,6 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(".wxIndex_message").removeClass("clickColor");
 			$(".sell").removeClass("clickColor");
 			$(".buy").removeClass("clickColor");
+			$(".charge").removeClass("clickColor");
 	        $(".wxIndex_message").addClass("clickColor");
 		    $(".wxIndex_messageType").show(500);
 		    $(".employee").removeClass("clickColor");
@@ -172,6 +198,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".swiper").removeClass("clickColor");
 		$(".notice").removeClass("clickColor");
 		$(".buy").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
@@ -189,10 +216,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".option").removeClass("clickColor");
 		$(".swiper").removeClass("clickColor");
 		$(".notice").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
 		$(".sell").removeClass("clickColor");
 		$(".wxIndex_message").removeClass("clickColor");
 		$(".employee").removeClass("clickColor");
 		$(".buy").addClass("clickColor");
+     })
+     $(".charge").click(function(){
+		 $(".position span").html("首页信息管理>代理注册")
+		$(".stateType").hide(500);
+		$(".wxIndex_messageType").show(500);
+		$(".stateType li").removeClass("clickColor");
+		$(".wxIndex").removeClass("clickColor");
+		$(".regist").removeClass("clickColor");
+		$(".option").removeClass("clickColor");
+		$(".swiper").removeClass("clickColor");
+		$(".notice").removeClass("clickColor");
+		$(".charge").removeClass("clickColor");
+		$(".sell").removeClass("clickColor");
+		$(".wxIndex_message").removeClass("clickColor");
+		$(".employee").removeClass("clickColor");
+		$(".buy").removeClass("clickColor");
+		$(".regist").addClass("clickColor");
      })
 	   $(".tuichu").click(function(){
 	       var a=confirm("确认退出吗？")
@@ -238,6 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <ul class="wxIndex_messageType" style="display:none">
                    <a href="../wxIndex_message/list?businessCompany=0" target="if"><li class="sell">我要卖</li></a>
                    <a href="../wxIndex_message/list?businessCompany=1" target="if"><li class="buy">我要买</li></a>
+                   <a href="../wxIndex_message/list?businessCompany=2" target="if"><li class="charge">代理/注册</li></a>
                </ul>
                
             </div>

@@ -5,6 +5,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <title>申肃后台</title>
 <script type="text/javascript">
 
@@ -182,7 +183,7 @@ input::-webkit-input-placeholder {
 			<div class="contenBody">
 
 				<div class="headImg boxCenter">
-					<img alt="" src="img/head.jpg">
+					<img alt="" src="img/logo.png">
 				</div>
 
 				<div class="welcome boxCenter">Welcome,My Friend</div>

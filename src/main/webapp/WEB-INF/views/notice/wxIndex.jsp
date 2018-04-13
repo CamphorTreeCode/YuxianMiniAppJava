@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>申肃后台</title>
 </head>
 <link rel="stylesheet" href="css/wxIndex.css" type="text/css" />
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <script type="text/javascript">
    parent.wxIndex();
 </script>

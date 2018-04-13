@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>申肃后台</title>
 <script src="js/jquery-1.10.2.min.js"></script>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <script type="text/javascript">
   $(function(){
   if($("[name=s]").val()==1){
