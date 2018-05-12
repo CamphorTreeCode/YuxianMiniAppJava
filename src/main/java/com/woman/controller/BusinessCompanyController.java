@@ -30,14 +30,14 @@ public class BusinessCompanyController {
    @Autowired
    LoginService loginService;
     /*根据买 或 卖状态实现相应分页*/
-    @RequestMapping("list")
+   @RequestMapping("list")
 	public String list(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,
 			Model model,@RequestParam(value="businessCompany",defaultValue="1",required=false)int businessCompany,HttpServletRequest request){
-    	Admin a=(Admin) request.getSession().getAttribute("user");
-    	int AdminState=a.getAdminState();
-    	int AdminId=a.getAdminId();
-    	System.out.println(businessCompanyService.getByBusinessCompany(currentPage, businessCompany,AdminState,AdminId).getLists().size());
-    	model.addAttribute("businessCompanyPage",businessCompanyService.getByBusinessCompany(currentPage, businessCompany,AdminState,AdminId));
+   	Admin a=(Admin) request.getSession().getAttribute("user");
+   	int AdminState=a.getAdminState();
+   	int AdminId=a.getAdminId();
+   	System.out.println(businessCompanyService.getByBusinessCompany(currentPage, businessCompany,AdminState,AdminId).getLists().size());
+   	model.addAttribute("businessCompanyPage",businessCompanyService.getByBusinessCompany(currentPage, businessCompany,AdminState,AdminId));
 		model.addAttribute("businessCompany",businessCompany);
 		return "wxIndex_message/wxIndex_message_list";
 	}

@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	}
 	function charge(){
-	  $(".position span").html("首页信息管理>我要买")
+	  $(".position span").html("首页信息管理>代理/注册")
 		$(".stateType").hide(500);
 		$(".wxIndex_messageType").show(500);
 		$(".stateType li").removeClass("clickColor");
@@ -223,7 +223,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".buy").addClass("clickColor");
      })
      $(".charge").click(function(){
-		 $(".position span").html("首页信息管理>代理注册")
+		 $(".position span").html("首页信息管理>代理/注册")
 		$(".stateType").hide(500);
 		$(".wxIndex_messageType").show(500);
 		$(".stateType li").removeClass("clickColor");

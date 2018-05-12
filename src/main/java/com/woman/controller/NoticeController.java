@@ -103,6 +103,7 @@ public class NoticeController {
 		return "notice/drafts";
 		
 	}
+	
 	@Token(save=true)
 	@RequestMapping("/look")
 	public String look(int id,Model model){
@@ -159,14 +160,13 @@ public class NoticeController {
 	@RequestMapping("/addViewCount")
 	public void  addViewCount(int noticeId,HttpServletResponse response)throws IOException{
 		
-         System.out.println(noticeId);		
-         notice notice= noticeService.addViewCount(noticeId); 
+        System.out.println(noticeId);		
+        notice notice= noticeService.addViewCount(noticeId); 
 		System.out.println("浏览量为"+notice.getViewcount());
 		response.setCharacterEncoding("utf-8");
 		JSONArray jsonArray = JSONArray.fromObject(notice);
 		PrintWriter pw = response.getWriter();
 		pw.print(jsonArray);
-
 		
 	}
 	@RequestMapping("del")

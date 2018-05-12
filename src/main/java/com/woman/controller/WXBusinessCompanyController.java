@@ -34,7 +34,7 @@ public class WXBusinessCompanyController {
 		@RequestMapping(value="/selectCompany",method = RequestMethod.GET)
 	
 		public void  addViewCount(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,String businessCompanyRegion,String  businessCompany,String  businessCompanyPayTaxes,String  businessCompanyAccount,String businessCompanyIndustry,HttpServletResponse response)throws IOException{
-			System.out.println("浏览量为"+currentPage+businessCompanyRegion+businessCompany+businessCompanyPayTaxes+businessCompanyAccount+businessCompanyIndustry);
+			System.out.println(currentPage+"浏览量为"+currentPage+businessCompanyRegion+businessCompany+businessCompanyPayTaxes+businessCompanyAccount+businessCompanyIndustry);
 			BusinessCompany bcy = new BusinessCompany();
 			bcy.setBusinessCompanyRegion(businessCompanyRegion==null||businessCompanyRegion.equals("null")?null:businessCompanyRegion);
 			System.out.println("进来" +bcy.getBusinessCompanyRegion());
@@ -57,13 +57,11 @@ public class WXBusinessCompanyController {
 		@RequestMapping("/selectOneCompany")
 		public void  selectOneBusinessCompany(int businessCompanyId,HttpServletResponse response)throws IOException{
 			
-	  
 	     	System.out.println("浏览量为"+businessCompanyId);
 			response.setCharacterEncoding("utf-8");
 			JSONArray jsonArray = JSONArray.fromObject(wxbcs.selectOneBusinessCompany(businessCompanyId));
 			PrintWriter pw = response.getWriter();
 			pw.print(jsonArray);
-
 			
 		}
 	 
