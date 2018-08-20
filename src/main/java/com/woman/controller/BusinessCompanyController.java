@@ -18,7 +18,7 @@ import com.woman.tool.UploadHelper;
 import com.women.service.BusinessCompanyService;
 import com.women.service.CompanyImgService;
 import com.women.service.LoginService;
-
+   
 
 @Controller
 @RequestMapping("wxIndex_message")
